@@ -24,11 +24,12 @@ with col1:
         file = genai.get_file(name=f.name)
         image = Image.open(uploaded_file)
         st.image(image, caption='Uploaded Image.', width=300)
-        response = model.generate_content([f, "Describe the image. If it is about a math problem, then solve it simple way anddescribe each steps and give in latex format."])
+        response = model.generate_content([f, "You are a helpful AI, I ll give you maths question and its answer along with the marks for each step. I want you to give the full content of the image in text format to store in vector database. For the diagrams and charts explain those things as the answer. Marks for each step is mentioned in the image. For those marks add a text like 'Marks for this step: ... ' for each question in brackets along with the step.  If the question or answer is a diagram or chart, explain them as much as possible.  put the marks with the relevent step. not in the end of the answer "])
 with col2:
     #show the uploaded image
     if uploaded_file is not None:
         st.subheader("Answer")
         st.write(response.text)
+        print(response.text)
 
         
