@@ -1,0 +1,147 @@
+- Area of the curved surface of a right circular cylinder of radius *r* and height *h* is 2πrh.
+- Wherever necessary, use 22/7 for the value of π.
+
+
+**1.** It has been estimated that it will take 10 men 6 days to complete a certain task. Find the number of days it will take 8 men to complete a job which is double that task.
+ Amount of work = 10 x 6 x 2 man days _______ [Marks for this step: 2]
+ 15 days _______ [Marks for this step: 1]
+
+
+**2.** Factorize: 2x² + x - 6
+ (x + 2)(2x - 3) _______ [Marks for this step: 2]
+ 2x² + 4x - 3x - 6 _______ [Marks for this step: 1]
+
+
+**3.** Find the value of *x* based on the information given in the figure.
+ x = 25 _______ [Marks for this step: 2]
+ x + 3x + 80 = 180° _______ [Marks for this step: 1]
+The figure shows a triangle with angles 80°, x and 3x degrees.
+
+
+**4.** In the figure, ABCD is a square; BCE is a sector. Find the perimeter of the composite figure.
+ 39 cm _______ [Marks for this step: 2]
+ 1/4 x 2 x 22/7 x 7 _______ [Marks for this step: 1]
+The figure shows a square ABCD with side length 7 cm.  The sector BCE of a circle with centre B and radius 7 cm is constructed. The arc CE subtends an angle of 90° at the centre.
+
+
+**5.** Simplify: 4/x + 1/2x
+ 7/2x _______ [Marks for this step: 2]
+ (8 - 1) / 2x _______ [Marks for this step: 1]
+
+
+**6.** In the figure, ABC is a straight line. Find the magnitude of DÂB based on the given information.
+ DÂB = 60° _______ [Marks for this step: 2]
+ BDC = 30° _______ [Marks for this step: 1]
+The figure shows a triangle with vertices A, B, C and D.  The line segment DB bisects the angle ADC. The angle BDC is 30 degrees.
+
+
+**7.** 26.3 = 10^1.42
+ What is the value of lg 26.3?
+ 1.42 _______ [Marks for this step: 2]
+
+
+ 8. A rectangular sheet of paper of area 880 cm<sup>2</sup> has been pasted such that it exactly covers the curved surface of a solid right circular cylinder of base radius 14 cm. Find the height of the cylinder.
+10 cm ______  [Marks for this step: 2]
+2 × 22/7 × 14 × h = 880 ______  [Marks for this step: 1]
+
+
+9. A, B, C and D are 4 points on the circle. Find the magnitude of ∠DEC based on the given information.
+∠DEC = 55°  _______  [Marks for this step: 2]
+∠ECB = 40°
+or ∠DAC = 15° _______  [Marks for this step: 1]
+The figure is a circle with four points on it A, B, C, D. Two lines are drawn from C to the circle touching it at points D and E.  An arc DE is drawn from D to E. It is given that ∠ACD = 15°, ∠BCE = 40°.  ∠CED is the angle required to be found.
+
+
+10. Solve: x<sup>2</sup> – 36 = 0
+x = 6 and x = -6 ______  [Marks for this step: 2]
+(x – 6)(x + 6) or x = √36
+or x = 6 or x = -6 _______  [Marks for this step: 1]
+
+
+11. It takes 8 minutes to completely fill a tank of capacity 480 litres with water using a pipe through which water flows at a uniform rate. Find the rate at which water flows through the pipe.
+60 litres per minute or 3600 litres per hour or 1 litre per second _______  [Marks for this step: 2]
+480/8 or 60 ______  [Marks for this step: 1]
+
+
+12. Fill in the blanks using suitable words.
+The opposite ____sides/angles____[Marks for this step: 1] of a parallelogram are equal. The ____area____ [Marks for this step: 1] of a parallelogram is bisected by each of its diagonals. 
+
+
+13. Find the probability of getting either a multiple of 2 or a multiple of 3 when a fair die with its sides numbered from 1 to 6 is rolled.
+4/6 or 2/3 _______  [Marks for this step: 2]
+Identifying 2, 3, 4, 6 _______  [Marks for this step: 1]
+
+
+14. The diameter of the circle shown in the figure is PQ. Find the value of x based on the given information.
+x = 20 _______  [Marks for this step: 2]
+∠PRQ = 90° or ∠PQR = 70° _______  [Marks for this step: 1]
+The figure is a circle with points P, Q, R, S on it. Point S is on the circumference, R is on the circumference and Q is on the circumference. Line PS is drawn and it is  extended to touch the circumference at point R. Line PQ is the diameter of the circle. ∠PSQ is given as 110°. ∠PSR is the angle to be found.
+
+
+**15. Find the income tax that a person who earns an annual income of 800 000 rupees has to pay according to this table.**
+| Annual income | Tax percentage |
+|---|---|
+| Initial Rs. 500 000 | Tax free |
+| Next Rs. 500 000 | 4% |
+| Next Rs. 500 000 | 8% |
+Rs. 12000 _[2 marks for this step]_
+300000 x 4/100 _[1 mark for this step]_
+
+
+**16. A composite figure consisting of a semicircle of radius 7cm and a triangle is shown here. Find the area of the entire figure.**
+126 cm<sup>2</sup> _[2 marks for this step]_
+1/2 x 22/7 x 7 x 7 _[1 mark for this step]_
+The image is of a figure composed of a semicircle and a triangle.  The semicircle has a radius of 7 cm and the base of the triangle is 7 cm.  The triangle is equilateral as all its sides are 7 cm long.
+
+
+**17. Find the value of x based on the information given in the figure.**
+x = 80 _[2 marks for this step]_
+FC//AB _[1 mark for this step]_
+or ∠DFC = 100°
+The figure is a triangle ABC, with D and E being points on AB and BC respectively.  DF and EF are perpendicular to AC and AB respectively.  DFE is a right angle.  Angle ABC is 100 degrees, angle ADB is 20 degrees and angle AED is x degrees.
+
+
+**18.** If \(\begin{pmatrix} 2 & -1 \\ 0 & 3 \end{pmatrix} \begin{pmatrix} 1 & 3 \\ -2 & 1 \end{pmatrix} = \begin{pmatrix} x & y \\ -6 & 3 \end{pmatrix}\), then find the values of \(x\) and \(y\).
+- \( x = 4 \) [Marks for this step: 1]
+- \( y = 5 \) [Marks for this step: 1]
+
+
+**19. The centre of the circle in the figure is O. Find the magnitude of OĈB based on the given information.**
+OĈB= 65° _[2 marks for this step]_
+∠CBA = 25° _[1 mark for this step]_
+or ∠CXB = 90°
+The figure is a circle, with O being the center. A, B, and C are points on the circumference of the circle. AC is a chord of the circle. Angle COB is 50 degrees. The angle CAB is 25 degrees, and the angle CBA is 25 degrees, as both angles are subtended by the same arc, CB.   
+
+**20. Based on the information given in the Venn diagram, write the set A'∪B' in terms of its elements.**
+{3, 4, 5} _[2 marks for this step]_
+A' = {3, 5} and B' = {4, 5} or identifying the elements correctly or shading the correct region or
+A'∪B' = (A∩B)' _[1 mark for this step]_
+The Venn diagram is of two circles labelled A and B, both circles intersect.  The intersection has the number 2 written in it.  The part of circle A that does not intersect B has the number 4 written in it.  The part of circle B that does not intersect A has the number 3 written in it.  Outside both circles but within the rectangle has the number 5 written in it.
+
+
+**21. Write the 7th term of the geometric progression with first term 8 and common ratio 2, as a power of 2.**
+- \( T_7 = 2^9 \)  [Marks for this step: 2]
+- \( T_7 = 8 \times 2^5 \)  [Marks for this step: 1]
+
+
+**22. Find the gradient of the straight line that passes through the points (0, 8) and (2, 4).**
+ *  Gradient = -2 [Marks for this step: 2]
+ * 4 = m x 2 + 8 or  (8 - 4) / (0 - 2) = -2  [Marks for this step: 1]
+ 
+
+**23. The first quartile of an array of data that has been arranged in ascending order is in the 7th position. How many data are there in this array?**
+ * 27 [Marks for this step: 2]
+ * 1/4 (n + 1) = 7 [Marks for this step: 1]
+
+
+**24. Simplify: 3a/10b + 9/5b**
+ *  a/6 [Marks for this step: 2]
+ * 3a/10b x 5b/9 [Marks for this step: 1]
+
+
+**25. In the given figure, ABCE is a parallelogram. The 4 points A, B, C and D lie on the circle. Find the magnitude of ECD based on the given information.**
+ * ∠ECD = 20° [Marks for this step: 2]
+ * ∠BCD = 100° or BCE = 80° [Marks for this step: 1]
+ A parallelogram ABCE is inscribed in a circle. The point D lies on the circle which is the diagonal of the parallelogram. The diagonal of the parallelogram bisects the circle. The angle BCD = 100° and angle BCE = 80° are given. The angle ECD is to be found.
+
+
