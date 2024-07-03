@@ -45,7 +45,7 @@ with col1:
             
             selected_file = os.path.join('uploads', uploaded_file.name)
         else:
-            st.button("Don't have a piece of paper? Draw here!📝", use_container_width=True)
+            st.caption("Don't have a piece of paper? Write here!📝")
             selected_file = save_drawing(free_draw())
         print(selected_file)
       
