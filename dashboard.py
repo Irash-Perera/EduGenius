@@ -1,6 +1,7 @@
 import streamlit as st
 import os
 from PIL import Image
+from canvas import free_draw, save_drawing
 
 st.header("Welcome to EduGenius 🧠", divider= 'red')
 
@@ -34,14 +35,23 @@ with col1:
         
           
     with col2:
-        uploaded_file = st.file_uploader("Upload your answer. Let's see how you did!", type=['pdf', 'png', 'jpg', 'jpeg'])
+        uploaded_file = st.file_uploader("Upload your answer. Let's see how you did!", type=['png', 'jpg', 'jpeg'])
         if uploaded_file is not None:
-            selected_file = uploaded_file.name
-            with open(os.path.join('uploads', selected_file), 'wb') as f:
+            with open(os.path.join('uploads', uploaded_file.name), 'wb') as f:
                 f.write(uploaded_file.getbuffer())
-            file_path = os.path.join('uploads', selected_file)
+            file_path = os.path.join('uploads', uploaded_file.name)
             image = Image.open(uploaded_file)
             st.image(image, use_column_width=True)
+            
+            selected_file = os.path.join('uploads', uploaded_file.name)
+        else:
+            st.button("Don't have a piece of paper? Draw here!📝", use_container_width=True)
+            selected_file = save_drawing(free_draw())
+        print(selected_file)
+      
+            
+        
+        
             
                     
                 
