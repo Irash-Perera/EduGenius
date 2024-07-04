@@ -5,25 +5,41 @@ import os
 import urllib.parse
 from env import WOLFRAM_APP_ID
 
+
+st.header("Have a math problem?")
+st.subheader(" Let's solve it :red[_step-by-step_]💡", divider= 'red')
+
+
 col1, col2 = st.columns(2)
 with col1:
-    st.header("Have a math problem?")
-    st.subheader(" Let's solve it :red[_step-by-step_]💡", divider= 'red')
-    
+    messages = st.container(height=300)
+
 with col2:
-    with st.expander("Disclaimer", icon =":material/error:"):
-        st.markdown('''
-                    - Please ask your problem in the prompt as mentioned [here](%s)
-                    - Note that this demo may be unavailable if too many requests are made.''' %"https://www.wolframalpha.com/examples/mathematics/")
+    tips = st.container(height=300)
+    tips.markdown("""
+        <div style="background-color: #0E1117; border-radius: 10px; padding: 20px; height: 300px; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);">
+            <h5 style="text-align: left;">Don't get the answer as expected? Here are some tips🤖:</h5>
+            <ul style="margin-left: 20px;">
+                <li>Make sure you ask a math question</li>
+                <li>Add these keywords to your question according to your needs:
+                    <ul>
+                        <li><strong>solve</strong> : for solving equations</li>
+                        <li><strong>factor</strong> : for factorizing expressions</li>
+                        <li><strong>simplify</strong> : for simplifying expressions</li>
+                        <li><strong>compute</strong> : for computing values</li>
+                    </ul>
+                </li>
+                <li>If you are still stuck, try asking the question in a different way</li>
+            </ul>
+        </div>
+    """, unsafe_allow_html=True)
     
-messages = st.container(height=300)
 prompt = st.chat_input("Ask your math question here")
 if prompt:
     appid = os.getenv('WA_APPID', WOLFRAM_APP_ID )
 
     query = urllib.parse.quote_plus(f"solve {prompt}")
-
-                            
+                     
     query_url = f"http://api.wolframalpha.com/v2/query?" \
                 f"appid={appid}" \
                 f"&input={query}" \
@@ -32,19 +48,30 @@ if prompt:
                 f"&output=json"
     try:
         r = requests.get(query_url).json()
-        # with open('data.json', 'w') as json_file:
-        #     json.dump(r, json_file)
+        with open('data.json', 'w') as json_file:
+            json.dump(r, json_file)
+        
+        # try:   
+        response = r["queryresult"]
+        
+        markdown_text = ""
+        for pod in response["pods"]:
             
-        result = r["queryresult"]["pods"][1]["subpods"][0]["mathml"]
-        
-        if len(r["queryresult"]["pods"][1]["subpods"] ) > 1:
-            steps = r["queryresult"]["pods"][1]["subpods"][1]["mathml"]
+            has_content = False
+            for subpod in pod["subpods"]:
+                if "mathml" in subpod:
+                    has_content = True
+            if has_content:
+                markdown_text += f"###### {pod['title']}\n\n"
+                for subpod in pod["subpods"]:
+                    if "mathml" in subpod:
+                        markdown_text += f"\n{subpod['mathml']}\n\n"
+            has_content = False
+                    
         messages.chat_message("user").markdown(prompt, unsafe_allow_html=True)
-        messages.chat_message("assistant").markdown(f"##### Result:\n\n{result}", unsafe_allow_html=True)
+        messages.chat_message("assistant").markdown(f"##### Result:\n\n{markdown_text}", unsafe_allow_html=True)
+            
         
-        if len(r["queryresult"]["pods"][1]["subpods"] ) > 1:
-            messages.chat_message("assistant").markdown(f"##### Possible steps to solution:\n\n{steps}", unsafe_allow_html=True)
-    
     except:
         messages.chat_message("assistant").markdown("Sorry, please ask only math questions🌚", unsafe_allow_html=True)
             
