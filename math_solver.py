@@ -48,8 +48,8 @@ if prompt:
                 f"&output=json"
     try:
         r = requests.get(query_url).json()
-        with open('data.json', 'w') as json_file:
-            json.dump(r, json_file)
+        # with open('data.json', 'w') as json_file:
+        #     json.dump(r, json_file)
         
         # try:   
         response = r["queryresult"]
