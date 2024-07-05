@@ -22,6 +22,8 @@ def get_files_without_extension(directory):
 
 
 with col1:
+    st.subheader("Let's get started!🚀")
+    
     paper_files, paper_options = get_files_without_extension(os.path.join('data'))
     selected_paper_display = st.selectbox("Select a paper", paper_options)
     
@@ -59,15 +61,20 @@ with col1:
     with col2:
         if st.button("Proceed", type='primary', use_container_width=True):
             # print(os.path.join('data', selected_paper, selected_question), selected_file)
-            scanned_question = read_image(os.path.join('data', selected_paper, selected_question))
-            
-            context = db_search(scanned_question, llm, embeddings, 'vectorstore_2018_OL')
+            with st.status("Analyzing question...", expanded=True) as status:
+                scanned_question = read_image(os.path.join('data', selected_paper, selected_question))
+                
+                status.update(label="Fetching marking scheme...",state="running", expanded=False)
+                context = db_search(scanned_question, llm, embeddings, 'vectorstore_2018_OL')
 
-            response = generate_answer(selected_paper, selected_question, selected_file, context)
-            response_text = response.text[7:-3]
-            json_object = json.loads(response_text)
+                status.update(label="Marking your answer...",state="running", expanded=False)
+                response = generate_answer(selected_paper, selected_question, selected_file, context)
+                response_text = response.text[7:-3]
+                json_object = json.loads(response_text)
+                status.update(label="Done. Marked your answer!",state="complete", expanded=False)
+    with col1:
+        st.page_link("math_solver.py", label="\nGot stuck? Need a help?\nAsk EduGenius🧠!", icon=":material/neurology:",use_container_width=True)
             
-st.divider()
 st.markdown(
     """
     <style>
@@ -88,7 +95,7 @@ try:
                 title = value.get('title')
                 content = value.get('content')
                 formatted_content = f'<div class="math-content">{content}</div>'
-                st.subheader(f":red[_{title}_]")
+                st.subheader(f":green[_{title}_]")
                 st.markdown(formatted_content, unsafe_allow_html=True)
 
     with col4:
