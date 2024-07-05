@@ -4,7 +4,6 @@ st.set_page_config(layout="wide", page_title="EduGenius", page_icon=":material/n
 
 with st.sidebar:
     st.header("EduGenius 🧠", divider = "red")
-    st.container(border=True).write("💡Got stuck? Try new Math Solver")
 
 dashboard_page = st.Page("dashboard.py", title = "Dashboard", icon =":material/dashboard:", default=True)
 math_solver = st.Page("math_solver.py", title = "Math Solver", icon =":material/function:")
