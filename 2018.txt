@@ -1,7 +1,7 @@
 - Area of the curved surface of a right circular cylinder of radius *r* and height *h* is 2πrh.
 - Wherever necessary, use 22/7 for the value of π.
 
-
+$$
 **1.** It has been estimated that it will take 10 men 6 days to complete a certain task. Find the number of days it will take 8 men to complete a job which is double that task.
  Amount of work = 10 x 6 x 2 man days _______ [Marks for this step: 2]
  15 days _______ [Marks for this step: 1]
@@ -59,6 +59,7 @@ or x = 6 or x = -6 _______  [Marks for this step: 1]
 $$
 
 11. It takes 8 minutes to completely fill a tank of capacity 480 litres with water using a pipe through which water flows at a uniform rate. Find the rate at which water flows through the pipe.
+Answer:
 60 litres per minute or 3600 litres per hour or 1 litre per second _______  [Marks for this step: 2]
 480/8 or 60 ______  [Marks for this step: 1]
 $$
@@ -84,6 +85,7 @@ $$
 | Initial Rs. 500 000 | Tax free |
 | Next Rs. 500 000 | 4% |
 | Next Rs. 500 000 | 8% |
+Answer:
 Rs. 12000 _[2 marks for this step]_
 300000 x 4/100 _[1 mark for this step]_
 $$
@@ -140,9 +142,9 @@ $$
  * 3a/10b x 5b/9 [Marks for this step: 1]
 $$
 
-**25. In the given figure, ABCE is a parallelogram. The 4 points A, B, C and D lie on the circle. Find the magnitude of ECD based on the given information.**
- * ∠ECD = 20° [Marks for this step: 2]
- * ∠BCD = 100° or BCE = 80° [Marks for this step: 1]
- A parallelogram ABCE is inscribed in a circle. The point D lies on the circle which is the diagonal of the parallelogram. The diagonal of the parallelogram bisects the circle. The angle BCD = 100° and angle BCE = 80° are given. The angle ECD is to be found.
+**25. In the given figure, ABCE is a parallelogram. The 4 points A, B, C and D lie on the circle. Find the magnitude of EĈD based on the given information.**
+ * EĈD = 20° [Marks for this step: 2]
+ * BĈD = 100° or BCE = 80° [Marks for this step: 1]
+ A parallelogram ABCE is inscribed in a circle. The point D lies on the circle which is the diagonal of the parallelogram. The diagonal of the parallelogram bisects the circle. The angle BĈD = 100° and angle BĈE = 80° are given. The angle ECD is to be found.
 $$
 
