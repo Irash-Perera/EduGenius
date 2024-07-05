@@ -16,7 +16,7 @@ def create_db(text_file, embeddings, persist_directory):
     
     #TODO text splitting
     r_splitter = RecursiveCharacterTextSplitter(
-            separators= [ "$$", "\n" ],
+            separators= [ "$$"],
             chunk_size= 250)
     docs = r_splitter.split_documents(data)
     

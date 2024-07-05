@@ -12,10 +12,10 @@ st.subheader(" Let's solve it :red[_step-by-step_]💡", divider= 'red')
 
 col1, col2 = st.columns(2)
 with col1:
-    messages = st.container(height=300)
+    messages = st.container(height=350)
 
 with col2:
-    tips = st.container(height=300)
+    tips = st.container(height=350)
     tips.markdown("""
         <div style="background-color: #0E1117; border-radius: 10px; padding: 20px; height: 300px; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);">
             <h5 style="text-align: left;">Don't get the answer as expected? Here are some tips🤖:</h5>
@@ -48,8 +48,8 @@ if prompt:
                 f"&output=json"
     try:
         r = requests.get(query_url).json()
-        with open('data.json', 'w') as json_file:
-            json.dump(r, json_file)
+        # with open('data.json', 'w') as json_file:
+        #     json.dump(r, json_file)
         
         # try:   
         response = r["queryresult"]
