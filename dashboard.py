@@ -8,18 +8,18 @@ from output_gen import read_image, db_search, generate_answer
 from create_db import embeddings
 from env import API_KEY
 
+
 os.environ['GOOGLE_API_KEY'] = API_KEY
 llm = GoogleGenerativeAI(model = "gemini-pro", temperature=0.7)
-
-st.header("Welcome to EduGenius 🧠", divider= 'red')
-
-col1, col2 = st.columns(2)
 
 def get_files_without_extension(directory):
     files = os.listdir(directory)
     files_without_extension = [os.path.splitext(file)[0] for file in files]
     return files, files_without_extension
 
+st.header("Welcome to EduGenius 🧠", divider= 'red')
+
+col1, col2 = st.columns(2)
 
 with col1:
     st.subheader("Let's get started!🚀")
@@ -40,10 +40,10 @@ with col1:
     
     with col3:
         st.button("Show Answer", type='primary', use_container_width=True)
+        
     with col4:   
         st.button("It is worth giving it a try💡", use_container_width=True)
-        
-          
+            
     with col2:
         uploaded_file = st.file_uploader("Upload your answer. Let's see how you did!", type=['png', 'jpg', 'jpeg'])
         if uploaded_file is not None:
@@ -60,21 +60,31 @@ with col1:
         
     with col2:
         if st.button("Proceed", type='primary', use_container_width=True):
-            # print(os.path.join('data', selected_paper, selected_question), selected_file)
-            with st.status("Analyzing question...", expanded=True) as status:
-                scanned_question = read_image(os.path.join('data', selected_paper, selected_question))
-                
-                status.update(label="Fetching marking scheme...",state="running", expanded=False)
-                context = db_search(scanned_question, llm, embeddings, 'vectorstore_2018_OL')
+            try:
+                # print(os.path.join('data', selected_paper, selected_question), selected_file)
+                with st.status("Analyzing question...", expanded=True) as status:
+                    scanned_question = read_image(os.path.join('data', selected_paper, selected_question))
+                    
+                    status.update(label="Fetching marking scheme...",state="running", expanded=False)
+                    context = db_search(scanned_question, llm, embeddings, 'vectorstore_2018_OL')
 
-                status.update(label="Marking your answer...",state="running", expanded=False)
-                response = generate_answer(selected_paper, selected_question, selected_file, context)
-                response_text = response.text[7:-3]
-                json_object = json.loads(response_text)
-                status.update(label="Done. Marked your answer!",state="complete", expanded=False)
+                    status.update(label="Marking your answer...",state="running", expanded=False)
+                    response = generate_answer(selected_paper, selected_question, selected_file, context)
+                    response_text = response.text[7:-3]
+                    json_object = json.loads(response_text)
+                    
+                    status.update(label="Done. Marked your answer!",state="complete", expanded=False)
+            except:
+                st.subheader(":red[Oh no! An internal error occured😓 Please try again.]")
     with col1:
         st.page_link("math_solver.py", label="\nGot stuck? Need a help?\nAsk EduGenius🧠!", icon=":material/neurology:",use_container_width=True)
             
+
+#================================================================================
+#                            Results Section                                    |
+#================================================================================
+
+# Styling for the results
 st.markdown(
     """
     <style>
@@ -97,7 +107,6 @@ try:
                 formatted_content = f'<div class="math-content">{content}</div>'
                 st.subheader(f":green[_{title}_]")
                 st.markdown(formatted_content, unsafe_allow_html=True)
-
     with col4:
         for i, (key, value) in enumerate(json_object.items()):
             if i >= 2:
@@ -106,5 +115,6 @@ try:
                 expander = st.expander(f"{title}", icon=":material/add_circle:")
                 expander.markdown(f"##### {title}")
                 expander.markdown(f"{content}", unsafe_allow_html=True) 
+    
 except:
     st.markdown("##### Results will be displayed here📝")
