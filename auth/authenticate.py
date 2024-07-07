@@ -131,7 +131,6 @@ class Authenticate:
         bool
             Validity of entered credentials.
         """
-
         try:
             user_document = self.collection.find_one({"email": self.email})
             password = user_document['password']
@@ -195,7 +194,7 @@ class Authenticate:
                     login_form = st.sidebar.form('Login')
 
                 login_form.subheader(form_name)
-                self.email = login_form.text_input('Email').lower()
+                self.email = login_form.text_input('Email')
                 st.session_state['email'] = self.email
                 self.password = login_form.text_input('Password', type='password')
 
