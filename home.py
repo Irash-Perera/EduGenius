@@ -11,6 +11,13 @@ from auth.db import collection
 # Loading config file
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=SafeLoader)
+    
+# if 'authentication_status' not in st.session_state:
+#     st.session_state['authentication_status'] = None
+# if 'name' not in st.session_state:
+#     st.session_state['name'] = ''
+# if 'email' not in st.session_state:
+#     st.session_state['email'] = ''
 
 # Creating the authenticator object
 authenticator = Authenticate(
@@ -66,6 +73,8 @@ with col2:
     elif st.session_state["authentication_status"] is None:
         st.warning('Please enter your username and password', icon=":material/lock_open:")
         
+    # st.write(st.session_state)
+        
     # # if st.session_state["authentication_status"] is None:
 
     st.markdown("#### Create a new account here 👇")
@@ -76,3 +85,29 @@ with col2:
         st.error(e)
         
     print(st.session_state["authentication_status"])
+    
+    # # Creating a forgot password widget
+    # try:
+    #     username_forgot_pw, email_forgot_password, random_password = authenticator.forgot_password('Forgot password?')
+    #     if username_forgot_pw:
+    #         st.success('New password sent securely')
+    #         st.write(username_forgot_pw)
+    #         st.write(email_forgot_password)
+    #         st.write(random_password)
+    
+    #         # Random password to be transferred to user securely
+    #     else:
+    #         st.error('Username not found')
+    # except Exception as e:
+    #     st.error(e)
+
+    # # Creating a forgot username widget
+    # try:
+    #     username_forgot_username, email_forgot_username = authenticator.forgot_username('Forgot username')
+    #     if username_forgot_username:
+    #         st.success('Username sent securely')
+    #         # Username to be transferred to user securely
+    #     else:
+    #         st.error('Email not found')
+    # except Exception as e:
+    #     st.error(e)
