@@ -1,0 +1,4 @@
+cookie:
+  expiry_days: 30  # Set this to 0 if reauthentication is not required
+  key: edugenius  # Replace with your signature key (must be a string)
+  name: edugenius # Replace with your cookie name
