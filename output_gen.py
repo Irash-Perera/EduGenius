@@ -9,10 +9,12 @@ import time
 
 import google.generativeai as genai
 genai.configure(api_key="AIzaSyCTgGGqLWEfxEmYr1zFf6SFPgGU8-fIN48")
-model = genai.GenerativeModel('gemini-1.5-flash')
+flash_model = genai.GenerativeModel('gemini-1.5-flash')
+pro_model  = genai.GenerativeModel(model_name="gemini-1.5-pro")
 
 
-def read_image(question_image_path):
+
+def read_image(question_image_path, model):
     f = genai.upload_file(path = question_image_path)
     file = genai.get_file(name = f.name)
     response = model.generate_content([f, "Your are a helpful AI to extract text from the image. Extract the question from the image and return it in markdown format."])
@@ -37,11 +39,9 @@ def db_search(question, llm, embeddings, persist_directory):
     result = retrieval_chain.invoke({"input": question})
     return result
 
-def generate_answer(selected_paper, selected_question, selected_file, context):
+def generate_answer(selected_paper, selected_question, selected_file, context, model):
     question_ = PIL.Image.open(os.path.join('data', selected_paper, selected_question))
     student_answer = PIL.Image.open(selected_file)
-
-    model = genai.GenerativeModel(model_name="gemini-1.5-pro")
     
     prompt = """You are a helpful AI math tutor. Here question image and the answer image which was uploaded by the student are given. Also a context is provided. That context includes the information from the original marking scheme and marks for each step. I want you to analyze these information and provide a json file including 
     correctness of the answer(This can be correct, partially correct, or incorrecr), 
@@ -53,3 +53,13 @@ def generate_answer(selected_paper, selected_question, selected_file, context):
 
     response = model.generate_content([prompt, question_, student_answer])
     return response
+
+def generate_hints(selected_paper, selected_question, model):
+    prompt = """You are a helpful math tutor. I have provided a question to you. Please provide at least three hints and a example to solve the question, as a json file. Do not reveal the answer. only return the json file in markdown format. Do not inlcude the asked question again in the json file. Names of the sections should be like titles.  Also every section in json file contains only title and content in markdown as 2 subpods called "title" and "content".  nothing more than that. In the every section always do not add more than "title" and "content".JSON object should be  a dictionary structure with items."""
+    
+    question_ = PIL.Image.open(os.path.join('data', selected_paper, selected_question))
+    
+    response1 = model.generate_content([ prompt, question_])
+    
+    return response1
+        
