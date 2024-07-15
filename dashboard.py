@@ -4,12 +4,12 @@ import os
 import PIL.Image
 from langchain_google_genai import GoogleGenerativeAI
 from canvas import free_draw, save_drawing
-from output_gen import read_image, db_search, generate_answer, generate_hints, flash_model, pro_model
+from output_gen import read_image, db_search, generate_answer, generate_hints, answer_gen_call, hint_gen_call, flash_model, pro_model
 from create_db import embeddings
-from env import API_KEY
+from env import GEMINI_PRO_API_KEY
 
 
-os.environ['GOOGLE_API_KEY'] = API_KEY
+os.environ['GOOGLE_API_KEY'] = GEMINI_PRO_API_KEY
 llm = GoogleGenerativeAI(model = "gemini-pro", temperature=0.7)
 
 def get_files_without_extension(directory):
@@ -44,6 +44,7 @@ if st.session_state["authentication_status"]:
                 with col1:
                     with st.status("Let's see how we can help you...", expanded=True) as status:
                         response1 = generate_hints(selected_paper, selected_question, pro_model)
+                        langfuse_call = hint_gen_call(pro_model, selected_question, selected_paper, response1)
                         status.update(label="Here what we found for you!",state="complete", expanded=False)
 
                     response_text = response1.text[7:-3]
@@ -91,6 +92,9 @@ if st.session_state["authentication_status"]:
 
                         status.update(label="Marking your answer...",state="running", expanded=False)
                         response = generate_answer(selected_paper, selected_question, selected_file, context, pro_model)
+                        
+                        langfuse_call = answer_gen_call(pro_model, scanned_question, selected_question, selected_file, response)
+                        
                         response_text = response.text[7:-3]
                         json_object = json.loads(response_text)
                         
