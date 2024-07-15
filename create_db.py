@@ -1,12 +1,12 @@
-from env import API_KEY
 from langchain_community.document_loaders import TextLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain.vectorstores import Chroma
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from env import GOOGLE_GEN_AI_API_KEY
 import time
 import os
 
-os.environ['GOOGLE_API_KEY'] = API_KEY
+os.environ['GOOGLE_API_KEY'] = GOOGLE_GEN_AI_API_KEY
 
 embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
 

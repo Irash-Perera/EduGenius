@@ -74,29 +74,33 @@ In modern education, personalized and efficient tutoring remains a challenge, pa
     Explore EduGenius and transform your learning experience in mathematics!""")
 
 with col2:
-    authenticator.login('Login', 'main')
-    if st.session_state["authentication_status"]:
-        st.subheader(f'{greeting()} :red[_{st.session_state["name"]}_]')
-        authenticator.logout('Logout', 'main')
-        st_lottie(url_json) 
-        
-    elif st.session_state["authentication_status"] is None and st.session_state["FormSubmitter:Login-Login"]:
-        st.error('Username/password is incorrect' , icon = ":material/sentiment_very_dissatisfied:")
-        
-    elif st.session_state["authentication_status"] is None:
-        st.warning('Please enter your username and password', icon=":material/lock_open:")
-        
-    # st.write(st.session_state)
-        
-    if st.session_state["authentication_status"] is None:
-        st.markdown("#### Create a new account here 👇")
-        try:
-            if authenticator.register_user('Register user'):
-                st.success('User registered successfully. Try logging in now.', icon=':material/sentiment_satisfied:')
-        except Exception as e:
-            st.error(e)
+    login, register = st.tabs(["Login", "Register"])
+    with login:
+        authenticator.login('Login', 'main')
+        if st.session_state["authentication_status"]:
+            st.subheader(f'{greeting()} :red[_{st.session_state["name"]}_]')
+            authenticator.logout('Logout', 'main')
+            st_lottie(url_json) 
             
-        print(st.session_state["authentication_status"])
+        elif st.session_state["authentication_status"] is None and st.session_state["FormSubmitter:Login-Login"]:
+            st.error('Username/password is incorrect' , icon = ":material/sentiment_very_dissatisfied:")
+            
+        elif st.session_state["authentication_status"] is None:
+            st.warning('Please enter your username and password', icon=":material/lock_open:")
+            
+    # st.write(st.session_state)
+    with register:   
+        if st.session_state["authentication_status"] is None:
+            st.markdown("#### Create a new account here 👇")
+            try:
+                if authenticator.register_user('Register user'):
+                    st.success('User registered successfully. Try logging in now.', icon=':material/sentiment_satisfied:')
+            except Exception as e:
+                st.error(e)
+        else:
+            st.error('You are already logged in. Please logout to register a new account.')
+            
+        # print(st.session_state["authentication_status"])
     
     # # Creating a forgot password widget
     # try:
