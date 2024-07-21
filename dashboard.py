@@ -96,6 +96,7 @@ if st.session_state["authentication_status"]:
                         langfuse_call = answer_gen_call(pro_model, scanned_question, selected_question, selected_file, response)
                         
                         response_text = response.text[7:-3]
+                        # st.write(response_text)
                         json_object = json.loads(response_text)
                         
                         status.update(label="Done. Marked your answer!",state="complete", expanded=False)
