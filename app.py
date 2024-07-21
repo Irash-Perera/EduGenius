@@ -1,9 +1,22 @@
 import streamlit as st
 
-st.set_page_config(layout="wide", page_title="EduGenius", page_icon=":material/neurology:")
+fav_icon = "assets/edugenius_icon.png"
+st.set_page_config(layout="wide", page_title="EduGenius", page_icon=fav_icon)
 
-with st.sidebar:
-    st.header("EduGenius 🧠", divider = "red")
+st.html("""
+  <style>
+    [alt=Logo] {
+      height: 3rem;
+    }
+  </style>
+        """)
+
+sidear_logo = "assets/edugenius_logo.png"
+main_body_logo = "assets/edugenius_icon.png"
+
+st.logo(sidear_logo, icon_image=main_body_logo)
+
+
 
 home_page = st.Page("home.py", title = "Home", icon =":material/home:", default=True)
 dashboard_page = st.Page("dashboard.py", title = "Dashboard", icon =":material/dashboard:")

@@ -65,7 +65,7 @@ def db_search(question, llm, embeddings, persist_directory):
     
     result = retrieval_chain.invoke({"input": question})
     return result
-
+@observe(as_type="generation", capture_output=True)
 def generate_answer(selected_paper, selected_question, selected_file, context, model):
     question_ = PIL.Image.open(os.path.join('data', selected_paper, selected_question))
     student_answer = PIL.Image.open(selected_file)
