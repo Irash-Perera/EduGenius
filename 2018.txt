@@ -98,9 +98,6 @@ $$
 
 **17. Find the value of x based on the information given in the figure.**
 x = 80 _[2 marks for this step]_
-FC//AB _[1 mark for this step]_
-or ∠DFC = 100°
-The figure is a triangle ABC, with D and E being points on AB and BC respectively.  DF and EF are perpendicular to AC and AB respectively.  DFE is a right angle.  Angle ABC is 100 degrees, angle ADB is 20 degrees and angle AED is x degrees.
 $$
 
 **18.** If \(\begin{pmatrix} 2 & -1 \\ 0 & 3 \end{pmatrix} \begin{pmatrix} 1 & 3 \\ -2 & 1 \end{pmatrix} = \begin{pmatrix} x & y \\ -6 & 3 \end{pmatrix}\), then find the values of \(x\) and \(y\).
@@ -117,8 +114,7 @@ $$
 
 **20. Based on the information given in the Venn diagram, write the set A'∪B' in terms of its elements.**
 {3, 4, 5} _[2 marks for this step]_
-A' = {3, 5} and B' = {4, 5} or identifying the elements correctly or shading the correct region or
-A'∪B' = (A∩B)' _[1 mark for this step]_
+A' = {3, 5} and B' = {4, 5} or identifying the elements correctly or shading the correct region or A'∪B' = (A∩B)' _[1 mark for this step]_
 The Venn diagram is of two circles labelled A and B, both circles intersect.  The intersection has the number 2 written in it.  The part of circle A that does not intersect B has the number 4 written in it.  The part of circle B that does not intersect A has the number 3 written in it.  Outside both circles but within the rectangle has the number 5 written in it.
 $$
 
