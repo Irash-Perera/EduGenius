@@ -1,6 +1,6 @@
 # EduGenius
 
-![HomePage](./screenshots/homepage.png)
+![HomePage](.assets/screenshots/homepage.png)
 
 > <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Double%20Exclamation%20Mark.png" alt="Double Exclamation Mark" width="25" height="25" /> Note: This project is under development. The file structure and the content of the project may change in the future. There are some features that are not implemented yet. See [Documentation](https://github.com/Irash-Perera/EduGenius/blob/e58c6a3b06366b594282ac6a3e33afa3198c562c/docs) for more details.
 
@@ -18,7 +18,7 @@ EduGenius is an interactive mathematics tutoring platform designed to help O/L s
 - **Admin Features**: Admins can manage content, user accounts, and generate reports.
 
 Screenshot from the dashboard:
-![Dashboard](./screenshots/dashboard.png)
+![Dashboard](.assets/screenshots/dashboard.png)
 
 Screenshot from the math problem solving page:
-![MathProblemSolving](./screenshots/mathSolver.png)
+![MathProblemSolving](.assets/screenshots/mathSolver.png)
