@@ -17,7 +17,7 @@ def free_draw():
 
 def save_drawing(canvas):
     if canvas.json_data is not None:
-        cv2.imwrite('uploads/drawing.png', canvas.image_data)
-        return 'uploads/drawing.png'
+        cv2.imwrite('assets/uploads/drawing.png', canvas.image_data)
+        return 'assets/uploads/drawing.png'
     else:
         return None

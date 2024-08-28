@@ -3,11 +3,14 @@ import json
 import os
 import PIL.Image
 from langchain_google_genai import GoogleGenerativeAI
-from canvas import free_draw, save_drawing
+from page.canvas import free_draw, save_drawing
 from output_gen import read_image, db_search, generate_answer, generate_hints, answer_gen_call, hint_gen_call, flash_model, pro_model
-from create_db import embeddings
-from env import GEMINI_PRO_API_KEY
+from utils.createVDB.create_db import embeddings
+from dotenv import load_dotenv
 
+load_dotenv()
+
+GEMINI_PRO_API_KEY = os.getenv("GEMINI_PRO_API_KEY")
 
 os.environ['GOOGLE_API_KEY'] = GEMINI_PRO_API_KEY
 llm = GoogleGenerativeAI(model = "gemini-pro", temperature=0.7)
@@ -25,17 +28,17 @@ if st.session_state["authentication_status"]:
     with col1:
         st.subheader("Let's get started!🚀")
         
-        paper_files, paper_options = get_files_without_extension(os.path.join('data'))
+        paper_files, paper_options = get_files_without_extension(os.path.join('assets/data'))
         selected_paper_display = st.selectbox("Select a paper", paper_options)
         
         if selected_paper_display:
             selected_paper = paper_files[paper_options.index(selected_paper_display)]
-            question_files, question_options = get_files_without_extension(os.path.join('data', selected_paper))
+            question_files, question_options = get_files_without_extension(os.path.join('assets/data', selected_paper))
             selected_question_display = st.selectbox("Select a question", question_options)
             
             if selected_question_display:
                 selected_question = question_files[question_options.index(selected_question_display)]
-                st.image(os.path.join('data', selected_paper, selected_question))
+                st.image(os.path.join('assets/data', selected_paper, selected_question))
 
         col3, col4 = st.columns(2)
         
@@ -65,17 +68,19 @@ if st.session_state["authentication_status"]:
             
             
         with col4:   
-            st.button("It is worth giving it a try💡", use_container_width=True)
+            # st.button("It is worth giving it a try💡", use_container_width=True)
+            if st.button("Ask from MathSolver",use_container_width=True):
+                st.switch_page("page/math_solver.py")
                 
         with col2:
             uploaded_file = st.file_uploader("Upload your answer. Let's see how you did!", type=['png', 'jpg', 'jpeg'])
             if uploaded_file is not None:
                 with open(os.path.join('uploads', uploaded_file.name), 'wb') as f:
                     f.write(uploaded_file.getbuffer())
-                file_path = os.path.join('uploads', uploaded_file.name)
+                file_path = os.path.join('assets/uploads', uploaded_file.name)
                 image = PIL.Image.open(uploaded_file)
                 st.image(image, use_column_width=True)
-                selected_file = os.path.join('uploads', uploaded_file.name)
+                selected_file = os.path.join('assets/uploads', uploaded_file.name)
                 
             else:
                 st.caption("Don't have a piece of paper? Write here!📝")
@@ -85,7 +90,7 @@ if st.session_state["authentication_status"]:
             if st.button("Proceed", type='primary', use_container_width=True):
                 # print(os.path.join('data', selected_paper, selected_question), selected_file)
                     with st.status("Analyzing question...", expanded=True) as status:
-                        scanned_question = read_image(os.path.join('data', selected_paper, selected_question), flash_model)
+                        scanned_question = read_image(os.path.join('assets/data', selected_paper, selected_question), flash_model)
                         
                         status.update(label="Fetching marking scheme...",state="running", expanded=False)
                         context = db_search(scanned_question, llm, embeddings, 'vectorstore_2018_OL')
@@ -105,7 +110,7 @@ if st.session_state["authentication_status"]:
                 # except:
                 #     st.subheader(":red[Oh no! An internal error occured😓 Please try again.]")
         with col1:
-            st.page_link("math_solver.py", label="\nGot stuck? Need a help?\nAsk EduGenius🧠!", icon=":material/neurology:",use_container_width=True)
+            st.page_link("page/math_solver.py", label="\nGot stuck? Need a help?\nAsk EduGenius🧠!", icon=":material/neurology:",use_container_width=True)
                 
 
     #================================================================================
@@ -163,4 +168,4 @@ if st.session_state["authentication_status"]:
         st.caption("Please do not forget to rate the answer!🌟")
 else:
     st.header("You need to login to access this :red[_feature_]🔒")
-    st.page_link("home.py", label="Click here to login", icon=":material/lock_open:", use_container_width=True)
+    st.page_link("page/home.py", label="Click here to login", icon=":material/lock_open:", use_container_width=True)

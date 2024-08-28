@@ -3,21 +3,24 @@ import streamlit as st
 import requests
 import os
 import urllib.parse
-from env import WOLFRAM_APP_ID, LANGFUSE_SECRET_KEY, LANGFUSE_PUBLIC_KEY, LANGFUSE_HOST
+from dotenv import load_dotenv
+# from env import WOLFRAM_APP_ID, LANGFUSE_SECRET_KEY, LANGFUSE_PUBLIC_KEY, LANGFUSE_HOST
 from langfuse import Langfuse
 from langfuse.decorators import observe
 
+load_dotenv()
+
  
-os.environ["LANGFUSE_SECRET_KEY"] = LANGFUSE_SECRET_KEY
-os.environ["LANGFUSE_PUBLIC_KEY"] = LANGFUSE_PUBLIC_KEY
-os.environ["LANGFUSE_HOST"] = LANGFUSE_HOST
+# os.environ["LANGFUSE_SECRET_KEY"] = LANGFUSE_SECRET_KEY
+# os.environ["LANGFUSE_PUBLIC_KEY"] = LANGFUSE_PUBLIC_KEY
+# os.environ["LANGFUSE_HOST"] = LANGFUSE_HOST
 
 st.header("Have a math problem?")
 st.subheader(" Let's solve it :red[_step-by-step_]💡", divider= 'red')
 
 @observe(capture_input=True, capture_output=True)
 def get_wolframalpha_response(prompt):
-    appid = os.getenv('WA_APPID', WOLFRAM_APP_ID )
+    appid = os.getenv('WA_APPID', os.getenv("WOLFRAM_APP_ID"))
     query = urllib.parse.quote_plus(f"solve {prompt}")
                         
     query_url = f"http://api.wolframalpha.com/v2/query?" \

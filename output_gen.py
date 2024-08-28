@@ -5,10 +5,18 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains.retrieval import create_retrieval_chain
 from langfuse import Langfuse
 from langfuse.decorators import observe
-from env import LANGFUSE_SECRET_KEY, LANGFUSE_PUBLIC_KEY, LANGFUSE_HOST, GOOGLE_GEN_AI_API_KEY
+# from env import LANGFUSE_SECRET_KEY, LANGFUSE_PUBLIC_KEY, LANGFUSE_HOST, GOOGLE_GEN_AI_API_KEY
+from dotenv import load_dotenv
 import PIL.Image
 import os
 import time
+
+load_dotenv()
+
+GOOGLE_GEN_AI_API_KEY = os.getenv("GOOGLE_GEN_AI_API_KEY")
+LANGFUSE_SECRET_KEY = os.getenv("LANGFUSE_SECRET_KEY")
+LANGFUSE_PUBLIC_KEY = os.getenv("LANGFUSE_PUBLIC_KEY")
+LANGFUSE_HOST = os.getenv("LANGFUSE_HOST")
 
 genai.configure(api_key=GOOGLE_GEN_AI_API_KEY)
 flash_model = genai.GenerativeModel('gemini-1.5-flash')
@@ -50,7 +58,7 @@ def read_image(question_image_path, model):
 def db_search(question, llm, embeddings, persist_directory):
     # load the vector store
     vectorstore = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
-    time.sleep(2)
+    # time.sleep(2)
     
     template = """You are a helpful AI tutor. Answer the math problem as mentioned in the context. Explain the answer from the context as much as possible with your mathematical knowledge. Always give correct and clear answers. Sometimes there may be a description in the context explaining diagram too. explain it too as much as possible.Dont give just the answer. Give the explanation too.
     context:{context}
@@ -65,9 +73,10 @@ def db_search(question, llm, embeddings, persist_directory):
     
     result = retrieval_chain.invoke({"input": question})
     return result
+
 @observe(as_type="generation", capture_output=True)
 def generate_answer(selected_paper, selected_question, selected_file, context, model):
-    question_ = PIL.Image.open(os.path.join('data', selected_paper, selected_question))
+    question_ = PIL.Image.open(os.path.join('assets/data', selected_paper, selected_question))
     student_answer = PIL.Image.open(selected_file)
     
     prompt = """You are a helpful AI math tutor. Here question image and the answer image which was uploaded by the student are given. Also a context is provided. That context includes the information from the original marking scheme and marks for each step. I want you to analyze these information and provide a json file including 
@@ -84,7 +93,7 @@ def generate_answer(selected_paper, selected_question, selected_file, context, m
 def generate_hints(selected_paper, selected_question, model):
     prompt = """You are a helpful math tutor. I have provided a question to you. Please provide at least three hints and a example to solve the question, as a json file. Do not reveal the answer. only return the json file in markdown format. Do not inlcude the asked question again in the json file. Names of the sections should be like titles.  Also every section in json file contains only title and content in markdown as 2 subpods called "title" and "content".  nothing more than that. In the every section always do not add more than "title" and "content".JSON object should be  a dictionary structure with items."""
     
-    question_ = PIL.Image.open(os.path.join('data', selected_paper, selected_question))
+    question_ = PIL.Image.open(os.path.join('assets/data', selected_paper, selected_question))
     
     response1 = hint_bypass(model, prompt, question_)
     
