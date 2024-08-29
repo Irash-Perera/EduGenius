@@ -88,4 +88,4 @@ if st.session_state["authentication_status"]:
                 
 else:
     st.header("You need to login to access this :red[_feature_]🔒")
-    st.page_link("home.py", label="Click here to login", icon=":material/lock_open:", use_container_width=True)
+    st.page_link("pages/home.py", label="Click here to login", icon=":material/lock_open:", use_container_width=True)
