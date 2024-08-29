@@ -3,7 +3,7 @@ import json
 import os
 import PIL.Image
 from langchain_google_genai import GoogleGenerativeAI
-from page.canvas import free_draw, save_drawing
+from pages.canvas import free_draw, save_drawing
 from output_gen import read_image, db_search, generate_answer, generate_hints, answer_gen_call, hint_gen_call, flash_model, pro_model
 from utils.createVDB.create_db import embeddings
 from dotenv import load_dotenv
@@ -70,7 +70,7 @@ if st.session_state["authentication_status"]:
         with col4:   
             # st.button("It is worth giving it a try💡", use_container_width=True)
             if st.button("Ask from MathSolver",use_container_width=True):
-                st.switch_page("page/math_solver.py")
+                st.switch_page("pages/math_solver.py")
                 
         with col2:
             uploaded_file = st.file_uploader("Upload your answer. Let's see how you did!", type=['png', 'jpg', 'jpeg'])
@@ -110,7 +110,7 @@ if st.session_state["authentication_status"]:
                 # except:
                 #     st.subheader(":red[Oh no! An internal error occured😓 Please try again.]")
         with col1:
-            st.page_link("page/math_solver.py", label="\nGot stuck? Need a help?\nAsk EduGenius🧠!", icon=":material/neurology:",use_container_width=True)
+            st.page_link("pages/math_solver.py", label="\nGot stuck? Need a help?\nAsk EduGenius🧠!", icon=":material/neurology:",use_container_width=True)
                 
 
     #================================================================================
@@ -168,4 +168,4 @@ if st.session_state["authentication_status"]:
         st.caption("Please do not forget to rate the answer!🌟")
 else:
     st.header("You need to login to access this :red[_feature_]🔒")
-    st.page_link("page/home.py", label="Click here to login", icon=":material/lock_open:", use_container_width=True)
+    st.page_link("pages/home.py", label="Click here to login", icon=":material/lock_open:", use_container_width=True)
