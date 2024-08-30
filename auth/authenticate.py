@@ -54,6 +54,8 @@ class Authenticate:
             st.session_state['logout'] = None
         if 'trace_id' not in st.session_state:
             st.session_state['trace_id'] = None
+        if "messages" not in st.session_state:
+            st.session_state.messages = []
 
     def _token_encode(self) -> str:
         """
