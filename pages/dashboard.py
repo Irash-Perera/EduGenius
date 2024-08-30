@@ -7,6 +7,8 @@ from pages.canvas import free_draw, save_drawing
 from output_gen import read_image, db_search, generate_answer, generate_hints, answer_gen_call, hint_gen_call, flash_model, pro_model
 from utils.createVDB.create_db import embeddings
 from dotenv import load_dotenv
+from langfuse import Langfuse
+from langfuse.decorators import observe, langfuse_context
 
 load_dotenv()
 
@@ -87,19 +89,36 @@ if st.session_state["authentication_status"]:
                 selected_file = save_drawing(free_draw())
             
         with col2:
+            @observe()
+            def initialize_generation_pipeline():
+                scanned_question = read_image(os.path.join('assets/data', selected_paper, selected_question), flash_model)
+                        
+                status.update(label="Fetching marking scheme...",state="running", expanded=False)
+                context = db_search(scanned_question, llm, embeddings, 'vectorstore_2018_OL')
+
+                status.update(label="Marking your answer...",state="running", expanded=False)
+                response = generate_answer(selected_paper, selected_question, selected_file, context, pro_model)
+                
+                langfuse_call = answer_gen_call(pro_model, scanned_question, selected_question, selected_file, response)
+                
+                trace_id = langfuse_context.get_current_trace_id()
+                st.session_state.trace_id = trace_id
+                
+                return response
+            
             if st.button("Proceed", type='primary', use_container_width=True):
                 # print(os.path.join('data', selected_paper, selected_question), selected_file)
                     with st.status("Analyzing question...", expanded=True) as status:
-                        scanned_question = read_image(os.path.join('assets/data', selected_paper, selected_question), flash_model)
+                        # scanned_question = read_image(os.path.join('assets/data', selected_paper, selected_question), flash_model)
                         
-                        status.update(label="Fetching marking scheme...",state="running", expanded=False)
-                        context = db_search(scanned_question, llm, embeddings, 'vectorstore_2018_OL')
+                        # status.update(label="Fetching marking scheme...",state="running", expanded=False)
+                        # context = db_search(scanned_question, llm, embeddings, 'vectorstore_2018_OL')
 
-                        status.update(label="Marking your answer...",state="running", expanded=False)
-                        response = generate_answer(selected_paper, selected_question, selected_file, context, pro_model)
+                        # status.update(label="Marking your answer...",state="running", expanded=False)
+                        # response = generate_answer(selected_paper, selected_question, selected_file, context, pro_model)
                         
-                        langfuse_call = answer_gen_call(pro_model, scanned_question, selected_question, selected_file, response)
-                        
+                        # langfuse_call = answer_gen_call(pro_model, scanned_question, selected_question, selected_file, response)
+                        response = initialize_generation_pipeline()
                         response_text = response.text[7:-3]
                         # st.write(response_text)
                         json_object = json.loads(response_text)
@@ -162,7 +181,7 @@ if st.session_state["authentication_status"]:
                     expander = st.expander(f"{title}", icon=":material/add_circle:")
                     expander.markdown(f"##### {title}")
                     expander.markdown(f"{content}", unsafe_allow_html=True) 
-        
+            st.page_link("pages/feedbacks.py", label="\nWe appreciate your rating. Please rate this session here!", icon=":material/reviews:",use_container_width=True) 
     except:
         st.markdown("##### Results will be displayed here📝")
         st.caption("Please do not forget to rate the answer!🌟")
