@@ -6,7 +6,7 @@ import urllib.parse
 from dotenv import load_dotenv
 # from env import WOLFRAM_APP_ID, LANGFUSE_SECRET_KEY, LANGFUSE_PUBLIC_KEY, LANGFUSE_HOST
 from langfuse import Langfuse
-from langfuse.decorators import observe
+from langfuse.decorators import observe, langfuse_context
 
 load_dotenv()
 
@@ -18,7 +18,7 @@ load_dotenv()
 st.header("Have a math problem?")
 st.subheader(" Let's solve it :red[_step-by-step_]💡", divider= 'red')
 
-@observe(capture_input=True, capture_output=True)
+@observe()
 def get_wolframalpha_response(prompt):
     appid = os.getenv('WA_APPID', os.getenv("WOLFRAM_APP_ID"))
     query = urllib.parse.quote_plus(f"solve {prompt}")
@@ -33,7 +33,9 @@ def get_wolframalpha_response(prompt):
     r = requests.get(query_url).json()
     # with open('data.json', 'w') as json_file:
     #     json.dump(r, json_file)
-      
+    langfuse_context.update_current_trace(
+        user_id=st.session_state.email
+    )
     response = r["queryresult"]
     return response
 
