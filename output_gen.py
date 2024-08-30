@@ -107,4 +107,9 @@ def generate_hints(selected_paper, selected_question, model):
     response1 = hint_bypass(model, prompt, question_)
     
     return response1
+
+# Dummy function to simulate the actual function
+def ask_gemini(prompt):
+    response2 = flash_model.generate_content(prompt)
+    return response2
         

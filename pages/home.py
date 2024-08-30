@@ -50,7 +50,7 @@ with col4:
 st.markdown("""
     <div class="container">
         <h5 class="title">EduGenius</h5>
-        <h2>Learn Smater. Get Personalized Help.</h2> 
+        <h2>Learn Smater.<br>Get Personalized Help.</h2> 
     </div>
 """, unsafe_allow_html=True)
 
