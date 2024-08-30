@@ -4,7 +4,8 @@ from langchain.prompts import PromptTemplate
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains.retrieval import create_retrieval_chain
 from langfuse import Langfuse
-from langfuse.decorators import observe
+import streamlit as st
+from langfuse.decorators import observe, langfuse_context
 # from env import LANGFUSE_SECRET_KEY, LANGFUSE_PUBLIC_KEY, LANGFUSE_HOST, GOOGLE_GEN_AI_API_KEY
 from dotenv import load_dotenv
 import PIL.Image
@@ -34,14 +35,22 @@ def hint_bypass(model, prompt, question_):
     response = model.generate_content([ prompt, question_])
     return response
 
-@observe(as_type="generation", capture_output=True)
+@observe()
 def image_read_call(f,model):
     response = model.generate_content([f, "Your are a helpful AI to extract text from the image. Extract the question from the image and return it in markdown format."])
+    langfuse_context.update_current_trace(
+        user_id=st.session_state.email
+    )
+    return response.text
     return response.text
   
-@observe(as_type="generation", capture_output=True)
+@observe(as_type="generation")
 def answer_gen_call(model, prompt, question_, student_answer, output):
     response = output
+    langfuse_context.update_current_trace(
+        user_id=st.session_state.email
+    )
+    return response.text
     return response.text
 
 @observe(as_type="generation", capture_output=True)
@@ -74,7 +83,7 @@ def db_search(question, llm, embeddings, persist_directory):
     result = retrieval_chain.invoke({"input": question})
     return result
 
-@observe(as_type="generation", capture_output=True)
+@observe()
 def generate_answer(selected_paper, selected_question, selected_file, context, model):
     question_ = PIL.Image.open(os.path.join('assets/data', selected_paper, selected_question))
     student_answer = PIL.Image.open(selected_file)
