@@ -15,6 +15,7 @@
   color: #fff;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
+  text-wrap: nowrap;
 }
 
 h2{
@@ -23,5 +24,24 @@ h2{
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   text-align: center;
+  padding: -10px;
 
+}
+
+@media screen and (max-width: 768px) {
+  .container{
+
+  }
+  .title {
+    font-size: 3rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .title{
+    font-size: 3rem;
+  }
+
+  h2{
+    font-size: 1.5rem;
+  }
 }

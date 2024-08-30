@@ -9,6 +9,7 @@ from utils.createVDB.create_db import embeddings
 from dotenv import load_dotenv
 from langfuse import Langfuse
 from langfuse.decorators import observe, langfuse_context
+from pages.math_solver import get_wolframalpha_response
 
 load_dotenv()
 
@@ -173,6 +174,28 @@ if st.session_state["authentication_status"]:
                     formatted_content = f'<div class="math-content">{content}</div>'
                     st.subheader(f":green[_{title}_]")
                     st.markdown(formatted_content, unsafe_allow_html=True)
+            #TODO: Seems like cannot implement the chatbot in the same page. Need to check       
+            # messages = st.container(height=350)
+            # prompt = st.chat_input("Ask your math question here")
+            # if prompt:
+            #     response = get_wolframalpha_response(prompt)
+            #     markdown_text = ""
+            #     for pod in response["pods"]:
+                    
+            #         has_content = False
+            #         for subpod in pod["subpods"]:
+            #             if "mathml" in subpod:
+            #                 has_content = True
+            #         if has_content:
+            #             markdown_text += f"###### {pod['title']}\n\n"
+            #             for subpod in pod["subpods"]:
+            #                 if "mathml" in subpod:
+            #                     markdown_text += f"\n{subpod['mathml']}\n\n"
+            #         has_content = False
+                            
+            #     messages.chat_message("user").markdown(prompt, unsafe_allow_html=True)
+            #     messages.chat_message("assistant").markdown(f"##### Result:\n\n{markdown_text}", unsafe_allow_html=True)
+        
         with col4:
             for i, (key, value) in enumerate(json_object.items()):
                 if i >= 2:
