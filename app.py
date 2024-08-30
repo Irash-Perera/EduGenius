@@ -24,8 +24,9 @@ math_solver = st.Page("pages/math_solver.py", title = "Math Solver", icon =":mat
 # research_helper = st.Page("research_helper.py", title = "Research Helper", icon =":material/insights:")
 contactus_page = st.Page("pages/contact_us.py", title = "Contact Us", icon =":material/call:")
 feedback_page = st.Page("pages/feedbacks.py", title = "Feedback", icon =":material/feedback:")
+documentation_page = st.Page("pages/documentation.py", title = "Documentation", icon =":material/book:")
 pg = st.navigation({
-    "Main Menu":[home_page, dashboard_page, math_solver, contactus_page, feedback_page]
+    "Main Menu":[home_page, dashboard_page, math_solver, contactus_page, feedback_page, documentation_page]
 })
 
 pg.run()
