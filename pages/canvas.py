@@ -8,7 +8,7 @@ def free_draw():
         stroke_width = 5,
         stroke_color = "black",
         background_color = "white",
-        update_streamlit = False, 
+        update_streamlit = True, 
         height = 200,
         width= 800,
         drawing_mode="freedraw"
