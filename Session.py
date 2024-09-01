@@ -1,7 +1,7 @@
 class Session:
     def __init__(self,session_state,question):
         if session_state["authentication_status"]:
-            self.user_nname = session_state["name"]
+            self.user_name = session_state["name"]
             self.user_email = session_state["email"]
             self.question = question
             self.answer = ""
@@ -15,6 +15,27 @@ class Session:
         else:
             raise Exception("User not authenticated")
 
+    def set_json_response(self,json_object):
+        try:
+            self.correctness = json_object["Correctness"]["content"]
+        except: 
+            pass
+        try:
+            self.marks = json_object["Marks"]["content"]
+        except: 
+            pass
+        try:
+            self.explanation = json_object["Explanation"]["content"]
+        except:
+            pass
+        try:
+            self.improvements = json_object["Improvements"]["content"]
+        except:
+            pass
+        try:
+            self.similar_problems = json_object["Similar Problems"]["content"]
+        except:
+            pass
 
     def add_chat(self,user_question, system_answer):
         self.QAs.append({
@@ -30,7 +51,7 @@ class Session:
 
 
     def get_current_context(self):
-        f"""
+        text = f"""
         question : {self.question}
         answer : {self.answer}
         correctness : {self.correctness}
@@ -41,6 +62,7 @@ class Session:
         hint : {self.hint}
         QAs : {self.get_QAs()}
         """
+        return text
 
         
 
