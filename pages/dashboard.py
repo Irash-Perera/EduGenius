@@ -11,12 +11,19 @@ from langfuse import Langfuse
 from langfuse.decorators import observe, langfuse_context
 from pages.math_solver import get_wolframalpha_response
 
+from Session import Session
+
 load_dotenv()
 
 GEMINI_PRO_API_KEY = os.getenv("GEMINI_PRO_API_KEY")
 
 os.environ['GOOGLE_API_KEY'] = GEMINI_PRO_API_KEY
 llm = GoogleGenerativeAI(model = "gemini-pro", temperature=0.7)
+
+# Global variables
+scanned_question = None
+tutoring_session = None
+hint_text = None
 
 def get_files_without_extension(directory):
     files = os.listdir(directory)
@@ -54,6 +61,7 @@ if st.session_state["authentication_status"]:
                         status.update(label="Here what we found for you!",state="complete", expanded=False)
 
                     response_text = response1.text[7:-3]
+                    hint_text = response_text
                     
                     try:
                         json_object1 = json.loads(response_text)
@@ -108,6 +116,7 @@ if st.session_state["authentication_status"]:
                 return response
             
             if st.button("Proceed", type='primary', use_container_width=True):
+                    
                 # print(os.path.join('data', selected_paper, selected_question), selected_file)
                     with st.status("Analyzing question...", expanded=True) as status:
                         # scanned_question = read_image(os.path.join('assets/data', selected_paper, selected_question), flash_model)
@@ -125,12 +134,19 @@ if st.session_state["authentication_status"]:
                         json_object = json.loads(response_text)
                         
                         status.update(label="Done. Marked your answer!",state="complete", expanded=False)
+
+                        tutoring_session = Session(st.session_state, scanned_question)
+                        tutoring_session.set_json_response(json_object)
+                        if hint_text != None:
+                            tutoring_session.hint = hint_text
+                        print(tutoring_session.get_current_context())
+
                 # try:
                     
                 # except:
                 #     st.subheader(":red[Oh no! An internal error occured😓 Please try again.]")
-        with col1:
-            st.page_link("pages/math_solver.py", label="\nGot stuck? Need a help?\nAsk EduGenius🧠!", icon=":material/neurology:",use_container_width=True)
+        # with col1:
+        #     st.page_link("pages/math_solver.py", label="\nGot stuck? Need a help?\nAsk EduGenius🧠!", icon=":material/neurology:",use_container_width=True)
                 
 
     #================================================================================
