@@ -122,13 +122,13 @@ if st.session_state["authentication_status"]:
                         response = initialize_generation_pipeline()
                         response_text = response.text[7:-3]
                         # st.write(response_text)
-                        json_object = json.loads(response_text)
+                        try:
+                            json_object = json.loads(response_text)
+                        except:
+                            st.subheader(":red[Oh no! An internal error occured😓 Please try again.]")
                         
                         status.update(label="Done. Marked your answer!",state="complete", expanded=False)
-                # try:
-                    
-                # except:
-                #     st.subheader(":red[Oh no! An internal error occured😓 Please try again.]")
+                
         with col1:
             st.page_link("pages/math_solver.py", label="\nGot stuck? Need a help?\nAsk EduGenius🧠!", icon=":material/neurology:",use_container_width=True)
                 
@@ -174,6 +174,7 @@ if st.session_state["authentication_status"]:
                     formatted_content = f'<div class="math-content">{content}</div>'
                     st.subheader(f":green[_{title}_]")
                     st.markdown(formatted_content, unsafe_allow_html=True)
+           
             #TODO: Seems like cannot implement the chatbot in the same page. Need to check       
             # messages = st.container(height=350)
             # prompt = st.chat_input("Ask your math question here")
