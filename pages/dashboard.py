@@ -113,8 +113,6 @@ if st.session_state["authentication_status"]:
                 st.caption("Don't have a piece of paper? Write here!📝")
                 selected_file = save_drawing(free_draw())
 
-            st.session_state["answer_image"] = selected_file
-            st.session_state["answer"] = ocr_for_answer(selected_file)
             
         with col2:
             @observe()
@@ -135,7 +133,9 @@ if st.session_state["authentication_status"]:
                 return response
             
             if st.button("Proceed", type='primary', use_container_width=True):
-                    
+                 
+                    st.session_state["answer_image"] = selected_file
+                    st.session_state["answer"] = ocr_for_answer(selected_file)   
                 # print(os.path.join('data', selected_paper, selected_question), selected_file)
                     with st.status("Analyzing question...", expanded=True) as status:
                         # scanned_question = read_image(os.path.join('assets/data', selected_paper, selected_question), flash_model)
@@ -209,7 +209,7 @@ if st.session_state["authentication_status"]:
                     if title == "Marks":
                         st.session_state["marks"] = content
                  
-                        
+            st.page_link("pages/chat.py", label="\nGot doubts? Clarify them here", icon=":material/question_answer:",use_container_width=True)          
             #TODO: Seems like cannot implement the chatbot in the same page. Need to check       
             # messages = st.container(height=350)
             # prompt = st.chat_input("Ask your math question here")
@@ -251,6 +251,7 @@ if st.session_state["authentication_status"]:
 
             # for i in st.session_state:
                 # print(i, st.session_state[i])
+            
             st.page_link("pages/feedbacks.py", label="\nWe appreciate your rating. Please rate this session here!", icon=":material/reviews:",use_container_width=True) 
     except:
         st.markdown("##### Results will be displayed here📝")
