@@ -249,7 +249,7 @@ if st.session_state["authentication_status"]:
                         st.session_state["similar_problems"] = content
                     
 
-            for i in st.session_state:
+            # for i in st.session_state:
                 # print(i, st.session_state[i])
             st.page_link("pages/feedbacks.py", label="\nWe appreciate your rating. Please rate this session here!", icon=":material/reviews:",use_container_width=True) 
     except:
