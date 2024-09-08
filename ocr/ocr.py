@@ -15,6 +15,12 @@ flash_model = genai.GenerativeModel('gemini-1.5-flash')
 pro_model  = genai.GenerativeModel(model_name="gemini-1.5-pro")
 
 
+# Replace the following fuction with the best model. This will provide an abstraction to this functionality
+def ocr_for_answer(file_path):
+    return Gemini_Flash_OCR(file_path)
+
+
+
 def ninja_OCR(file_path):
     image_file_descriptor = open(file_path, 'rb')
     files = {'image': image_file_descriptor}
