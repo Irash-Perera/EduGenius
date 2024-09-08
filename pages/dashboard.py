@@ -11,7 +11,6 @@ from langfuse import Langfuse
 from langfuse.decorators import observe, langfuse_context
 from pages.math_solver import get_wolframalpha_response
 
-from Session import Session
 
 load_dotenv()
 
@@ -59,7 +58,7 @@ if st.session_state["authentication_status"]:
                         response1 = generate_hints(selected_paper, selected_question, pro_model)
                         langfuse_call = hint_gen_call(pro_model, selected_question, selected_paper, response1)
                         status.update(label="Here what we found for you!",state="complete", expanded=False)
-
+                        
                     response_text = response1.text[7:-3]
                     hint_text = response_text
                     
@@ -135,7 +134,6 @@ if st.session_state["authentication_status"]:
                         
                         status.update(label="Done. Marked your answer!",state="complete", expanded=False)
 
-                        tutoring_session = Session(st.session_state, scanned_question)
                         tutoring_session.set_json_response(json_object)
                         if hint_text != None:
                             tutoring_session.hint = hint_text
