@@ -11,12 +11,15 @@ from langfuse import Langfuse
 from langfuse.decorators import observe, langfuse_context
 from pages.math_solver import get_wolframalpha_response
 
+from ocr.ocr import ocr_for_answer
 load_dotenv()
 
 GEMINI_PRO_API_KEY = os.getenv("GEMINI_PRO_API_KEY")
 
 os.environ['GOOGLE_API_KEY'] = GEMINI_PRO_API_KEY
 llm = GoogleGenerativeAI(model = "gemini-pro", temperature=0.7)
+
+
 
 def get_files_without_extension(directory):
     files = os.listdir(directory)
@@ -43,6 +46,22 @@ if st.session_state["authentication_status"]:
                 selected_question = question_files[question_options.index(selected_question_display)]
                 st.image(os.path.join('assets/data', selected_paper, selected_question))
 
+            # Incase there were previous question stored in th session we need to remove the data associated with that 
+            # specific question. Else we can just add the selected question
+            if st.session_state["question"] is not None:
+                st.session_state["question"] = {"paper": selected_paper, "question":selected_question_display }
+                st.session_state["hints"] = []
+                st.session_state["answer"] = None
+                st.session_state["answer_image"] = None
+                st.session_state["messages"] = []
+                st.session_state["marks"] = None
+                st.session_state["similar_problems"] = None
+                st.session_state["improvement"] = None
+                st.session_state["explanations"] = None
+            else:
+                st.session_state["question"] = {"paper": selected_paper, "question":selected_question_display }
+
+
         col3, col4 = st.columns(2)
         
         with col3:
@@ -54,12 +73,17 @@ if st.session_state["authentication_status"]:
                         status.update(label="Here what we found for you!",state="complete", expanded=False)
 
                     response_text = response1.text[7:-3]
+                    hint_text = response_text
                     
                     try:
                         json_object1 = json.loads(response_text)
                         for key, value in json_object1.items():
                             title = value.get('title')
                             content = value.get('content')
+
+                            # Append the hints conetent to the session
+                            st.session_state["hints"].append(content)
+
                             expander = st.expander(f"{title}", icon=":material/add_circle:")
                             expander.markdown(f"##### {title}")
                             expander.markdown(content, unsafe_allow_html=True) 
@@ -88,6 +112,7 @@ if st.session_state["authentication_status"]:
             else:
                 st.caption("Don't have a piece of paper? Write here!📝")
                 selected_file = save_drawing(free_draw())
+
             
         with col2:
             @observe()
@@ -108,6 +133,9 @@ if st.session_state["authentication_status"]:
                 return response
             
             if st.button("Proceed", type='primary', use_container_width=True):
+                 
+                    st.session_state["answer_image"] = selected_file
+                    st.session_state["answer"] = ocr_for_answer(selected_file)   
                 # print(os.path.join('data', selected_paper, selected_question), selected_file)
                     with st.status("Analyzing question...", expanded=True) as status:
                         # scanned_question = read_image(os.path.join('assets/data', selected_paper, selected_question), flash_model)
@@ -128,9 +156,17 @@ if st.session_state["authentication_status"]:
                             st.subheader(":red[Oh no! An internal error occured😓 Please try again.]")
                         
                         status.update(label="Done. Marked your answer!",state="complete", expanded=False)
-                
-        with col1:
-            st.page_link("pages/math_solver.py", label="\nGot stuck? Need a help?\nAsk EduGenius🧠!", icon=":material/neurology:",use_container_width=True)
+
+
+
+
+                # try:
+                    
+                # except:
+                #     st.subheader(":red[Oh no! An internal error occured😓 Please try again.]")
+        # with col1:
+        #     st.page_link("pages/math_solver.py", label="\nGot stuck? Need a help?\nAsk EduGenius🧠!", icon=":material/neurology:",use_container_width=True)
+
                 
 
     #================================================================================
@@ -174,7 +210,13 @@ if st.session_state["authentication_status"]:
                     formatted_content = f'<div class="math-content">{content}</div>'
                     st.subheader(f":green[_{title}_]")
                     st.markdown(formatted_content, unsafe_allow_html=True)
-           
+
+
+                    if title == "Marks":
+                        st.session_state["marks"] = content
+                 
+            st.page_link("pages/chat.py", label="\nGot doubts? Clarify them here", icon=":material/question_answer:",use_container_width=True)          
+
             #TODO: Seems like cannot implement the chatbot in the same page. Need to check       
             # messages = st.container(height=350)
             # prompt = st.chat_input("Ask your math question here")
@@ -205,6 +247,18 @@ if st.session_state["authentication_status"]:
                     expander = st.expander(f"{title}", icon=":material/add_circle:")
                     expander.markdown(f"##### {title}")
                     expander.markdown(f"{content}", unsafe_allow_html=True) 
+
+                    if title == "Explanation":
+                        st.session_state["explanation"] = content
+                    elif title == "Improvement":
+                        st.session_state["improvement"] = content
+                    elif title == "Similar Problems":
+                        st.session_state["similar_problems"] = content
+                    
+
+            # for i in st.session_state:
+                # print(i, st.session_state[i])
+            
             st.page_link("pages/feedbacks.py", label="\nWe appreciate your rating. Please rate this session here!", icon=":material/reviews:",use_container_width=True) 
     except:
         st.markdown("##### Results will be displayed here📝")
