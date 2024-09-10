@@ -11,7 +11,7 @@ load_dotenv()
 
 os.environ['GOOGLE_API_KEY'] =  os.getenv("GOOGLE_GEN_AI_API_KEY")
 
-embeddings = GoogleGenerativeAIEmbeddings(model="models/embedding-001")
+embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
 
 def create_db(text_file, embeddings, persist_directory):
     text_loader = TextLoader(text_file)
