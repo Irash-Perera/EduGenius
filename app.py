@@ -22,7 +22,6 @@ home_page = st.Page("pages/home.py", title = "Home", icon =":material/home:", de
 dashboard_page = st.Page("pages/dashboard.py", title = "Dashboard", icon =":material/dashboard:")
 QA = st.Page("pages/chat.py", title = "Q&A", icon =":material/question_answer:")
 math_solver = st.Page("pages/math_solver.py", title = "Math Solver", icon =":material/function:")
-# research_helper = st.Page("research_helper.py", title = "Research Helper", icon =":material/insights:")
 contactus_page = st.Page("pages/contact_us.py", title = "Contact Us", icon =":material/call:")
 feedback_page = st.Page("pages/feedbacks.py", title = "Feedback", icon =":material/feedback:")
 documentation_page = st.Page("pages/documentation.py", title = "Documentation", icon =":material/book:")
@@ -30,5 +29,9 @@ test_page = st.Page("pages/test.py", title = "Test", icon =":material/assessment
 pg = st.navigation({
     "Main Menu":[home_page, dashboard_page,QA, math_solver, contactus_page, feedback_page, documentation_page]
 })
+
+with st.sidebar:
+    st.write("Admin Tools")
+    st.link_button("Admin Dashboard", 'https://cloud.langfuse.com/project/clyejfzen000vootvl9vdtb7g', icon=":material/line_axis:", use_container_width=True)
 
 pg.run()

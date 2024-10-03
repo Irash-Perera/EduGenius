@@ -36,10 +36,7 @@ def respond_for_user_question(user_question,llm):
     prompt = PromptTemplate.from_template(template)
     combine_docs_chain = create_stuff_documents_chain(llm, prompt)
     retrieval_chain = create_retrieval_chain(retriever, combine_docs_chain)
-
     response=retrieval_chain.invoke({"input":user_question})
-
-
     st.session_state.messages.append({"role": "assistant", "content": response["answer"]})
 
     with st.chat_message("assistant"):
