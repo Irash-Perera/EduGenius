@@ -50,38 +50,25 @@ with col4:
 st.markdown("""
     <div class="container">
         <h5 class="title">EduGenius</h5>
-        <h2>Learn Smater.Get Personalized Help.</h2> 
+        <h2>Learn Smater. Get Personalized Help.</h2> 
     </div>
 """, unsafe_allow_html=True)
 
-# col1, col2 = st.columns(2)
-# with col1:
-#     st.subheader("What is EduGenius❓", divider = "gray")
-#     st.markdown("""
-
-# In modern education, personalized and efficient tutoring remains a challenge, particularly in mathematics. Traditional tutoring methods often lack flexibility and efficiency, hindering the learning process.""")
- 
-#     st.subheader("Our Mission 🎯", divider = "gray")
-
-#     st.markdown("""EduGenius aims to provide a personalized and efficient AI-powered tutoring system for A/Level and O/Level students in mathematics.""") 
-
-#     st.subheader("Key Features 🚀", divider = "gray")
-#     st.markdown("""
-#     - **Personalized Tutoring Materials**: Utilizes pre-processed and pre-stored maths marking schemes in the vector database.
-#     - **Advanced Technologies**: Leverages the latest technologies like LangChain, Wolfram, and Gemini.
-#     - **Interactive and Personalized**: Generates interactive and personalized tutoring materials for students.
-#     - **Real-Time Evaluation**: Evaluates student performance in real-time.
-#     - **Instant Feedback**: Provides instant, accurate feedback and grades.
-#     - **Enhanced Learning Experience**: Enhances the learning experience, supporting students in their learning journey.
-
-#     Explore EduGenius and transform your learning experience in mathematics!""")
-
 
 login, register = st.tabs(["Login", "Register"])
+tabstyle = '''
+<style>
+    .stTabs [data-baseweb="tab-list"] button [data-testid="stMarkdownContainer"] p {
+    font-size:1.2rem;
+    }
+</style>
+'''
+st.markdown(tabstyle, unsafe_allow_html=True)
+
 with login:
     authenticator.login('Login', 'main')
     if st.session_state["authentication_status"]:
-        st.subheader(f'{greeting()} :red[_{st.session_state["name"]}_]')
+        st.subheader(f'{greeting()} :red[{st.session_state["name"]}]👋')
         authenticator.logout('Logout', 'main') 
         
     elif st.session_state["authentication_status"] is None and st.session_state["FormSubmitter:Login-Login"]:
@@ -90,7 +77,6 @@ with login:
     elif st.session_state["authentication_status"] is None:
         st.warning('Please enter your username and password', icon=":material/lock_open:")
         
-# st.write(st.session_state)
 with register:   
     if st.session_state["authentication_status"] is None:
         st.markdown("#### Create a new account here 👇")
