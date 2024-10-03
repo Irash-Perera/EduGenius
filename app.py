@@ -32,6 +32,6 @@ pg = st.navigation({
 
 with st.sidebar:
     st.write("Admin Tools")
-    st.link_button("Admin Dashboard", 'https://cloud.langfuse.com/project/clyejfzen000vootvl9vdtb7g', icon=":material/line_axis:", use_container_width=True)
+    st.link_button("Admin Dashboard", 'https://cloud.langfuse.com/project/clyejfzen000vootvl9vdtb7g', use_container_width=True)
 
 pg.run()
