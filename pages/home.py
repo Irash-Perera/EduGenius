@@ -37,7 +37,7 @@ style_image2= """
                     overflow: hidden;
                     top: -50px;
                     right:-150px;
-                    opacity: 0.4;
+                    opacity: 0.2;
                     """
 style_image3= """
                     width: 400px;
@@ -46,7 +46,8 @@ style_image3= """
                     overflow: hidden;
                     top: -50px;
                     left:-150px;
-                    opacity: 0.4;
+                    opacity: 0.2;
+
                     """
 st.markdown(
     f'<div style="display: flex; justify-content: center; align-items: center;"><img src="{"./app/static/coner.png"}" style="{style_image2}"></div>',
