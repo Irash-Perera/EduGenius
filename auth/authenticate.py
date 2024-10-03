@@ -301,7 +301,7 @@ class Authenticate:
             raise ValueError("Location must be one of 'main' or 'sidebar'")
 
         if location == 'main':
-            if st.button(button_name, key=key):
+            if st.button(button_name, key=key, icon=":material/logout:"):
                 if self.cookie_name in self.cookie_manager.cookies:
                     self.cookie_manager.delete(self.cookie_name)
                 st.session_state['logout'] = True

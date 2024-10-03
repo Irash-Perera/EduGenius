@@ -17,7 +17,7 @@ llm = GoogleGenerativeAI(model = "gemini-pro", temperature=0.7)
 if st.session_state["authentication_status"]:
 
     # :TODO Add a if clause to make the chat available only when the answer was given by the user
-
+    st.header("Got any :red[_doubts_]🤔? Ask me anything!", divider="red")
     if "messages" not in st.session_state:
         st.session_state.messages = []
 
