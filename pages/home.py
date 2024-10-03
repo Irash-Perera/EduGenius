@@ -30,6 +30,32 @@ authenticator = Authenticate(
     config['cookie']['expiry_days'],
 )
 
+style_image2= """
+                    width: 400px;
+                    height: auto;
+                    position: fixed;
+                    overflow: hidden;
+                    top: -50px;
+                    right:-150px;
+                    opacity: 0.4;
+                    """
+style_image3= """
+                    width: 400px;
+                    height: auto;
+                    position: fixed;
+                    overflow: hidden;
+                    top: -50px;
+                    left:-150px;
+                    opacity: 0.4;
+                    """
+st.markdown(
+    f'<div style="display: flex; justify-content: center; align-items: center;"><img src="{"./app/static/coner.png"}" style="{style_image2}"></div>',
+    unsafe_allow_html=True,
+)
+st.markdown(
+    f'<div style="display: flex; justify-content: center; align-items: center;"><img src="{"./app/static/coner2.png"}" style="{style_image3}"></div>',
+    unsafe_allow_html=True,
+)
 
 def greeting():
     currentTime = datetime.datetime.now()
@@ -65,6 +91,8 @@ st.html("""
         <h2>Learn Smater. Get Personalized Help.</h2> 
     </div>
 """)
+
+st.html("""<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script><lottie-player src="https://lottie.host/afc47ae3-97ed-4c2e-8152-27169b5f6d77/gYMm6ZhqtP.json" background="transparent" speed="1" style="width: 300px; height: 300px" direction="1" mode="normal" loop autoplay></lottie-player>""")
 
 login, register = st.tabs(["Login", "Register"])
 tabstyle = '''
