@@ -30,4 +30,5 @@ def create_db(text_file, embeddings, persist_directory):
     vectordb.persist()
     vectordb = None
     
-create_db('utils/createVDB/2018.txt', embeddings, 'vectorstore_2018_OL' )
+    
+# create_db('utils/createVDB/2018.txt', embeddings, 'vectorstore_2018_OL' )
