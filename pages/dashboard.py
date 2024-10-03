@@ -65,7 +65,7 @@ if st.session_state["authentication_status"]:
         col3, col4 = st.columns(2)
         
         with col3:
-            if(st.button("Want a hint?🤓", type='primary', use_container_width=True)):
+            if(st.button("Want a hint?", type='primary', use_container_width=True, icon=":material/emoji_objects:")):
                 with col1:
                     with st.status("Let's see how we can help you...", expanded=True) as status:
                         response1 = generate_hints(selected_paper, selected_question, pro_model)
@@ -96,7 +96,7 @@ if st.session_state["authentication_status"]:
             
         with col4:   
             # st.button("It is worth giving it a try💡", use_container_width=True)
-            if st.button("Ask from MathSolver",use_container_width=True):
+            if st.button("Ask from MathSolver",icon=":material/sms:", use_container_width=True):
                 st.switch_page("pages/math_solver.py")
                 
         with col2:
@@ -132,7 +132,7 @@ if st.session_state["authentication_status"]:
                 
                 return response
             
-            if st.button("Proceed", type='primary', use_container_width=True):
+            if st.button("Proceed", type='primary', use_container_width=True, icon=":material/bolt:"):
                  
                     st.session_state["answer_image"] = selected_file
                     st.session_state["answer"] = ocr_for_answer(selected_file)   
