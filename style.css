@@ -30,9 +30,6 @@ h2{
 }
 
 @media screen and (max-width: 768px) {
-  .container{
-
-  }
   .title {
     font-size: 3rem;
   }
