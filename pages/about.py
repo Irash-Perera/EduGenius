@@ -104,11 +104,6 @@ st.html("""
             font-weight: 500;
         }
 
-        @keyframes glow {
-            from { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px var(--secondary-color), 0 0 20px var(--secondary-color); }
-            to { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px var(--secondary-color), 0 0 40px var(--secondary-color); }
-        }
-
         .edu-tagline {
             font-size: 1.4rem;
             margin-top: 1rem;
