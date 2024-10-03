@@ -59,12 +59,12 @@ with col4:
     )
     # st.image("assets/brand/edugenius_icon.png", use_column_width=True)
     
-st.markdown("""
+st.html("""
     <div class="container">
         <h5 class="title">EduGenius</h5>
         <h2>Learn Smater. Get Personalized Help.</h2> 
     </div>
-""", unsafe_allow_html=True)
+""")
 
 login, register = st.tabs(["Login", "Register"])
 tabstyle = '''
