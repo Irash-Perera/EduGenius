@@ -1,6 +1,6 @@
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+# __import__('pysqlite3')
+# import sys
+# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import streamlit as st
 
 fav_icon = "assets/brand/edugenius_icon.png"
@@ -9,7 +9,7 @@ st.set_page_config(layout="wide", page_title="EduGenius", page_icon=fav_icon)
 st.html("""
   <style>
     [alt=Logo] {
-      height: 3rem;
+      height: 2rem;
     }
   </style>
         """)
@@ -29,8 +29,9 @@ contactus_page = st.Page("pages/contact_us.py", title = "Contact Us", icon =":ma
 feedback_page = st.Page("pages/feedbacks.py", title = "Feedback", icon =":material/feedback:")
 documentation_page = st.Page("pages/documentation.py", title = "Documentation", icon =":material/book:")
 test_page = st.Page("pages/test.py", title = "Test", icon =":material/assessment:")
+about_page = st.Page("pages/about.py", title = "About", icon =":material/info:")
 pg = st.navigation({
-    "Main Menu":[home_page, dashboard_page,QA, math_solver, contactus_page, feedback_page, documentation_page]
+    "Main Menu":[ home_page,about_page, dashboard_page,QA, math_solver, feedback_page, documentation_page, contactus_page]
 })
 
 with st.sidebar:

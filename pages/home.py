@@ -51,6 +51,7 @@ with col4:
                     display: flex;
                     justify-content: center;
                     align-items: center;
+                    margin-bottom: -20px;
                     """
     st.markdown(
         f'<div style="display: flex; justify-content: center; align-items: center;"><img src="{"./app/static/edugenius_icon.png"}" style="{style_image1}"></div>',
@@ -64,7 +65,6 @@ st.markdown("""
         <h2>Learn Smater. Get Personalized Help.</h2> 
     </div>
 """, unsafe_allow_html=True)
-
 
 login, register = st.tabs(["Login", "Register"])
 tabstyle = '''
