@@ -42,8 +42,10 @@ def image_read_call(f,model):
         user_id=st.session_state.email
     )
     return response.text
-    return response.text
   
+
+
+# Why do we need to include model,prompt , question and answer? Only output is being used.
 @observe(as_type="generation")
 def answer_gen_call(model, prompt, question_, student_answer, output):
     response = output
@@ -51,12 +53,13 @@ def answer_gen_call(model, prompt, question_, student_answer, output):
         user_id=st.session_state.email
     )
     return response.text
-    return response.text
 
+# Why do we need to include model and prompt? Only output is being used.
 @observe(as_type="generation", capture_output=True)
 def hint_gen_call(model, prompt, question_, output):
     response = output
     return response.text
+
 
 def read_image(question_image_path, model):
     f = genai.upload_file(path = question_image_path)
