@@ -45,7 +45,18 @@ with open("style.css") as f:
 
 col1, col2, col3, col4, col5, col6, col7 = st.columns(7)
 with col4:
-    st.image("assets/brand/edugenius_icon.png", use_column_width=True)
+    style_image1 = """
+                    width: 50%;
+                    height: auto;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    """
+    st.markdown(
+        f'<div style="display: flex; justify-content: center; align-items: center;"><img src="{"./app/static/edugenius_icon.png"}" style="{style_image1}"></div>',
+        unsafe_allow_html=True,
+    )
+    # st.image("assets/brand/edugenius_icon.png", use_column_width=True)
     
 st.markdown("""
     <div class="container">
