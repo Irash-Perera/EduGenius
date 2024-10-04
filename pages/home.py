@@ -39,23 +39,10 @@ style_image2= """
                     right:-150px;
                     opacity: 0.2;
                     """
-style_image3= """
-                    width: 400px;
-                    height: auto;
-                    position: fixed;
-                    overflow: hidden;
-                    top: -50px;
-                    left:-150px;
-                    opacity: 0.2;
 
-                    """
 st.markdown(
     f'<div style="display: flex; justify-content: center; align-items: center;"><img src="{"./app/static/coner.png"}" style="{style_image2}"></div>',
-    unsafe_allow_html=True,
-)
-st.markdown(
-    f'<div style="display: flex; justify-content: center; align-items: center;"><img src="{"./app/static/coner2.png"}" style="{style_image3}"></div>',
-    unsafe_allow_html=True,
+    unsafe_allow_html=True
 )
 
 def greeting():
