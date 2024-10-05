@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_card import card
 
 st.html("""
         <!DOCTYPE html>
@@ -29,7 +30,6 @@ st.html("""
 
         .edu-header {
             background-color: var(--primary-color);
-            color: white;
             padding: 4rem 0;
             position: relative;
             overflow: hidden;
@@ -55,7 +55,7 @@ st.html("""
             position: absolute;
             font-size: 2rem;
             opacity: 0.2;
-            color: var(--secondary-color);
+            color: black;
         }
 
         @keyframes float1 {
@@ -124,6 +124,10 @@ st.html("""
             margin-top: 2rem;
             animation: fadeIn 0.5s ease-out forwards;
             opacity: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
         }
 
         @keyframes fadeIn {
@@ -140,7 +144,6 @@ st.html("""
             border-bottom: 2px solid var(--accent-color);
             padding-bottom: 0.5rem;
             margin-top: 0;
-            color: rgb(255, 255, 255);
         }
 
         .edu-list {
@@ -155,14 +158,13 @@ st.html("""
         }
 
         .edu-list-item::before {
-            content: '🚀';
+            content: '•';
             position: absolute;
             left: 0;
             top: 0;
         }
 
         .edu-highlight {
-            color: rgb(255, 255, 255);
             font-weight: bold;
         }
 
@@ -170,6 +172,10 @@ st.html("""
         @media (max-width: 600px) {
             .edu-container {
                 padding: 1rem;
+            }
+            
+            .edu-content{
+                flex-direction: column
             }
 
             .edu-title {
@@ -214,16 +220,24 @@ st.html("""
 
     <div class="edu-container">
         <div class="edu-content">
-            <h2 class="edu-subheader">What is EduGenius❓</h2>
-            <p>In modern education, personalized and efficient tutoring remains a challenge, particularly in mathematics. Traditional tutoring methods often lack flexibility and efficiency, hindering the learning process. EduGenius steps in to revolutionize math education with cutting-edge AI technology.</p>
+            <div class="edu-subcontent">
+                <h2 class="edu-subheader">What is EduGenius❓</h2>
+                <p>EduGenius is an innovative AI-powered tutoring platform developed by us who are three undergraduates at the Department of Computer Science and Engineering, University of Moratuwa, as our Semester 5 project.</p>
+                <p>The platform addresses challenges in modern education by offering personalized and efficient tutoring for O/Level students in mathematics. Leveraging advanced technologies such as LangChain and pre-processed mathematics marking schemes stored in a vector database, EduGenius generates tailored tutoring materials and provides instant, real-time feedback and grading. This approach enhances the learning experience, empowering students with a more interactive and supportive learning environment.</p>
+            </div>
+            <img src="./app/static/image1.png" alt="EduGenius" style="width: 200px ">
         </div>
 
         <div class="edu-content">
-            <h2 class="edu-subheader">Our Mission 🎯</h2>
-            <p>EduGenius aims to provide a personalized and efficient AI-powered tutoring system for A/Level and O/Level students in mathematics. We're committed to making advanced math education accessible, engaging, and tailored to each student's unique learning journey.</p>
+            <img src="./app/static/image2.png" alt="EduGenius" style="width: 200px">
+            <div class="edu-subcontent">
+                <h2 class="edu-subheader">Our Mission 🎯</h2>
+                <p>EduGenius aims to provide a personalized and efficient AI-powered tutoring system for O/Level students in mathematics. We're committed to making advanced math education accessible, engaging, and tailored to each student's unique learning journey.</p>
+            </div>
         </div>
 
         <div class="edu-content">
+            <div class="edu-subcontent">
             <h2 class="edu-subheader">Key Features 🚀</h2>
             <ul class="edu-list">
                 <li class="edu-list-item"><span class="edu-highlight">Personalized Tutoring Materials:</span> Utilizes pre-processed and pre-stored maths marking schemes in our advanced vector database.</li>
@@ -231,13 +245,47 @@ st.html("""
                 <li class="edu-list-item"><span class="edu-highlight">Interactive Learning:</span> Generates dynamic and personalized tutoring materials that adapt to each student's progress.</li>
                 <li class="edu-list-item"><span class="edu-highlight">Real-Time Evaluation:</span> Continuously assesses student performance, providing instant insights into areas of strength and improvement.</li>
                 <li class="edu-list-item"><span class="edu-highlight">Instant Feedback:</span> Delivers immediate, accurate feedback and grades, accelerating the learning process.</li>
+                <li class="edu-list-item"><span class="edu-highlight">Student-Driven Queries:</span> Allows students to ask their own questions, encouraging active participation and deepening understanding of the subject matter.</li>
                 <li class="edu-list-item"><span class="edu-highlight">Enhanced Learning Experience:</span> Creates an engaging, supportive environment that motivates students to excel in their mathematical journey.</li>
             </ul>
 
             <p>Ready to transform your math learning experience? Dive into the world of EduGenius today!</p>
+            </div>
+            <img src="./app/static/image3.png" alt="EduGenius" style="width: 200px">
         </div>
     </div>
 </body>
 </html>
         """)
+col4, col5, col6 = st.columns(3)
+with col5:
+    st.page_link("pages/dashboard.py", label="\nTry EduGenius Now!", icon=":material/rocket_launch:",use_container_width=True) 
+
+st.header("Team Members ",divider=True)
+
+col1, col2, col3 = st.columns(3)
+
+with col1:
+    hasClicked = card(
+        title = "Irash Perera",
+        text= "irash.21@cse.mrt.ac.lk",
+        image = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F792070653234421442%2F&psig=AOvVaw1VbTRqt-u20J4ypnXK-PSu&ust=1720383976393000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNDt-vKfk4cDFQAAAAAdAAAAABAE",
+        url = "https://github.com/Irash-Perera"
+    )
+
+with col2:
+    hasClicked = card(
+        title = "Hansana Prabashwara",
+        text= "hansana.21@cse.mrt.ac.lk",
+        image = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F792070653234421442%2F&psig=AOvVaw1VbTRqt-u20J4ypnXK-PSu&ust=1720383976393000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNDt-vKfk4cDFQAAAAAdAAAAABAE",
+        url = "https://github.com/HansanaPrabashwara-210483T"
+    )
+
+with col3:
+    hasClicked = card(
+        title = "Pranavan Subendiran",
+        text= "subendiran.21@cse.mrt.ac.lk",
+        image = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F792070653234421442%2F&psig=AOvVaw1VbTRqt-u20J4ypnXK-PSu&ust=1720383976393000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCNDt-vKfk4cDFQAAAAAdAAAAABAE",
+        url = "https://github.com/Pranavan-S"
+    )
  
