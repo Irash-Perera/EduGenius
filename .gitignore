@@ -1,7 +1,8 @@
-/__pycache__
+__pycache__/
 .env
 vectorstore_2018_OL/chroma.sqlite3
 assets/uploads/drawing.png
 auth/__pycache__
 ocr/__pycache__
 pages/__pycache__
+
