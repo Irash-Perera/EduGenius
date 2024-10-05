@@ -1,25 +1,24 @@
-A1.png   1. Customs duty of 9% is charged for a certain item that is imported. If the value of this item is 6000 rupees, find the amount that has to be paid as customs duty. 
-A10.png   In the given figure, the side CB of the right angled triangle ABC is produced to F. The midpoints of AB and CB are E and D respectively. If DEB = 50°, find the magnitude of EBF . 
-A11.png   Solve: 2x2-8 = 0 
-A12.png   12. A man takes a loan of 5000 rupces for two years at an annual interest of 8% with the interest compounded annually. How much is the interest for the second year for this loan amount? 
-A13.png   13. A cyclu: quadnlateml ABCD is shown in the figure. The side AB is produced to E. Moreover, BCD =120° and CBE =70°. Find the values of x and y according to the given information, 
-A14.png   14.  The students in a certain school who study the subjects Art, Dancing and Music are represented by the pie chart. If the number of students who study Music is 45, how many students study Dancing? g7 Dancing & 
-A15.png   15. Express the sixth term in the geometric progression 9, 27, 81, ... as a power of 3. 
-A16.png   16. A parallelogram ABCD is the figure. For each statement in the table, if it is correct mark a ‘v in front of it and if it is incorrect mark a ‘x’ in front of it. @ Area of the triangle ABD = % x area of the parallelogram ABCD @ The diagonal DB bisects ADC . 
-A17.png   17. Find the least common multiple ofic following three algebraic terms: 3x%, 6xy, 2y 
-A18.png   18. The centre of the circle in the given figure is O. Find the value of x according to the indicated in it. 
-A19.png   Two vertical pillars AB and CD located on a level ground are shown in the figure. When observed from D, the angle of clevation of B is 42° and the angle of depression of A is 58°. Represent this information in the figure. 
-A2.png   2. Find the factors: x? + 3x — 10 
-A20.png   20. A bag contains 35 identical marbles. A certain number of them are white while the rest are black. If the probability of a marble picked randomly from the bag being black is %, how many black marbles are there in the bag? 
-A21.png   21. Fill in the blanks in the following statement using suitable geometric terms. “The straight line joining the centre of a circle (o the of the circle is to the chord”. of a chord 
-A22.png   22. Find the value of x if GGG ) 
-A23.png   23. From the group of students who are represented in the given Venn diagram, the set of students who like Mathematics is represented by A and the set of students who like Science is represented by B. In the Venn diagram, shade A-—| the regions that represent the students who like only one of these two subjects. 
-A24.png   24. A distance-time graph that represents the motion of a motor vehicle is shown in the figure. Which part of the graph represents the motor travelling with the greater speed? What is this speed? Distance (kilometres) 5 g 0 1 2 3 4 5 6 Time (hours) 
-A25.png   A portion of the locus of a point that moves at a constant distance of 5m from the given point P is indicated by the arc in this sketch. The straight line RS is at a distance of 7m from P. Indicate by a sketch on this figure, how the points on the arc which are at a distance of 5m from the siraight line RS also, are found. 
-A3.png   3. Find the value of x according to the information given in the figure. 
-A4.png   4. If it is given that log, a = 5, write the value of a as a power of 2. 
-A5.png   5. Find the time it takes to fill a tank of capacity 420 litres using a pi;)e through which water flow: at a rate of 60 litres per minute. 
-A6.png   6. The points A, B, C and D lie on the circle shown in the figure. ABC = 100° and CAB = 3(°. Find the valuc of x. 
-A7.png   7. The base radius of a solid right circular cylinder is 7 cm. Its height is 10 cm. Find the arca of the curved surface of the cylinder. (Use % for the value of 7.) 
-A8.png   8. Find the gradient of the straight line represented by AB in the figure. 
-A9.png   9. Simplify : ~I§ § 
+A1.png   
+A10.png   
+A12.png   12. 
+A13.png   13. 
+A14.png   14.  
+A15.png   15. 
+A16.png   16. 
+A17.png   17. 
+A18.png   18. 
+A19.png   
+A2.png   2. 
+A20.png   20. 
+A21.png   21. 
+A22.png   22.  
+A23.png   23. 
+A24.png   24. 
+A25.png   
+A3.png   3. 
+A4.png   4. 
+A5.png   5. 
+A6.png   6. 
+A7.png   7. 
+A8.png   8. 
+A9.png   9. 
