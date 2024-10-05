@@ -69,8 +69,7 @@ def respond_for_user_question(user_question,llm):
             hints_str += i 
             hints += ", "   
 
-    print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-    print(question_str)
+
 
     # Create the retrieval chain
     template = """
