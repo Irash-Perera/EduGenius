@@ -48,17 +48,18 @@ if st.session_state["authentication_status"]:
 
             # Incase there were previous question stored in th session we need to remove the data associated with that 
             # specific question. Else we can just add the selected question
-            if st.session_state["question"] is not None:
-                st.session_state["question"] = {"paper": selected_paper, "question":selected_question_display }
-                st.session_state["hints"] = []
-                st.session_state["answer"] = None
-                st.session_state["answer_image"] = None
-                st.session_state["messages"] = []
-                st.session_state["marks"] = None
-                st.session_state["similar_problems"] = None
-                st.session_state["improvement"] = None
-                st.session_state["explanations"] = None
-            else:
+            # if st.session_state["question"] is not None:
+            #     st.session_state["question"] = {"paper": selected_paper, "question":selected_question_display }
+            #     st.session_state["question_text"] = None
+            #     st.session_state["hints"] = []
+            #     st.session_state["answer"] = None
+            #     st.session_state["answer_image"] = None
+            #     st.session_state["messages"] = []
+            #     st.session_state["marks"] = None
+            #     st.session_state["similar_problems"] = None
+            #     st.session_state["improvement"] = None
+            #     st.session_state["explanations"] = None
+            # else:
                 st.session_state["question"] = {"paper": selected_paper, "question":selected_question_display }
 
 
@@ -118,6 +119,8 @@ if st.session_state["authentication_status"]:
             @observe()
             def initialize_generation_pipeline():
                 scanned_question = read_image(os.path.join('assets/data', selected_paper, selected_question), flash_model)
+
+                st.session_state["question_text"] = scanned_question
                         
                 status.update(label="Fetching marking scheme...",state="running", expanded=False)
                 context = db_search(scanned_question, llm, embeddings, 'vectorstore_2018_OL')
@@ -136,6 +139,9 @@ if st.session_state["authentication_status"]:
                  
                     st.session_state["answer_image"] = selected_file
                     st.session_state["answer"] = ocr_for_answer(selected_file)   
+
+                    st.session_state.messages = []
+
                 # print(os.path.join('data', selected_paper, selected_question), selected_file)
                     with st.status("Analyzing question...", expanded=True) as status:
                         # scanned_question = read_image(os.path.join('assets/data', selected_paper, selected_question), flash_model)
