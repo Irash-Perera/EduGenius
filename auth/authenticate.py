@@ -219,7 +219,7 @@ class Authenticate:
                 st.session_state['email'] = self.email
                 self.password = login_form.text_input('Password', type='password')
 
-                if login_form.form_submit_button('Login'):
+                if login_form.form_submit_button('Login' ,icon=":material/login:"):
                     self._check_credentials()
 
         return st.session_state['name'], st.session_state['authentication_status'], st.session_state['email']
@@ -451,7 +451,7 @@ class Authenticate:
         new_password = register_user_form.text_input('Password', type='password')
         new_password_repeat = register_user_form.text_input('Repeat password', type='password')
 
-        if register_user_form.form_submit_button('Register'):
+        if register_user_form.form_submit_button('Register', icon=":material/assignment_turned_in:"):
             user_document = self.collection.find_one({"email": new_email})
             if len(new_email)  and len(new_name) and len(new_password) > 0:
                 if not user_document:

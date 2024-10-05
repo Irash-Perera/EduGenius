@@ -15,7 +15,7 @@ else:
     
 st.header("Give us your :red[feedback] ✨", divider= "red")
 
-st.markdown("##### We would love to hear your feedback on the question you just attempted. Your feedback will help us improve our services.")
+st.markdown("###### We would love to hear your feedback on the question you just attempted. Your feedback will help us improve our services.")
 st.write(":red[Note!] You can submit your feedbacks for each attempt.")
 
 col1, col2 = st.columns(2)

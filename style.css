@@ -12,7 +12,6 @@
 .title {
   text-align: center;
   font-size: 5rem;
-  color: #fff;
   font-family: 'Poppins', sans-serif;
   font-weight: 400;
   text-wrap: nowrap;
@@ -20,7 +19,6 @@
 
 h2{
   font-size: 1.5rem;
-  color: #fff;
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   text-align: center;

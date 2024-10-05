@@ -106,7 +106,6 @@ with login:
         
 with register:   
     if st.session_state["authentication_status"] is None:
-        st.markdown("#### Create a new account here 👇")
         try:
             if authenticator.register_user('Register user'):
                 st.success('User registered successfully. Try logging in now.', icon=':material/sentiment_satisfied:')

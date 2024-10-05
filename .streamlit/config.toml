@@ -1,7 +1,5 @@
 [theme]
-base="dark"
-backgroundColor="#120808"
-secondaryBackgroundColor="#250e09"
+base="light"
 
 [server]
 enableStaticServing = true
