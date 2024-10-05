@@ -1,15 +1,9 @@
-
-from langchain_google_genai import GoogleGenerativeAIEmbeddings
 import google.generativeai as genai
-from langchain.vectorstores import FAISS
-from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain.chains.question_answering import load_qa_chain
 from langchain.prompts import PromptTemplate
 import streamlit as st
 from dotenv import load_dotenv
 import os
 from langchain.vectorstores import Chroma
-from langchain.chains import VectorDBQA
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
 from utils.createVDB.create_db import embeddings
@@ -25,10 +19,65 @@ def respond_for_user_question(user_question,llm):
 
     retriever = vectordb.as_retriever(search_kwargs={"k": 5})
 
-    #Create the retrieval chain
+    # Get session data
+    
+    ## Chat History
+    history = "history: "
+    for message in st.session_state.messages:
+        history += message["content"] + " "
+
+    question_str = ''
+    answer_str = ''
+    explanations_str = ''
+    marks_str = ''
+    similar_problems_str = ''
+    improvements_str = ''
+    hints_str = ''
+
+    question = st.session_state["question_text"]
+    answer = st.session_state["answer"]
+    explanations = st.session_state["explanation"]
+    marks = st.session_state["marks"]
+    similar_problems = st.session_state["similar_problems"]
+    improvements = st.session_state["improvement"]
+    hints = st.session_state["hints"]
+    
+    if question != None:
+        question_str = f"question : {question}"
+
+    if answer != None:
+        answer_str = f"answer : {answer}"
+
+    if explanations != None:
+        explanations_str = f"explanation: {explanations}"
+    
+    if marks != None:
+        marks_str = f"marks : {marks}"
+                
+    if similar_problems != None:
+        similar_problems_str = f"similar problems : "
+        for i in similar_problems:
+            similar_problems_str += i
+            similar_problems += ", "
+
+    if improvements != None:
+        improvements_str = f"improvements: {improvements}"       
+
+    if hints != None:
+        hints_str = f"hints: {hints}"   
+        for i in hints:
+            hints_str += i 
+            hints += ", "   
+
+    print("++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
+    print(question_str)
+
+    # Create the retrieval chain
     template = """
     You are a helpful AI math tutor.
-    Answer based on the following data provided. 
+    Answer based on the following data provided.
+    If data regarding question, explanation, marks, similar problems, improvements, hints and history is provided take them to consideration  
+    \n"""+ question_str + answer_str + explanations_str + marks_str + improvements_str + history  + similar_problems_str + hints_str+"""
     context: {context}
     input: {input}
     answer:
