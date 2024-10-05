@@ -72,6 +72,8 @@ class Authenticate:
             st.session_state.similar_problems = None
         if "question" not in st.session_state:
             st.session_state.question = None
+        if "question_text" not in st.session_state:
+            st.session_state.question_text = None
             
 
     def _token_encode(self) -> str:
