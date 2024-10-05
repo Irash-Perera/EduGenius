@@ -13,7 +13,7 @@ GEMINI_PRO_API_KEY = os.getenv("GEMINI_PRO_API_KEY")
 os.environ['GOOGLE_API_KEY'] = GEMINI_PRO_API_KEY
 llm = GoogleGenerativeAI(model = "gemini-pro", temperature=0.7)
 
-st.header("Got any :red[_doubts_]🤔? Ask me anything!", divider="red")
+
 
 def flush_messages():
     st.session_state.messages = []
