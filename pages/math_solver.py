@@ -15,7 +15,7 @@ load_dotenv()
 # os.environ["LANGFUSE_PUBLIC_KEY"] = LANGFUSE_PUBLIC_KEY
 # os.environ["LANGFUSE_HOST"] = LANGFUSE_HOST
 
-st.header("Have a math problem?")
+st.subheader("Have a problem?")
 st.subheader(" Let's solve it :red[_step-by-step_]💡", divider= 'red')
 
 @observe()
@@ -27,7 +27,7 @@ def get_wolframalpha_response(prompt):
                 f"appid={appid}" \
                 f"&input={query}" \
                 f"&podstate=Result__Step-by-step+solution" \
-                "&format=mathml" \
+                "&format=html" \
                 f"&output=json"
     
     r = requests.get(query_url).json()
@@ -62,30 +62,42 @@ if st.session_state["authentication_status"]:
                         </ul>
                     </li>
                     <li>If you are still stuck, try asking the question in a different way</li>
+                    <li>You can ask for proofs, definitions, and more</li>
                 </ul>
             </div>
         """, unsafe_allow_html=True)
-        
+
     prompt = st.chat_input("Ask your math question here")
+    answer="<h2> Here's what I found ✨:</h2>"
     if prompt:
         response = get_wolframalpha_response(prompt)
-        markdown_text = ""
+        
         for pod in response["pods"]:
             
             has_content = False
-            for subpod in pod["subpods"]:
-                if "mathml" in subpod:
-                    has_content = True
+            # for subpod in pod["subpods"]:
+            if "markup" in pod:
+                has_content = True
             if has_content:
-                markdown_text += f"###### {pod['title']}\n\n"
-                for subpod in pod["subpods"]:
-                    if "mathml" in subpod:
-                        markdown_text += f"\n{subpod['mathml']}\n\n"
+                answer+= pod["markup"]["data"]
             has_content = False
+        answer+="""
+        <style>
+        h2{
+            font-size: 1rem;
+        }
+        div{
+            border:0px;
+        }
+        hr{
+            margin:0px;
+        }
+        </style>
+        """
                     
         messages.chat_message("user").markdown(prompt, unsafe_allow_html=True)
-        messages.chat_message("assistant").markdown(f"##### Result:\n\n{markdown_text}", unsafe_allow_html=True)
-                
+        messages.chat_message("assistant").html(f"{answer}")
+             
     
                 
 else:
