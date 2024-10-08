@@ -49,7 +49,7 @@ if st.session_state["authentication_status"]:
     with col2:
         tips = st.container(height=370)
         tips.markdown("""
-            <div style=" border-radius: 10px; padding: 20px; height: 300px; box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);">
+            <div style=" border-radius: 10px; padding: 20px; height: 300px; rgba(0, 0, 0, 0.1);">
                 <h5 style="text-align: left;">Don't get the answer as expected? Here are some tips🤖:</h5>
                 <ul style="margin-left: 20px;">
                     <li>Make sure you ask a math question</li>
