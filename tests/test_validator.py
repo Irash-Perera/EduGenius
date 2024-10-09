@@ -12,5 +12,17 @@ def validator():
     return Validator()
 
 
+valid_name = "Makers-of_EduGenius2"
+name_with_spaces = "Monkey Flies"
+name_with_more_than_20 = 'Zimba123ZorenDilemmaTranscent'
 
+
+def test_validate_username_with_valid_name(validator):
+    assert validator.validate_username(valid_name)==True
+
+def test_validate_username_with_spaces(validator):
+    assert validator.validate_username(name_with_spaces)==False
+
+
+    
 
