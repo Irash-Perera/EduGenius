@@ -16,15 +16,15 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 def reformat_curly_brackets(text):
     if "{" in text or "}" in text:
-        text = text.replace("{", "{{")
-        text = text.replace("}", "}}")
+        text = text.replace("{", "{{{")
+        text = text.replace("}", "}}}")
     return text
 
 
 def respond_for_user_question(user_question,llm):
     vectordb = Chroma(persist_directory='vectorstore_2018_OL', embedding_function=embeddings)
 
-    retriever = vectordb.as_retriever(search_kwargs={"k": 5})
+    retriever = vectordb.as_retriever(search_kwargs={"k": 2})
 
     # Get session data
     
@@ -88,13 +88,14 @@ def respond_for_user_question(user_question,llm):
     input: {input}
     answer:
     """
-    print(template)
+    # print(template)
     formatted_user_question = reformat_curly_brackets(user_question)
     print(formatted_user_question)
     prompt = PromptTemplate.from_template(template)
     combine_docs_chain = create_stuff_documents_chain(llm, prompt)
     retrieval_chain = create_retrieval_chain(retriever, combine_docs_chain)
     response=retrieval_chain.invoke({"input":formatted_user_question})
+    print(response)
     st.session_state.messages.append({"role": "assistant", "content": response["answer"]})
 
     with st.chat_message("assistant"):
