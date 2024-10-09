@@ -11,7 +11,11 @@ from auth.validator import Validator
 def validator():
     return Validator()
 
-
+###########################################################################################
+"""
+Testing the validate_username method of Validator object.
+"""
+# mock testing values for validate user name.
 valid_name = "Makers-of_EduGenius2"
 name_with_digits = "123456789"
 name_with_small_letters = "checkmancheck"
@@ -56,6 +60,44 @@ def test_validate_username_lengthy(validator):
     """
     assert validator.validate_username(name_with_more_than_20)==False
 
+###########################################################################################
+"""
+Testing the validate_email method of Validator object.
+"""    
 
-    
+# mock email test values
+invalid_length_2 = "@."
+invalid_length_320 = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+invalid_mail_without_at = 'zxcdomain.com'
+valid_email = 'zxc@domain.com'
 
+
+def test_validate_email_length_2(validator):
+    assert len(invalid_length_2) == 2
+
+    assert validator.validate_email(invalid_length_2) == False
+
+def test_validate_email_length_320(validator):
+    assert len(invalid_length_320) == 320
+
+    assert validator.validate_email(invalid_length_320) == False
+
+def test_validate_email_without_at(validator):
+    # verifyig the length constraint
+    assert 2 < len(invalid_mail_without_at) < 320
+
+    # verifying @ is not present
+    assert not('@' in invalid_mail_without_at)
+
+    # verifying whether the mail_id is rejected
+    assert validator.validate_email(invalid_mail_without_at) == False
+
+def test_validate_email_valid_mail(validator):
+    # verifyig the length constraint
+    assert 2 < len(valid_email) < 320
+
+    # verifying @ is not present
+    assert '@' in valid_email
+
+    # verifying whether the mail_id is rejected
+    assert validator.validate_email(valid_email) == True
