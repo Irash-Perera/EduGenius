@@ -14,6 +14,30 @@ os.environ['GOOGLE_API_KEY'] =  os.getenv("GOOGLE_GEN_AI_API_KEY")
 LLM = LangchainLLMWrapper(GoogleGenerativeAI(model = "gemini-pro", temperature=0.7))
 EMBEDDINGS = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
 
+class RAG_Report():
+    def __init__(self,question_list,answer_list, context_list, ground_truth_list):  
+        if (len(question_list) != len(answer_list)) or (len(question_list) != len(context_list)) or (len(context_list) != len(answer_list)):
+                raise ValueError("All lists must be the same length")
+            
+        self.question_list = question_list
+        self.answer_list = answer_list
+        self.context_list = context_list
+        self.ground_truth_list = ground_truth_list
+
+        self.report = {}
+
+    def generate_report(self):
+        self.tester = RAG_Tester(self.question_list, self.answer_list, self.context_list, self.ground_truth_list)
+        self.report["faithfulness"] = self.tester.faithfulness()
+        self.report["answer_relevancy"] = self.tester.answerRelavance()
+        self.report["context_precision"] = self.tester.contextPrecision()
+        self.report["context_utilization"] = self.tester.contextUtilization()
+        self.report["context_recall"] = self.tester.contextRecall()
+        self.report["context_entity_recall"] = self.tester.contextEntitiesRecall()
+        self.report["noise_sensitivity"] = self.tester.noiseSensitivity()
+        self.report["answer_similarity"] = self.tester.answerSementicSimilarity()
+        self.report["answer_correctness"] = self.tester.answerCorrectness()
+        return self.report
 
 class RAG_Tester():
     def __init__(self,question_list,answer_list, context_list, ground_truth_list):
