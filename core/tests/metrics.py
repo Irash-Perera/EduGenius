@@ -5,7 +5,7 @@ from ragas import evaluate
 from ragas.llms.base import LangchainLLMWrapper
 import os
 from dotenv import load_dotenv
-
+from time import sleep
 
 load_dotenv()
 
@@ -28,14 +28,23 @@ class RAG_Report():
 
     def generate_report(self):
         self.tester = RAG_Tester(self.question_list, self.answer_list, self.context_list, self.ground_truth_list)
+        sleep(10)
         self.report["faithfulness"] = self.tester.faithfulness()
+        sleep(10)
         self.report["answer_relevancy"] = self.tester.answerRelavance()
+        sleep(10)
         self.report["context_precision"] = self.tester.contextPrecision()
+        sleep(10)
         self.report["context_utilization"] = self.tester.contextUtilization()
+        sleep(10)
         self.report["context_recall"] = self.tester.contextRecall()
+        sleep(10)
         self.report["context_entity_recall"] = self.tester.contextEntitiesRecall()
+        sleep(10)
         self.report["noise_sensitivity"] = self.tester.noiseSensitivity()
+        sleep(10)
         self.report["answer_similarity"] = self.tester.answerSementicSimilarity()
+        sleep(10)
         self.report["answer_correctness"] = self.tester.answerCorrectness()
         return self.report
 
@@ -154,7 +163,7 @@ class RAG_Tester():
              {
                 'question': self.question_list,
                 'answer' : self.answer_list,
-                'contexts': self.context_list
+                'ground_truth': self.ground_truth_list
             }
         )  
         score = evaluate(dataset, metrics=self.set_llm_and_embeddings(answer_similarity))
@@ -166,7 +175,7 @@ class RAG_Tester():
              {
                 'question': self.question_list,
                 'answer' : self.answer_list,
-                'contexts': self.context_list
+                'ground_truth': self.ground_truth_list
             }
         )  
         score = evaluate(dataset, metrics=self.set_llm_and_embeddings(answer_correctness))
