@@ -10,4 +10,9 @@ def test_generate_random_pw():
                 : verifies whether the genearted random password is a string.
                 : verifies whether the genearted random password is made of alphanumeric characters.
     """
+    # generate a password using generate random method
+    random_pw = generate_random_pw()
+    assert type(random_pw) == str
+    assert len(random_pw) == 16
+
     
