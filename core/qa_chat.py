@@ -8,6 +8,7 @@ from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
 from utils.createVDB.create_db import embeddings
 
+from pages.math_solver import get_wolframalpha_response
 
 load_dotenv()
 os.getenv("GOOGLE_API_KEY")
@@ -16,8 +17,8 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 def reformat_curly_brackets(text):
     if "{" in text or "}" in text:
-        text = text.replace("{", "{{{")
-        text = text.replace("}", "}}}")
+        text = text.replace("{", "{{")
+        text = text.replace("}", "}}")
     return text
 
 
@@ -53,7 +54,7 @@ def respond_for_user_question(user_question,llm):
         question_str = f"question : {reformat_curly_brackets(question)}"
 
     if answer != None:
-        answer_str = f"answer : {reformat_curly_brackets(answer)}"
+        answer_str = f"provided answer : {reformat_curly_brackets(answer)}"
 
     if explanations != None:
         explanations_str = f"explanation: {reformat_curly_brackets(explanations)}"
@@ -79,24 +80,44 @@ def respond_for_user_question(user_question,llm):
 
 
     # Create the retrieval chain
-    template = """
+    template1 = """
     You are a helpful AI math tutor.
     Answer based on the following data provided.
-    If data regarding question, explanation, marks, similar problems, improvements, hints and history is provided take them to consideration  
-    \n"""+ question_str + answer_str + explanations_str + marks_str + improvements_str + history  + similar_problems_str + hints_str+"""
+    \n"""+ question_str +'\n'+ answer_str +'\n'+ explanations_str +'\n'+ marks_str +'\n'+ improvements_str +'\n'+ history  +'\n'+ similar_problems_str +'\n'+ hints_str+'\n'+"""
     context: {context}
     input: {input}
     answer:
     """
-    # print(template)
+
+    template2 = """
+    You are a helpful AI math tutor.
+    try to answer the user query. Try to follow the steps provided in the context.Ignore the context.
+    Answer in friendly, explaining manner.
+    context: {context}
+
+
+    input: {input}
+    answer:
+    """
+    template = template2
+    if question != None:
+        template = template1
+
     formatted_user_question = reformat_curly_brackets(user_question)
-    print(formatted_user_question)
     prompt = PromptTemplate.from_template(template)
     combine_docs_chain = create_stuff_documents_chain(llm, prompt)
     retrieval_chain = create_retrieval_chain(retriever, combine_docs_chain)
     response=retrieval_chain.invoke({"input":formatted_user_question})
-    print(response)
     st.session_state.messages.append({"role": "assistant", "content": response["answer"]})
+    # print("Question -----------------------------------------")
+    # print(formatted_user_question)
+    # print("Answer -------------------------------------------")
+    # print(response["answer"])
+    # print("Context ------------------------------------------")
+    # print(response["context"])
+    # print("template -----------------------------------------")
+    # print(template)
+
 
     with st.chat_message("assistant"):
         st.write(response["answer"])
