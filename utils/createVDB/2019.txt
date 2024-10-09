@@ -87,7 +87,7 @@ $$
 Figure shows ABCD parallelogram with DB connected
 $$
 
-**17. Find the least common multiple of the following three algebraic terms: 3x%, 6xy, 2y **
+**17. Find the least common multiple of the following three algebraic terms: 3xy, 6xy, 2y **
 6x^2y _[2 marks for this step]_
 3𝑥^2 = 3*x*x , 6xy = 3*2*x*y, 2y = 2*y or 3*2*x*x*y 
 $$
@@ -112,7 +112,7 @@ $$
 "The straight line joining the centre of a circle to the of the `midpoint [Marks for this step: 1]` circle is to the chord�. of a chord of the circle id `perpendicular [Marks for this step: 1]` to the chord"
 $$
 
-**22. Find the value of x if {[3,1][-1,2]}{[2, -1][-1,1]} = {[5, x][-4, 3]}
+**22. Find the value of x if {[3,1][-1,2]}*{[2, -1][-1,1]} = {[5, x][-4, 3]}
 x = -2 or {[5 , -2][-4, 3]} _[2 marks for this step]_
 3*(-1) + 1*1 _[1 marks for this step]_
 
@@ -121,7 +121,7 @@ x = -2 or {[5 , -2][-4, 3]} _[2 marks for this step]_
 **23. From the group of students who are represented in the given Venn diagram, the set of students who like Mathematics is represented by A and the set of students who like Science is represented by B. In the Venn diagram, shade the regions that represent the students who like only one of these two subjects. **
  * Shading the relevent regions [Marks for this step: 2]
  
-The Venn diagram shows two circles A and B. There is aintersection region
+The Venn diagram shows two circles A and B. There is a intersection region
 
 **24. A distance-time graph that represents the motion of a motor vehicle is shown in the figure. Which part of the graph represents the motor travelling with the greater speed? What is this speed? **
  *  Distance from 0 to 120km [Marks for this step: 1]
