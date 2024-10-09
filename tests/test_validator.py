@@ -129,7 +129,11 @@ Testing the validate_name method of Validator object.
 
 # mock testing values for names.
 invalid_name_length_1='e'
-invalid_name_length_100='eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
+invalid_name_length_100='e'*100
+
+invalid_name_length_0=''
+invalid_name_length_101='e'*101
+
 invalid_name_with_wrong_type = 1110  # not a string value(integer value)
 valid_name = 'user123'
 
@@ -161,6 +165,34 @@ def test_validate_name_length_100(validator):
     assert validator.validate_name(invalid_name_length_100) == False
 
 
+def test_validate_name_length_0(validator):
+    """
+    Functionality: verify the rejection of name with length lesser than 1
+    """
+    # verifying length of the name is 0
+    assert len(invalid_name_length_0)==0
+
+    # verify name is of string type
+    assert type(invalid_name_length_0)==str
+
+    # verify whether the name with length 0 is successfully rejected.
+    assert validator.validate_name(invalid_name_length_0) == False
+
+
+def test_validate_name_length_101(validator):
+    """
+    Functionality: verify the rejection of name with length more than 100
+    """
+    # verifying length of the name is 101
+    assert len(invalid_name_length_101)==101
+
+    # verify name is of string type
+    assert type(invalid_name_length_101)==str
+
+    # verify whether the name with length 100 is successfully rejected.
+    assert validator.validate_name(invalid_name_length_101) == False
+
+
 def test_validate_name_of_wrong_type(validator):
     """
     Functionality: verify the rejection of name of non-string type
@@ -171,6 +203,7 @@ def test_validate_name_of_wrong_type(validator):
     # verify whether the name with wrong type causes type error
     with pytest.raises(TypeError):
         validator.validate_name(invalid_name_with_wrong_type)
+
 
 def test_validate_name_valid_name(validator):
     """
