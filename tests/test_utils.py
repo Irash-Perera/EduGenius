@@ -15,4 +15,5 @@ def test_generate_random_pw():
     assert type(random_pw) == str
     assert len(random_pw) == 16
 
-    
+    for c in random_pw:
+        assert c.isalpha() or c.isdigit()
