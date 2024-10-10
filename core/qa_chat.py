@@ -16,15 +16,87 @@ genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 
 def reformat_curly_brackets(text):
+    """Reformat the given text to hansle curly brackets issues in the templates
+
+    Args:
+        text (string): Text to be reformatted
+
+    Returns:
+        string: reformatted text 
+    """
     if "{" in text or "}" in text:
         text = text.replace("{", "{{")
         text = text.replace("}", "}}")
     return text
 
 
-def respond_for_user_question(user_question,llm):
-    vectordb = Chroma(persist_directory='vectorstore_2018_OL', embedding_function=embeddings)
+def get_page_content(relevent_documents):
+    """Get the page content from the given documents
 
+    Args:
+        relevent_documents (Chroma.documents): Document objects retived after similarity search
+
+    Returns:
+        string : page contents as a single string
+    """
+    if relevent_documents == None:
+        return None
+    else:
+        context = ""
+        for i in relevent_documents:
+            context += i.page_content
+            context += ",    "
+        return reformat_curly_brackets(context)
+
+
+def convert_to_markdown(response):
+    """Convert the response from wolframalpha to markdown format
+
+    Args:
+        response (json): wolfram response 
+
+    Returns:
+        string : reormatted markdown as a string 
+    """
+    markdown_text = ""
+    for pod in response["pods"]:
+        has_content = False
+        for subpod in pod["subpods"]:
+            if "mathml" in subpod:
+                has_content = True
+        if has_content:
+            markdown_text += f"###### {pod['title']}\n\n"
+            for subpod in pod["subpods"]:
+                if "mathml" in subpod:
+                    markdown_text += f"\n{subpod['mathml']}\n\n"
+    return reformat_curly_brackets(markdown_text)
+
+
+
+def respond_for_user_question(user_question,llm):
+    """Generate the platform response for the user queries
+
+    Args:
+        user_question (string): User's query
+        llm (langchain.models.LLM): LLM model to be used to generate the answer  
+
+    Returns:
+        string : generated response for the user query
+    """
+
+
+
+    # Textbook Vector Store data rerical
+    vector_textbook = Chroma(persist_directory='vectorstore_text_books', embedding_function=embeddings)
+    textbook_retriver = vector_textbook.as_retriever(
+        search_type="similarity_score_threshold",
+        search_kwargs={'score_threshold': 0.4}
+    )
+    relevent_textbook_documents = textbook_retriver.get_relevant_documents(user_question)
+    relevent_textbook_content = get_page_content(relevent_textbook_documents)
+    
+    # Questions vectorstore data retival chain
+    vectordb = Chroma(persist_directory='vectorstore_2018_OL', embedding_function=embeddings)
     retriever = vectordb.as_retriever(search_kwargs={"k": 2})
 
     # Get session data
@@ -78,12 +150,21 @@ def respond_for_user_question(user_question,llm):
             hints += ", "   
 
 
+    wolfram_text = ""
+    if question == None:
+        wolfram_text = get_wolframalpha_response(user_question)
+        # print(wolfram_text)
+        wolfram_text = convert_to_markdown(wolfram_text)
+
 
     # Create the retrieval chain
     template1 = """
     You are a helpful AI math tutor.
     Answer based on the following data provided.
     \n"""+ question_str +'\n'+ answer_str +'\n'+ explanations_str +'\n'+ marks_str +'\n'+ improvements_str +'\n'+ history  +'\n'+ similar_problems_str +'\n'+ hints_str+'\n'+"""
+    
+    textbook content:""" +relevent_textbook_content+ """
+    
     context: {context}
     input: {input}
     answer:
@@ -93,6 +174,8 @@ def respond_for_user_question(user_question,llm):
     You are a helpful AI math tutor.
     try to answer the user query. Try to follow the steps provided in the context.Ignore the context.
     Answer in friendly, explaining manner.
+    textbook content:""" +relevent_textbook_content+ """
+    potential_answer:"""+ wolfram_text+"""
     context: {context}
 
 
@@ -121,3 +204,5 @@ def respond_for_user_question(user_question,llm):
 
     with st.chat_message("assistant"):
         st.write(response["answer"])
+
+    return response
