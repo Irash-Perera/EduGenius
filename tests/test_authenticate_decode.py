@@ -25,3 +25,27 @@ def test_token_decode(authenticate):
     authenticate.token = token
     assert authenticate._token_decode() == {'name': 'abc', 'email': 'abc@mail.com'}
 
+def test_token_decode_with_invalid_token(authenticate):
+    """
+    Functionality: verifies that an invalid token returns False.
+    """
+    authenticate.token = 'invalid_token'
+    assert authenticate._token_decode() == False
+
+def test_token_decode_with_expired_token(authenticate):
+    """
+    Functionality: verifies that an expired token returns False.
+    """
+    token = jwt.encode({'name': 'abc', 'email': 'abc@mail.com', 'exp': 1643723400}, authenticate.key, algorithm='HS256')
+    authenticate.token = token
+    assert authenticate._token_decode() == False
+
+@patch('jwt.decode')
+def test_token_decode_with_jwt_decode_error(mock_jwt_decode, authenticate):
+    """
+    Functionality: verifies that token_decode returns false when jwt.decode raises an error.
+    """
+    authenticate.token = 'token'
+    mock_jwt_decode.side_effect = jwt.ExpiredSignatureError
+    
+    assert authenticate._token_decode() == False
