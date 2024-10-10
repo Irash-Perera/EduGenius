@@ -95,9 +95,50 @@ def test_token_encode(authenticate):
     # verifes whether it returns a string value or not.
     assert type(token)==str
 
-def test_token_encode_with_invalid_session_state(authenticate):
-    
+def test_token_encode_with_invalid_key(authenticate):
+    """
+    Functionality: verifies whether token_encode invokes TypeError when key is invalid(set to None)
+    """
+    # Set the exp date to a valid value
     authenticate.exp_date = 1643723400
+    
+    # Set the key to None to simulate an invalid key
+    authenticate.key = None
+    
+    # Check that a TypeError is raised when the _token_encode method is called
+    with pytest.raises(TypeError):
+        # Call the _token_encode method
+        authenticate._token_encode()
+
+
+@patch('jwt.encode')
+def test_token_encode_with_jwt_encode_error(mock_jwt_encode, authenticate):
+    """
+    Functionality: verifies whether token_encode raises jwt.ExpiredSignatureError when jwt.encode raises an error.
+    """
+    # Set the exp date to a valid value
+    authenticate.exp_date = 1643723400
+    
+    # Mock the jwt.encode function to raise a jwt.ExpiredSignatureError
+    mock_jwt_encode.side_effect = jwt.ExpiredSignatureError
+    
+    # Check that a jwt.ExpiredSignatureError is raised when the _token_encode method is called
+    with pytest.raises(jwt.ExpiredSignatureError):
+        # Call the _token_encode method
+        authenticate._token_encode()
+
+
+def test_token_encode_with_invalid_session_state(authenticate):
+    """
+    Functionality: verifies when session state is empty(invalid) token_enode throws KeyError.
+    """
+    # mock expiary date value.
+    authenticate.exp_date = 1643723400
+
+    # making session state empty dictionary.
     st.session_state = {}
+
+    # check for the key error.
     with pytest.raises(KeyError):
         authenticate._token_encode()
+
