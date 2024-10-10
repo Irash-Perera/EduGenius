@@ -87,7 +87,7 @@ def respond_for_user_question(user_question,llm):
 
 
     # Textbook Vector Store data rerical
-    vector_textbook = Chroma(persist_directory='../vectorstore_text_books', embedding_function=embeddings)
+    vector_textbook = Chroma(persist_directory='vectorstore_text_books', embedding_function=embeddings)
     textbook_retriver = vector_textbook.as_retriever(
         search_type="similarity_score_threshold",
         search_kwargs={'score_threshold': 0.4}
