@@ -221,7 +221,7 @@ if st.session_state["authentication_status"]:
                     if title == "Marks":
                         st.session_state["marks"] = content
                  
-            st.page_link("pages/chat.py", label="\nGot doubts? Clarify them here", icon=":material/question_answer:",use_container_width=True)          
+            # st.page_link("pages/chat.py", label="\nGot doubts? Clarify them here", icon=":material/question_answer:",use_container_width=True)          
 
             #TODO: Seems like cannot implement the chatbot in the same page. Need to check       
             # messages = st.container(height=350)
@@ -265,7 +265,17 @@ if st.session_state["authentication_status"]:
             # for i in st.session_state:
                 # print(i, st.session_state[i])
             
+            # st.page_link("pages/feedbacks.py", label="\nWe appreciate your rating. Please rate this session here!", icon=":material/reviews:",use_container_width=True) 
+    
+
+        col5, col6 = st.columns(2)
+        with col5:
+            st.page_link("pages/chat.py", label="\nGot doubts? Clarify them here", icon=":material/question_answer:",use_container_width=True)          
+        with col6:
             st.page_link("pages/feedbacks.py", label="\nWe appreciate your rating. Please rate this session here!", icon=":material/reviews:",use_container_width=True) 
+
+
+    
     except:
         st.markdown("##### Results will be displayed here📝")
         st.caption("Please do not forget to rate the answer!🌟")
