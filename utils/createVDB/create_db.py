@@ -32,3 +32,19 @@ def create_db(text_file, embeddings, persist_directory):
     
     
 # create_db('utils/createVDB/2018.txt', embeddings, 'vectorstore_2018_OL' )
+
+def create_db_without_seperators(text_file,persist_directory):
+    text_loader = TextLoader(text_file,encoding='utf-8')
+    data = text_loader.load()
+    
+    r_splitter = RecursiveCharacterTextSplitter(chunk_size= 500)
+    docs = r_splitter.split_documents(data)
+    
+    # create embeddings
+    vectordb = Chroma.from_documents(docs, embeddings, persist_directory = persist_directory)
+    
+    vectordb.persist()
+
+
+
+# create_db_without_seperators('tb.txt', '../../vectorstore_text_books' )
