@@ -94,7 +94,7 @@ def QA_RAG(query,llm,vs1_path,vs2_path,k,threshold,session = None):
     relevent_textbook_content = get_page_content(relevent_textbook_documents)
 
     # Questions vectorstore data retival chain
-    vectordb = Chroma(persist_directory=vs1_path, embedding_function=embeddings)
+    vectordb = Chroma(persist_directory=vs2_path, embedding_function=embeddings)
     retriever = vectordb.as_retriever(search_kwargs={"k": k})
 
     # Get session data
@@ -150,10 +150,11 @@ def QA_RAG(query,llm,vs1_path,vs2_path,k,threshold,session = None):
 
 
     wolfram_text = ""
-    # if question == None:
-    #     wolfram_text = get_wolframalpha_response(user_question)
-    #     # print(wolfram_text)
-    #     wolfram_text = convert_to_markdown(wolfram_text)
+    if session == None:
+        if question == None:
+            wolfram_text = get_wolframalpha_response(query)
+            print(wolfram_text)
+            wolfram_text = convert_to_markdown(wolfram_text)
 
 
     # Create the retrieval chain
