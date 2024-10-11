@@ -12,6 +12,25 @@ from langfuse.decorators import observe, langfuse_context
 from pages.math_solver import get_wolframalpha_response
 
 from ocr.ocr import ocr_for_answer
+
+from auth.authenticate import Authenticate
+from auth.db import collection
+import yaml
+
+
+with open('config.yaml') as file:
+    config = yaml.load(file, Loader=yaml.SafeLoader)
+
+authenticator = Authenticate(
+    collection,
+    config['cookie']['name'], 
+    config['cookie']['key'], 
+    config['cookie']['expiry_days'],
+)
+
+
+
+
 load_dotenv()
 
 GEMINI_PRO_API_KEY = os.getenv("GEMINI_PRO_API_KEY")
