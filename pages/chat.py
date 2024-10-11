@@ -3,6 +3,20 @@ from core.qa_chat import respond_for_user_question
 from dotenv import load_dotenv
 import os
 from langchain_google_genai import GoogleGenerativeAI
+from auth.authenticate import Authenticate
+from auth.db import collection
+import yaml
+
+with open('config.yaml') as file:
+    config = yaml.load(file, Loader=yaml.SafeLoader)
+
+authenticator = Authenticate(
+    collection,
+    config['cookie']['name'], 
+    config['cookie']['key'], 
+    config['cookie']['expiry_days'],
+)
+authenticator._check_cookie()
 
 
 
