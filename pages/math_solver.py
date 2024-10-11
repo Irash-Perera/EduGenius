@@ -21,6 +21,7 @@ authenticator = Authenticate(
     config['cookie']['key'], 
     config['cookie']['expiry_days'],
 )
+authenticator._check_cookie()
 
 load_dotenv()
 
