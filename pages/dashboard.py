@@ -27,7 +27,10 @@ authenticator = Authenticate(
     config['cookie']['key'], 
     config['cookie']['expiry_days'],
 )
-authenticator._check_cookie()
+# authenticator._check_cookie()
+# authenticator.token = authenticator.cookie_manager.get(authenticator.cookie_name)
+# if authenticator.token is not None:
+    # authenticator.token = authenticator._token_decode()
 
 
 
