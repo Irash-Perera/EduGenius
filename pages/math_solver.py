@@ -8,6 +8,20 @@ from dotenv import load_dotenv
 from langfuse import Langfuse
 from langfuse.decorators import observe, langfuse_context
 
+from auth.authenticate import Authenticate
+from auth.db import collection
+import yaml
+
+with open('config.yaml') as file:
+    config = yaml.load(file, Loader=yaml.SafeLoader)
+
+authenticator = Authenticate(
+    collection,
+    config['cookie']['name'], 
+    config['cookie']['key'], 
+    config['cookie']['expiry_days'],
+)
+
 load_dotenv()
 
  
