@@ -103,13 +103,13 @@ class Authenticate:
         except:
             return False
 
-    def _set_exp_date(self) -> str:
+    def _set_exp_date(self) -> float:
         """
         Creates the reauthentication cookie's expiry date.
 
         Returns
         -------
-        str
+        float
             The JWT cookie's expiry timestamp in Unix epoch.
         """
         return (datetime.utcnow() + timedelta(days=self.cookie_expiry_days)).timestamp()
