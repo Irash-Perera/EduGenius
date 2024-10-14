@@ -26,7 +26,7 @@ with col1:
 with col2:
   if st.session_state.trace_id is not None:
     sentiment_mapping = ["one", "two", "three", "four", "five"]
-    selected = st.feedback("stars")
+    selected = st.feedback("faces")
     rating = 3
     if selected is not None:
       rating = selected+1
