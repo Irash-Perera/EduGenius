@@ -91,9 +91,10 @@ def generate_answer(selected_paper, selected_question, selected_file, context, m
     question_ = PIL.Image.open(os.path.join('assets/data', selected_paper, selected_question))
     student_answer = PIL.Image.open(selected_file)
     
+       
     prompt = """You are a helpful AI math tutor. Here question image and the answer image which was uploaded by the student are given. Also a context is provided. That context includes the information from the original marking scheme and marks for each step. I want you to analyze these information and provide a json file including 
     correctness of the answer(This can be correct, partially correct, or incorrecr), 
-    marks obtained by the student(This can only be 0,1 or 2. Explain how they got these marks, If only one answer is given and if it is wrong then 0 marks. If context contains how the marks should be given strictly go with that. Obtainable maximum marks should be 2 ), 
+    marks obtained by the student(This can only be 0,1 or 2. Explain how they got these marks, If only the answer is given with no steps and if it is wrong then 0 marks. If context contains how the marks should be given strictly go with that. Obtainable maximum marks should be 2. If the given answer is not matched with the correct answer reduce the allcoated marks for the final answer. ), 
     explanation of the problem and the correct answer, 
     how the uploaded answer can be improve, here analyse the student's answer and provide a way to improve it. 
     and examples of at least 3 similar problems that can be solved using the same method and solve those problems too. If can add more fetures to the json file.
