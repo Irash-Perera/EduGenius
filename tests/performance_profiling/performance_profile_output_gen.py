@@ -41,7 +41,7 @@ file = open(FILE, "a")
 
 def test_performance_profile_db_search():
     profiler.start()
-    res = db_search("What is the price?", flash_model, embeddings, '../vectorstore_2018_OL')
+    res = db_search("What is the price?", flash_model, embeddings, '../../vectorstore_2018_OL')
     profiler.stop()
 
     file.write(hr)
@@ -54,4 +54,3 @@ def test_performance_profile_db_search():
 
 
 
-test_performance_profile_db_search()

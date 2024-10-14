@@ -2,11 +2,11 @@ from pyinstrument import Profiler
 import os
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
+from auth.validator import Validator
 
-from ocr.ocr import *
 
 
-FILE = "ocr_performance_profiling.txt"
+FILE = "validator_performance_profiling.txt"
 hr = '_____________________________________________________________________________________________________________________________________________'
 
 profiler =  Profiler()
@@ -16,14 +16,21 @@ with open(FILE, 'w') as file:
 file = open(FILE, "a") 
 
 
+validator = Validator()
 
-def test_performance_profile_ninja_ocr():
+
+valid_name = "Makers-of_EduGenius2"
+valid_name1 = 'user123'
+valid_email = 'zxc@domain.com'
+
+
+def test_performance_profile_validate_username():
     profiler.start()
-    ninja_OCR("test01.png")
+    validator.validate_username(valid_name)
     profiler.stop()
 
     file.write(hr)
-    file.write(f"\nPerformance Profiling for ninja_ocr()\n")
+    file.write(f"\nPerformance Profiling for Validator.validate_username()\n")
     file.write(hr)
     file.write(profiler.output_text())
     file.write("\n\n")
@@ -31,13 +38,12 @@ def test_performance_profile_ninja_ocr():
     profiler.reset()
 
 
-def test_performance_profile_Gemini_Flash_OCR():
+def test_performance_profile_validate_email():
     profiler.start()
-    Gemini_Flash_OCR("test01.png")
+    validator.validate_email(valid_email)    
     profiler.stop()
-
     file.write(hr)
-    file.write(f"\nPerformance Profiling for Gemini_Flash_OCR()\n")
+    file.write(f"\nPerformance Profiling for Validator.validate_email()\n")
     file.write(hr)
     file.write(profiler.output_text())
     file.write("\n\n")
@@ -45,20 +51,16 @@ def test_performance_profile_Gemini_Flash_OCR():
     profiler.reset()
 
 
-def test_performance_profile_Gemini_Pro_OCR():
+def test_performance_profile_validate_name():
     profiler.start()
-    Gemini_Pro_OCR("test01.png")
+    validator.validate_name(valid_name1)    
     profiler.stop()
-
     file.write(hr)
-    file.write(f"\nPerformance Profiling for Gemini_Pro_OCR()\n")
+    file.write(f"\nPerformance Profiling for Validator.validate_name()\n")
     file.write(hr)
     file.write(profiler.output_text())
     file.write("\n\n")
     
     profiler.reset()
 
-
-test_performance_profile_ninja_ocr()
-test_performance_profile_Gemini_Flash_OCR()
-test_performance_profile_Gemini_Pro_OCR()
+    

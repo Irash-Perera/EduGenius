@@ -1,11 +1,11 @@
 _____________________________________________________________________________________________________________________________________________
 Performance Profiling for Hasher()
 _____________________________________________________________________________________________________________________________________________
-  _     ._   __/__   _ _  _  _ _/_   Recorded: 19:43:54  Samples:  0
+  _     ._   __/__   _ _  _  _ _/_   Recorded: 20:45:58  Samples:  0
  /_//_/// /_\ / //_// / //_'/ //     Duration: 0.000     CPU time: 0.000
 /   _/                      v5.0.0
 
-Profile at G:\UOM\Semester 5\CS3501 - Data Science and Engineering Project\Project\EduGenius\tests\performance_profiling\test_hasher.py:30
+Profile at G:\UOM\Semester 5\CS3501 - Data Science and Engineering Project\Project\EduGenius\tests\performance_profiling\performance_profile_hasher.py:30
 
 No samples were recorded.
 
@@ -14,17 +14,17 @@ No samples were recorded.
 _____________________________________________________________________________________________________________________________________________
 Performance Profiling for Hasher()
 _____________________________________________________________________________________________________________________________________________
-  _     ._   __/__   _ _  _  _ _/_   Recorded: 19:43:54  Samples:  14
- /_//_/// /_\ / //_// / //_'/ //     Duration: 3.274     CPU time: 2.625
+  _     ._   __/__   _ _  _  _ _/_   Recorded: 20:45:58  Samples:  14
+ /_//_/// /_\ / //_// / //_'/ //     Duration: 3.333     CPU time: 1.766
 /   _/                      v5.0.0
 
-Profile at G:\UOM\Semester 5\CS3501 - Data Science and Engineering Project\Project\EduGenius\tests\performance_profiling\test_hasher.py:46
+Profile at G:\UOM\Semester 5\CS3501 - Data Science and Engineering Project\Project\EduGenius\tests\performance_profiling\performance_profile_hasher.py:46
 
-3.267 test_performance_profile_hasher_generate  test_hasher.py:43
-`- 3.267 Hasher.generate  auth\hasher.py:33
-   `- 3.267 <listcomp>  auth\hasher.py:42
-      `- 3.267 Hasher._hash  auth\hasher.py:18
-         `- 3.267 hashpw  <built-in>
+3.341 test_performance_profile_hasher_generate  performance_profile_hasher.py:43
+`- 3.341 Hasher.generate  auth\hasher.py:33
+   `- 3.341 <listcomp>  auth\hasher.py:42
+      `- 3.341 Hasher._hash  auth\hasher.py:18
+         `- 3.341 hashpw  <built-in>
 
 
 
