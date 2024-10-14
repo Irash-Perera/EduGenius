@@ -1,10 +1,18 @@
-__import__('pysqlite3')
-import sys
-sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+# __import__('pysqlite3')
+# import sys
+# sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
 import streamlit as st
+
 
 fav_icon = "assets/brand/edugenius_icon.png"
 st.set_page_config(layout="wide", page_title="EduGenius", page_icon=fav_icon)
+hide_streamlit_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
 
 # st.html("""
 #   <style>
