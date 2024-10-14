@@ -8,7 +8,7 @@ st.set_page_config(layout="wide", page_title="EduGenius", page_icon=fav_icon)
 
 hide_streamlit_style = """
             <style>
-            ._container_dh3jt_1 _viewerBadge_nim44_23{
+            ._link_dh3jt_10{
                 visibility: hidden;
             }
             </style>
