@@ -201,7 +201,7 @@ def respond_for_user_question(user_question,llm):
     response = QA_RAG(user_question, llm,"vectorstore_text_books","vectorstore_2018_OL", 2, 0.4, dict(st.session_state))
     st.session_state.messages.append({"role": "assistant", "content": response["answer"]})
     with st.chat_message("assistant"):
-        st.write(response["answer"])
+        st.markdown(response["answer"], unsafe_allow_html=True)
 
 
 
