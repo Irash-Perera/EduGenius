@@ -8,8 +8,9 @@ st.set_page_config(layout="wide", page_title="EduGenius", page_icon=fav_icon)
 
 hide_streamlit_style = """
             <style>
-            #MainMenu {visibility: hidden;}
-            footer {visibility: hidden;}
+            ._container_dh3jt_1 _viewerBadge_nim44_23{
+                visibility: hidden;
+            }
             </style>
             """
 st.markdown(hide_streamlit_style, unsafe_allow_html=True) 
