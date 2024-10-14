@@ -257,12 +257,16 @@ st.html("""
 </body>
 </html>
         """)
+
 col4, col5, col6 = st.columns(3)
 with col5:
-    st.page_link("pages/dashboard.py", label="\nTry EduGenius Now!", icon=":material/rocket_launch:",use_container_width=True) 
+    st.page_link("pages/dashboard.py", label="\nTry EduGenius Now!", icon=":material/rocket_launch:",use_container_width=True,) 
+
+col7,space,col8 = st.columns([1,5,1])
+with space:
+    st.video("https://www.youtube.com/embed/RNSwMGIv4Kw?si=ZNcmh3XBFwWPdPT2")
 
 st.header("Team Members ",divider=True)
-
 col1, col2, col3 = st.columns(3)
 
 with col1:
