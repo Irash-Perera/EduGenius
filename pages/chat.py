@@ -93,12 +93,12 @@ if st.session_state["authentication_status"]:
     # Display chat messages from history on app rerun
     for message in st.session_state.messages:
         with st.chat_message(message["role"]):
-            st.markdown(message["content"])
+            st.markdown(message["content"], unsafe_allow_html=True)
 
     user_question = st.chat_input("Ask questions to clarify any doubts")
 
     if user_question:
-        with st.chat_message("user", avatar="👾"):
+        with st.chat_message("user"):
             st.write(user_question)
         st.session_state.messages.append({"role": "user", "content": user_question})
         respond_for_user_question(user_question,llm)  
