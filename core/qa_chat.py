@@ -13,7 +13,6 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from core.wolfarm import get_wolframalpha_response
-
 from utils.createVDB.create_db import embeddings
 
 
@@ -57,7 +56,7 @@ def get_page_content(relevent_documents):
             context += ",    "
         return reformat_curly_brackets(context)
 
-
+#TODO: Not used
 def convert_to_markdown(response):
     """Convert the response from wolframalpha to markdown format
 
@@ -150,12 +149,11 @@ def QA_RAG(query,llm,vs1_path,vs2_path,k,threshold,session = None):
 
 
     wolfram_text = ""
-    if session == None:
-        if question == None:
-            wolfram_text = get_wolframalpha_response(query)
-            print(wolfram_text)
-            wolfram_text = convert_to_markdown(wolfram_text)
-
+    # if session == None:
+    if question == None:
+        wolfram_text = reformat_curly_brackets(get_wolframalpha_response(query))
+        # st.write(wolfram_text)
+        # wolfram_text = convert_to_markdown(wolfram_text)
 
     # Create the retrieval chain
     template1 = """
@@ -171,14 +169,17 @@ def QA_RAG(query,llm,vs1_path,vs2_path,k,threshold,session = None):
     """
 
     template2 = """
-    You are a helpful AI math tutor.
-    try to answer the user query. Try to follow the steps provided in the context.Ignore the context.
-    Answer in friendly, explaining manner.
+    You are a helpful EduGenius AI math tutor.
+    Always give the response in correct markdown format. for the mathematical equations and the signs always use the 100 percent correct mathml format, but never use latex.
+    try to answer the user query. Always try to follow the steps and the answer provided as the potential answer if it is given. 
+    If the potential answer is not relevant to the question or mathematics, igonre it and answer the question with your knowledge.
+    If you are asked to generate mathematical steps, always try to go with the steps provided as the potential answer explaining each step more. 
+    If you can see more relevant information in the textbook content, you can use that information to generate the answer.
+    If the user asks beyond the mathematics, you should kindly ask him to ask only math-related questions.
+    Follow the above steps thouroughly and answer in friendly, explaining manner.
     textbook content:""" +relevent_textbook_content+ """
     potential_answer:"""+ wolfram_text+"""
     context: {context}
-
-    
     input: {input}
     answer:
     """
@@ -200,10 +201,8 @@ def QA_RAG(query,llm,vs1_path,vs2_path,k,threshold,session = None):
 def respond_for_user_question(user_question,llm):
     response = QA_RAG(user_question, llm,"vectorstore_text_books","vectorstore_2018_OL", 2, 0.4, dict(st.session_state))
     st.session_state.messages.append({"role": "assistant", "content": response["answer"]})
-
-    with st.chat_message("assistant"):
+    with st.chat_message("assistant", avatar="🧠"):
         st.write(response["answer"])
-
 
 
 
