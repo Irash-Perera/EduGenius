@@ -1,0 +1,19 @@
+_____________________________________________________________________________________________________________________________________________
+Performance Profiling for db_search()
+_____________________________________________________________________________________________________________________________________________
+  _     ._   __/__   _ _  _  _ _/_   Recorded: 20:27:40  Samples:  1345
+ /_//_/// /_\ / //_// / //_'/ //     Duration: 5.943     CPU time: 0.453
+/   _/                      v5.0.0
+
+Profile at G:\UOM\Semester 5\CS3501 - Data Science and Engineering Project\Project\EduGenius\tests\performance_profiling\test_output_gen.py:43
+
+5.948 test_performance_profile_db_search  test_output_gen.py:42
+`- 5.948 db_search  ..\output_gen.py:70
+   |- 4.463 RunnableBinding.invoke  langchain_core\runnables\base.py:5087
+   |     [10 frames hidden]  langchain_core, concurrent, threading...
+   |        4.352 lock.acquire  <built-in>
+   `- 1.484 Chroma.__init__  langchain_community\vectorstores\chroma.py:70
+         [86 frames hidden]  chromadb, fastapi, pydantic, opentele...
+
+
+
