@@ -7,7 +7,6 @@ import streamlit as st
 fav_icon = "assets/brand/edugenius_icon.png"
 st.set_page_config(layout="wide", page_title="EduGenius", page_icon=fav_icon)
 
-
 # st.html("""
 #   <style>
 #     [alt=Logo] {
