@@ -53,36 +53,36 @@ if st.session_state["authentication_status"]:
         st.session_state.messages = []
 
     if st.session_state.question_text != None:
-        col1,space, col2 = st.columns((6,6,2))
+        col1,space,col2 = st.columns((6,6,3))
 
         with col1:
-            st.subheader(st.session_state.question["paper"]+" / "+st.session_state.question["question"])
+            st.markdown("##### " +st.session_state.question["paper"]+" / "+st.session_state.question["question"])
         
         with col2:
             if st.session_state.marks != None:
-                st.subheader("Marks - "+st.session_state.marks)
+                st.markdown("##### "+":green[Gained Marks]: " +st.session_state.marks)
 
-        question_expander = st.expander("Question", icon=":material/circle:")
+        question_expander = st.expander("Question", icon=":material/add_circle:")
         # question_expander.markdown(f"##### Question")
         question_expander.markdown(st.session_state.question_text, unsafe_allow_html=True) 
 
-        answer_expander = st.expander("Provided Answer", icon=":material/circle:")
+        answer_expander = st.expander("Provided Answer", icon=":material/add_circle:")
         answer_expander.markdown(st.session_state.answer, unsafe_allow_html=True)
 
-        explanation_expander = st.expander("Explanation", icon=":material/circle:")
+        explanation_expander = st.expander("Explanation", icon=":material/add_circle:")
         explanation_expander.markdown(st.session_state.explanation, unsafe_allow_html=True)
 
         if st.session_state.improvement != None:
-            improvements_expander = st.expander("Improvements", icon=":material/circle:")
+            improvements_expander = st.expander("Improvements", icon=":material/add_circle:")
             improvements_expander.markdown(st.session_state.improvement, unsafe_allow_html=True)
 
 
         if st.session_state.similar_problems != None:
-            sps_expander = st.expander("Similar Problems", icon=":material/circle:")
+            sps_expander = st.expander("Similar Problems", icon=":material/add_circle:")
             sps_expander.markdown(st.session_state.similar_problems, unsafe_allow_html=True)
 
         if st.session_state.hints != None and len(st.session_state.hints) != 0:
-            hints_expander = st.expander("Hints", icon=":material/circle:")
+            hints_expander = st.expander("Hints", icon=":material/add_circle:")
             hints_expander.markdown(st.session_state.hints, unsafe_allow_html=True)
 
     if st.session_state.messages != [] and st.session_state.question_text != None:
@@ -98,12 +98,11 @@ if st.session_state["authentication_status"]:
     user_question = st.chat_input("Ask questions to clarify any doubts")
 
     if user_question:
-        with st.chat_message("user"):
+        with st.chat_message("user", avatar="👾"):
             st.write(user_question)
         st.session_state.messages.append({"role": "user", "content": user_question})
         respond_for_user_question(user_question,llm)  
 
-    
 
 
     # if st.session_state.messages != []:
@@ -112,25 +111,25 @@ if st.session_state["authentication_status"]:
     #         st.button("Clear Chat",on_click=flush_messages, use_container_width=True)
         
     if st.session_state.question_text != None:
-        st.divider()
+        # st.divider()
         st.markdown('###') 
         if st.session_state.messages == []:
             col1, col2, col3 = st.columns(3)
             with col2:
-                st.button("Clear Context",on_click=flush_context,use_container_width=True)
+                st.button("Clear Context",on_click=flush_context,use_container_width=True, icon=":material/delete:")
         else:
             col1, col2, col3, col4 = st.columns(4)
             with col2:
-                st.button("Clear Chat",on_click=flush_messages,use_container_width=True)
+                st.button("Clear Chat",on_click=flush_messages,use_container_width=True, icon=":material/delete_forever:")
             with col3:
-                st.button("Clear Context",on_click=flush_context,use_container_width=True)
+                st.button("Clear Context",on_click=flush_context,use_container_width=True, type="primary", icon=":material/delete_forever:")
     else:
         if st.session_state.messages != []:
-            st.divider()
+            # st.divider()
             st.markdown('###') 
             col1, col2, col3 = st.columns(3)
             with col2:
-                st.button("Clear Chat",on_click=flush_messages,use_container_width=True)
+                st.button("Clear Chat",on_click=flush_messages,use_container_width=True, type="primary", icon=":material/delete_forever:")
         
 else:
     st.header("You need to login to access this :red[_feature_]🔒")
