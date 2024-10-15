@@ -3,7 +3,6 @@ import bcrypt
 import streamlit as st
 from datetime import datetime, timedelta
 import extra_streamlit_components as stx
-
 from .hasher import Hasher
 from .validator import Validator
 from .utils import generate_random_pw
@@ -54,6 +53,8 @@ class Authenticate:
             st.session_state['logout'] = None
         if 'trace_id' not in st.session_state:
             st.session_state['trace_id'] = None
+        if 'session_id' not in st.session_state:
+            st.session_state['session_id'] = None
         if "messages" not in st.session_state:
             st.session_state.messages = []
         if "answer" not in st.session_state:
@@ -66,6 +67,8 @@ class Authenticate:
             st.session_state.marks = None
         if "explanation" not in st.session_state:
             st.session_state.explanation = None
+        if "marking_scheme" not in st.session_state:
+            st.session_state.marking_scheme = None
         if "improvement" not in st.session_state:
             st.session_state.improvement = None
         if "similar_problems" not in st.session_state:
@@ -310,6 +313,7 @@ class Authenticate:
                 st.session_state['name'] = None
                 st.session_state['email'] = None
                 st.session_state['authentication_status'] = None
+                st.session_state['session_id'] = None
                 # Force a page reload
                 st.rerun()
         elif location == 'sidebar':
@@ -320,6 +324,7 @@ class Authenticate:
                 st.session_state['name'] = None
                 st.session_state['email'] = None
                 st.session_state['authentication_status'] = None
+                st.session_state['session_id'] = None
                 # Force a page reload
                 st.rerun()
 

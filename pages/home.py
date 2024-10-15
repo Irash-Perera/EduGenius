@@ -1,15 +1,16 @@
 import yaml
 import streamlit as st
-from yaml.loader import SafeLoader
 import streamlit.components.v1 as components
 import datetime
 import json 
 import requests  
+import uuid
+from yaml.loader import SafeLoader
 from streamlit_lottie import st_lottie 
-
 from auth.hasher import Hasher
 from auth.authenticate import Authenticate
 from auth.db import collection
+from streamlit_pills import pills
 
 # Loading config file
 with open('config.yaml') as file:
@@ -95,6 +96,7 @@ st.markdown(tabstyle, unsafe_allow_html=True)
 with login:
     authenticator.login('Login', 'main')
     if st.session_state["authentication_status"]:
+        st.session_state["session_id"] = str(uuid.uuid4())
         st.subheader(f'{greeting()} :red[{st.session_state["name"]}]👋')
         authenticator.logout('Logout', 'main') 
         
@@ -141,3 +143,4 @@ with register:
     #         st.error('Email not found')
     # except Exception as e:
     #     st.error(e)
+ 

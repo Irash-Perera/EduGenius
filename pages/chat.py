@@ -6,6 +6,7 @@ from langchain_google_genai import GoogleGenerativeAI
 from auth.authenticate import Authenticate
 from auth.db import collection
 import yaml
+from streamlit_pills import pills
 
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=yaml.SafeLoader)
@@ -17,7 +18,6 @@ authenticator = Authenticate(
     config['cookie']['expiry_days'],
 )
 authenticator._check_cookie()
-
 
 
 load_dotenv()
@@ -46,6 +46,9 @@ def flush_context():
     
 st.header("Got any :red[_doubts_]🤔? Ask me anything!", divider="red")
 
+# st.write(st.session_state)
+with st.sidebar:
+    st.info("Make sure to flush the context before trying a new question in the dashboard.", icon=":material/info:")
 if st.session_state["authentication_status"]:
     # :TODO Add a if clause to make the chat available only when the answer was given by the user
     
@@ -56,11 +59,11 @@ if st.session_state["authentication_status"]:
         col1,space,col2 = st.columns((6,6,3))
 
         with col1:
-            st.markdown("##### " +st.session_state.question["paper"]+" / "+st.session_state.question["question"])
+            st.markdown("##### " +st.session_state.question["paper"]+" / "+st.session_state.question["question"], unsafe_allow_html=True)
         
         with col2:
             if st.session_state.marks != None:
-                st.markdown("##### "+":green[Gained Marks]: " +st.session_state.marks)
+                st.markdown("##### "+":green[Gained Marks]: " +st.session_state.marks, unsafe_allow_html=True)
 
         question_expander = st.expander("Question", icon=":material/add_circle:")
         # question_expander.markdown(f"##### Question")
@@ -75,7 +78,10 @@ if st.session_state["authentication_status"]:
         if st.session_state.improvement != None:
             improvements_expander = st.expander("Improvements", icon=":material/add_circle:")
             improvements_expander.markdown(st.session_state.improvement, unsafe_allow_html=True)
-
+        
+        if st.session_state.marking_scheme != None:
+            ms_expander = st.expander("Marking Scheme", icon=":material/add_circle:")
+            ms_expander.markdown(st.session_state.marking_scheme["answer"], unsafe_allow_html=True)
 
         if st.session_state.similar_problems != None:
             sps_expander = st.expander("Similar Problems", icon=":material/add_circle:")
@@ -109,7 +115,8 @@ if st.session_state["authentication_status"]:
     #     col1, col2, col3 = st.columns(3)
     #     with col2:
     #         st.button("Clear Chat",on_click=flush_messages, use_container_width=True)
-        
+    
+      
     if st.session_state.question_text != None:
         # st.divider()
         st.markdown('###') 
@@ -129,8 +136,7 @@ if st.session_state["authentication_status"]:
             st.markdown('###') 
             col1, col2, col3 = st.columns(3)
             with col2:
-                st.button("Clear Chat",on_click=flush_messages,use_container_width=True, type="primary", icon=":material/delete_forever:")
-        
+                st.button("Clear Chat",on_click=flush_messages,use_container_width=True, type="primary", icon=":material/delete_forever:")   
 else:
     st.header("You need to login to access this :red[_feature_]🔒")
     st.page_link("pages/home.py", label="Click here to login", icon=":material/lock_open:", use_container_width=True)

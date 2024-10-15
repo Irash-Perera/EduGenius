@@ -126,7 +126,7 @@ if st.session_state["authentication_status"]:
         with col2:
             uploaded_file = st.file_uploader("Upload your answer. Let's see how you did!", type=['png', 'jpg', 'jpeg'])
             if uploaded_file is not None:
-                with open(os.path.join('uploads', uploaded_file.name), 'wb') as f:
+                with open(os.path.join('assets','uploads', uploaded_file.name), 'wb') as f:
                     f.write(uploaded_file.getbuffer())
                 file_path = os.path.join('assets/uploads', uploaded_file.name)
                 image = PIL.Image.open(uploaded_file)
@@ -141,12 +141,19 @@ if st.session_state["authentication_status"]:
         with col2:
             @observe()
             def initialize_generation_pipeline():
+                
+                langfuse_context.update_current_trace(
+                    session_id=st.session_state.session_id
+                )
+                
                 scanned_question = read_image(os.path.join('assets/data', selected_paper, selected_question), flash_model)
 
                 st.session_state["question_text"] = scanned_question
                         
                 status.update(label="Fetching marking scheme...",state="running", expanded=False)
                 context = db_search(scanned_question, llm, embeddings, 'vectorstore_2018_OL')
+                
+                st.session_state["marking_scheme"] = context
 
                 status.update(label="Marking your answer...",state="running", expanded=False)
                 response = generate_answer(selected_paper, selected_question, selected_file, context, pro_model)

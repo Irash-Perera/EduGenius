@@ -264,7 +264,7 @@ with col5:
 
 col7,space,col8 = st.columns([1,5,1])
 with space:
-    st.video("https://www.youtube.com/embed/RNSwMGIv4Kw?si=ZNcmh3XBFwWPdPT2")
+    st.video("https://youtu.be/RNSwMGIv4Kw?si=GaJlBHToRh0ss1mP")
 
 st.header("Team Members ",divider=True)
 col1, col2, col3 = st.columns(3)
