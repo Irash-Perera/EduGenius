@@ -7,8 +7,16 @@ import os
 from langchain.vectorstores import Chroma
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain.chains import create_retrieval_chain
+from langfuse.decorators import observe, langfuse_context  
 import sys
 
+LANGFUSE_SECRET_KEY = os.getenv("LANGFUSE_SECRET_KEY")
+LANGFUSE_PUBLIC_KEY = os.getenv("LANGFUSE_PUBLIC_KEY")
+LANGFUSE_HOST = os.getenv("LANGFUSE_HOST")
+
+os.environ["LANGFUSE_SECRET_KEY"] = LANGFUSE_SECRET_KEY
+os.environ["LANGFUSE_PUBLIC_KEY"] = LANGFUSE_PUBLIC_KEY
+os.environ["LANGFUSE_HOST"] = LANGFUSE_HOST
 
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
@@ -80,9 +88,12 @@ def convert_to_markdown(response):
     return reformat_curly_brackets(markdown_text)
 
 
-
+@observe(as_type="generation")
 def QA_RAG(query,llm,vs1_path,vs2_path,k,threshold,session = None):
-
+    
+    langfuse_context.update_current_trace(
+        session_id=st.session_state.session_id
+    )
     # Textbook Vector Store data rerical
     vector_textbook = Chroma(persist_directory=vs1_path, embedding_function=embeddings)
     textbook_retriver = vector_textbook.as_retriever(
@@ -101,6 +112,7 @@ def QA_RAG(query,llm,vs1_path,vs2_path,k,threshold,session = None):
     answer_str = ''
     explanations_str = ''
     marks_str = ''
+    marking_scheme_str=''
     similar_problems_str = ''
     improvements_str = ''
     hints_str = ''
@@ -119,6 +131,7 @@ def QA_RAG(query,llm,vs1_path,vs2_path,k,threshold,session = None):
         similar_problems = session["similar_problems"]
         improvements = session["improvement"]
         hints = session["hints"]
+        marking_scheme = session["marking_scheme"]
         
         if question != None:
             question_str = f"question : {reformat_curly_brackets(question)}"
@@ -131,6 +144,9 @@ def QA_RAG(query,llm,vs1_path,vs2_path,k,threshold,session = None):
         
         if marks != None:
             marks_str = f"marks : {reformat_curly_brackets(marks)}"
+        
+        if marking_scheme != None:
+            marking_scheme_str = f"marking scheme : {reformat_curly_brackets(str(marking_scheme))}"
                     
         if similar_problems != None:
             similar_problems_str = f"similar problems : "
@@ -150,7 +166,7 @@ def QA_RAG(query,llm,vs1_path,vs2_path,k,threshold,session = None):
 
     wolfram_text = ""
     # if session == None:
-    if question == None:
+    if question_str == '':
         wolfram_text = reformat_curly_brackets(get_wolframalpha_response(query))
         # st.write(wolfram_text)
         # wolfram_text = convert_to_markdown(wolfram_text)
@@ -159,8 +175,8 @@ def QA_RAG(query,llm,vs1_path,vs2_path,k,threshold,session = None):
     template1 = """
     You are a helpful AI math tutor.
     Always give the response in correct markdown format. for the mathematical equations and the signs always use the 100 percent correct mathml format, but never use latex.
-    Student has tried a question and all the data related to that question has been provided such as question, answer, explanation, marks, similar problems, improvements, hints and history. These are the data that has been provided to you to generate the answer.\n"""+'Original question: '+question_str+'\n'+"Student provided answer: "+answer_str +'\n'+"Given marks by the system:"+str(marks) +'\n'+"Explanation given by the system: "+explanations_str +'\n'+"Allocated marks for the provided answer: "+marks_str +'\n'+"Improvements can be done to student's answer: "+improvements_str +'\n'+"Previous chat history: "+history  +'\n'+"Similar problems to the problem student has just tried: "+similar_problems_str +'\n'+"Hints generated for the student: "+hints_str+'\n'+"""
-    Student may ask the questions about the above data. If the student is asking more questions go beyond the above context and explain and answer with your knowledge. If the student asks beyond the mathematics, you should kindly ask him to ask only math-related questions. You can use the textbook content to generate the answer if it is relevant to the question. If in the provided context, the marks allocated for each step is given, you can show it as the marking scheme. Answer in friendly, explaining manner. Do not give short answers. Always try to explain the answer in detail. If the student asks to generate mathematical steps, always try to go with the steps provided in the explanation. If you can see more relevant information in the textbook content, you can use that information to generate the answer.
+    Student has tried a question and all the data related to that question has been provided such as question, correct marking scheme, answer, explanation, marks, similar problems, improvements, hints and history. These are the data that has been provided to you to generate the answer.\n"""+'Original question: '+question_str+'\n'+'Correct marking scheme: '+marking_scheme_str+'\n'+"Student provided answer: "+answer_str +'\n'+"Given marks by the system:"+str(marks) +'\n'+"Explanation given by the system: "+explanations_str +'\n'+"Allocated marks for the provided answer: "+marks_str +'\n'+"Improvements can be done to student's answer: "+improvements_str +'\n'+"Previous chat history: "+history  +'\n'+"Similar problems to the problem student has just tried: "+similar_problems_str +'\n'+"Hints generated for the student: "+hints_str+'\n'+"""
+    If the student is asking more questions go beyond the above context and explain and answer with your knowledge. If the student asks beyond the mathematics, you should kindly ask him to ask only math-related questions. You can use the textbook content to generate the answer if it is relevant to the question. If in the correct marking scheme section, the marks allocated for each step is given, you can show it as the marking scheme if the user asked how the marks are given. Answer in friendly, explaining manner. Do not give short answers. Always try to explain the answer in detail. If the student asks to generate mathematical steps, always try to go with the steps provided in the explanation and the correct marking scheme. If you can see more relevant information in the textbook content, you can use that information to generate the answer.Ignore the context section. Strictly follow the given marking scheme to allocate the marks. Maximum marks can be granted is 2.
     textbook content:""" +relevent_textbook_content+ """
     context: {context}
     input: {input}
@@ -169,36 +185,51 @@ def QA_RAG(query,llm,vs1_path,vs2_path,k,threshold,session = None):
 
     template2 = """
     You are a helpful EduGenius AI math tutor.
-    Always give the response in correct markdown format. for the mathematical equations and the signs always use the 100 percent correct mathml format, but never use latex.
+    Answer the user query based on the following instructions and data provided.
+    Always give the response in correct markdown format. for the mathematical equations and the signs always use the 100 percent correct mathml format, but never use latex. 
     try to answer the user query. Always try to follow the steps and the answer provided as the potential answer if it is given. 
     If the potential answer is not relevant to the question or mathematics, igonre it and answer the question with your knowledge.
-    If you are asked to generate mathematical steps, always try to go with the steps provided as the potential answer explaining each step more. 
-    If you can see more relevant information in the textbook content, you can use that information to generate the answer.
-    If the user asks beyond the mathematics, you should kindly ask him to ask only math-related questions.
-    Follow the above steps thouroughly and answer in friendly, explaining manner.
-    textbook content:""" +relevent_textbook_content+ """
+    If you are asked to generate mathematical steps, always try to go with the steps provided as the potential answer explaining each step more. Always remeber, the highest marks can student get is 2 for each question. Reffer the context to see how marks are allocated for each step.
+    You can use the textbook content to generate the answer if it is relevant to the question. 
+    If the user asks beyond the mathematics, you should kindly ask him to ask only math-related questions.If the context does not have the information about the question student asks, you can answer with your knowledge.
+    Follow the above steps thouroughly and answer in friendly, explaining manner. Complex mathematical phrases shouldbe shown in only mathml format such as fractions, square roots, matrices, etc. 
+    textbook content:"""+ relevent_textbook_content +"""
     potential_answer:"""+ wolfram_text+"""
     context: {context}
     input: {input}
     answer:
     """
+    
     template = template2
-    if session != None:
-        if question != None:
-            template = template1
+    # if session != None:
+    if question_str != '':
+        template = template1
 
     formatted_user_question = reformat_curly_brackets(query)
     prompt = PromptTemplate.from_template(template)
     combine_docs_chain = create_stuff_documents_chain(llm, prompt)
     retrieval_chain = create_retrieval_chain(retriever, combine_docs_chain)
     response=retrieval_chain.invoke({"input":formatted_user_question})
+    
+    # print("=======================================================================")
+    # print(response["context"])
+    # print('-----------------------------------------------------------------------')
+    # print(str(wolfram_text))
+    # print('-----------------------------------------------------------------------')
+    # print(str(relevent_textbook_content))
+    # print("=======================================================================")
+    
+    return response,wolfram_text,relevent_textbook_content,template
 
-    return response
 
 
-
+@observe()
 def respond_for_user_question(user_question,llm):
-    response = QA_RAG(user_question, llm,"vectorstore_text_books","vectorstore_2018_OL", 2, 0.4, dict(st.session_state))
+    langfuse_context.update_current_trace(
+        user_id=st.session_state.email
+    )
+    
+    response,_,__,___ = QA_RAG(user_question, llm,"vectorstore_text_books","vectorstore_2018_OL", 2, 0.4, dict(st.session_state))
     st.session_state.messages.append({"role": "assistant", "content": response["answer"]})
     with st.chat_message("assistant"):
         st.markdown(response["answer"], unsafe_allow_html=True)

@@ -57,7 +57,7 @@ def get_wolframalpha_response(prompt):
 
 
 if st.session_state["authentication_status"]:
-    col1, col2 = st.columns(2)
+    col1, col2 = st.columns([2,1])
     with col1:
         messages = st.container(height=370)
 
