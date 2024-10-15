@@ -6,7 +6,6 @@ from langchain_google_genai import GoogleGenerativeAI
 from auth.authenticate import Authenticate
 from auth.db import collection
 import yaml
-from streamlit_pills import pills
 
 with open('config.yaml') as file:
     config = yaml.load(file, Loader=yaml.SafeLoader)

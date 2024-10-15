@@ -10,7 +10,6 @@ from streamlit_lottie import st_lottie
 from auth.hasher import Hasher
 from auth.authenticate import Authenticate
 from auth.db import collection
-from streamlit_pills import pills
 
 # Loading config file
 with open('config.yaml') as file:
