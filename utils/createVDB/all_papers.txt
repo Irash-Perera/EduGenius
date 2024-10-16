@@ -1,0 +1,410 @@
+- Area of the curved surface of a right circular cylinder of radius *r* and height *h* is 2πrh.
+- Wherever necessary, use 22/7 for the value of π.
+
+$$
+**1.** It has been estimated that it will take 10 men 6 days to complete a certain task. Find the number of days it will take 8 men to complete a job which is double that task.
+ Amount of work = 10 x 6 x 2 man days _______ [Marks for this step: 2]
+ 15 days _______ [Marks for this step: 1]
+$$
+
+**2.** Factorize: 2x^2 + x - 6
+ (x + 2)(2x - 3) _______ [Marks for this step: 2]
+ 2x^2 + 4x - 3x - 6 _______ [Marks for this step: 1]
+$$
+
+**3.** Find the value of *x* based on the information given in the figure.
+ x = 25 _______ [Marks for this step: 2]
+ x + 3x + 80 = 180° _______ [Marks for this step: 1]
+The figure shows a triangle with angles 80°, x and 3x degrees.
+$$
+
+**4.** In the figure, ABCD is a square; BCE is a sector. Find the perimeter of the composite figure.
+ 39 cm _______ [Marks for this step: 2]
+ 1/4 x 2 x 22/7 x 7 _______ [Marks for this step: 1]
+The figure shows a square ABCD with side length 7 cm.  The sector BCE of a circle with centre B and radius 7 cm is constructed. The arc CE subtends an angle of 90° at the centre.
+$$
+
+**5.** Simplify: 4/x + 1/2x
+ 7/2x _______ [Marks for this step: 2]
+ (8 - 1) / 2x _______ [Marks for this step: 1]
+$$
+
+**6.** In the figure, ABC is a straight line. Find the magnitude of DÂB based on the given information.
+ DÂB = 60° _______ [Marks for this step: 2]
+ BDC = 30° _______ [Marks for this step: 1]
+The figure shows a triangle with vertices A, B, C and D.  The line segment DB bisects the angle ADC. The angle BDC is 30 degrees.
+$$
+
+**7.** 26.3 = 10^1.42
+ What is the value of lg 26.3?
+ 1.42 _______ [Marks for this step: 2]
+$$
+
+ 8. A rectangular sheet of paper of area 880 cm<sup>2</sup> has been pasted such that it exactly covers the curved surface of a solid right circular cylinder of base radius 14 cm. Find the height of the cylinder.
+10 cm ______  [Marks for this step: 2]
+2 × 22/7 × 14 × h = 880 ______  [Marks for this step: 1]
+$$
+
+9. A, B, C and D are 4 points on the circle. Find the magnitude of ∠DEC based on the given information.
+∠DEC = 55°  _______  [Marks for this step: 2]
+∠ECB = 40°
+or ∠DAC = 15° _______  [Marks for this step: 1]
+The figure is a circle with four points on it A, B, C, D. Two lines are drawn from C to the circle touching it at points D and E.  An arc DE is drawn from D to E. It is given that ∠ACD = 15°, ∠BCE = 40°.  ∠CED is the angle required to be found.
+$$
+
+10. Solve: x<sup>2</sup> – 36 = 0
+x = 6 and x = -6 ______  [Marks for this step: 2]
+(x – 6)(x + 6) or x = √36
+or x = 6 or x = -6 _______  [Marks for this step: 1]
+$$
+
+11. It takes 8 minutes to completely fill a tank of capacity 480 litres with water using a pipe through which water flows at a uniform rate. Find the rate at which water flows through the pipe.
+Answer:
+60 litres per minute or 3600 litres per hour or 1 litre per second _______  [Marks for this step: 2]
+480/8 or 60 ______  [Marks for this step: 1]
+$$
+
+12. Fill in the blanks using suitable words.
+The opposite ____sides/angles____[Marks for this step: 1] of a parallelogram are equal. The ____area____ [Marks for this step: 1] of a parallelogram is bisected by each of its diagonals. 
+$$
+
+13. Find the probability of getting either a multiple of 2 or a multiple of 3 when a fair die with its sides numbered from 1 to 6 is rolled.
+4/6 or 2/3 _______  [Marks for this step: 2]
+Identifying 2, 3, 4, 6 _______  [Marks for this step: 1]
+$$
+
+14. The diameter of the circle shown in the figure is PQ. Find the value of x based on the given information.
+x = 20 _______  [Marks for this step: 2]
+∠PRQ = 90° or ∠PQR = 70° _______  [Marks for this step: 1]
+The figure is a circle with points P, Q, R, S on it. Point S is on the circumference, R is on the circumference and Q is on the circumference. Line PS is drawn and it is  extended to touch the circumference at point R. Line PQ is the diameter of the circle. ∠PSQ is given as 110°. ∠PSR is the angle to be found.
+$$
+
+**15. Find the income tax that a person who earns an annual income of 800 000 rupees has to pay according to this table.**
+| Annual income | Tax percentage |
+|---|---|
+| Initial Rs. 500 000 | Tax free |
+| Next Rs. 500 000 | 4% |
+| Next Rs. 500 000 | 8% |
+Answer:
+Rs. 12000 _[2 marks for this step]_
+300000 x 4/100 _[1 mark for this step]_
+$$
+
+**16. A composite figure consisting of a semicircle of radius 7cm and a triangle is shown here. Find the area of the entire figure.**
+126 cm<sup>2</sup> _[2 marks for this step]_
+1/2 x 22/7 x 7 x 7 _[1 mark for this step]_
+The image is of a figure composed of a semicircle and a triangle.  The semicircle has a radius of 7 cm and the base of the triangle is 7 cm.  The triangle is equilateral as all its sides are 7 cm long.
+$$
+
+**17. Find the value of x based on the information given in the figure.**
+x = 80 _[2 marks for this step]_
+$$
+
+**18.** If \(\begin{pmatrix} 2 & -1 \\ 0 & 3 \end{pmatrix} \begin{pmatrix} 1 & 3 \\ -2 & 1 \end{pmatrix} = \begin{pmatrix} x & y \\ -6 & 3 \end{pmatrix}\), then find the values of \(x\) and \(y\).
+- \( x = 4 \) [Marks for this step: 1]
+- \( y = 5 \) [Marks for this step: 1]
+$$
+
+**19. The centre of the circle in the figure is O. Find the magnitude of OĈB based on the given information.**
+OĈB= 65° _[2 marks for this step]_
+∠CBA = 25° _[1 mark for this step]_
+or ∠CXB = 90°
+The figure is a circle, with O being the center. A, B, and C are points on the circumference of the circle. AC is a chord of the circle. Angle COB is 50 degrees. The angle CAB is 25 degrees, and the angle CBA is 25 degrees, as both angles are subtended by the same arc, CB.   
+$$
+
+**20. Based on the information given in the Venn diagram, write the set A'∪B' in terms of its elements.**
+{3, 4, 5} _[2 marks for this step]_
+A' = {3, 5} and B' = {4, 5} or identifying the elements correctly or shading the correct region or A'∪B' = (A∩B)' _[1 mark for this step]_
+The Venn diagram is of two circles labelled A and B, both circles intersect.  The intersection has the number 2 written in it.  The part of circle A that does not intersect B has the number 4 written in it.  The part of circle B that does not intersect A has the number 3 written in it.  Outside both circles but within the rectangle has the number 5 written in it.
+$$
+
+**21. Write the 7th term of the geometric progression with first term 8 and common ratio 2, as a power of 2.**
+- \( T_7 = 2^9 \)  [Marks for this step: 2]
+- \( T_7 = 8 \times 2^5 \)  [Marks for this step: 1]
+$$
+
+**22. Find the gradient of the straight line that passes through the points (0, 8) and (2, 4).**
+ *  Gradient = -2 [Marks for this step: 2]
+ * 4 = m x 2 + 8 or  (8 - 4) / (0 - 2) = -2  [Marks for this step: 1]
+ $$
+
+**23. The first quartile of an array of data that has been arranged in ascending order is in the 7th position. How many data are there in this array?**
+ * 27 [Marks for this step: 2]
+ * 1/4 (n + 1) = 7 [Marks for this step: 1]
+$$
+
+**24. Simplify: 3a/10b + 9/5b**
+ *  a/6 [Marks for this step: 2]
+ * 3a/10b x 5b/9 [Marks for this step: 1]
+$$
+
+**25. In the given figure, ABCE is a parallelogram. The 4 points A, B, C and D lie on the circle. Find the magnitude of EĈD based on the given information.**
+ * EĈD = 20° [Marks for this step: 2]
+ * BĈD = 100° or BCE = 80° [Marks for this step: 1]
+ A parallelogram ABCE is inscribed in a circle. The point D lies on the circle which is the diagonal of the parallelogram. The diagonal of the parallelogram bisects the circle. The angle BĈD = 100° and angle BĈE = 80° are given. The angle ECD is to be found.
+$$
+
+
+
+
+- Area of the curved surface of a right circular cylinder of radius *r* and height *h* is 2πrh.
+- Wherever necessary, use 22/7 for the value of π.
+
+$$
+**1.** Customs duty of 9% is charged for a certain item that is imported. If the value of this item is 6000 rupees, find the amount that has to be paid as customs duty. 
+ Rs. 540 _______ [Marks for this step: 2]
+ 600 * 9/100 _______ [Marks for this step: 1]
+$$
+
+**2.** Find the factors: x^2 + 3x - 10 
+ (x + 5)(x - 2) _______ [Marks for this step: 2]
+ x^2 + 5x - 2x - 10 _______ [Marks for this step: 1]
+$$
+
+**3.** Find the value of x according to the information given in the figure. 
+ 40 or x = 40 _______ [Marks for this step: 2]
+ x + x + 100 = 180° _______ [Marks for this step: 1]
+The figure shows a triangle with angles 100°, x and x degrees.
+$$
+
+**4.** If it is given that log2 a = 5, write the value of a as a power of 2. 
+ a = 2^5 or 2^5_______ [Marks for this step: 2]
+$$
+
+**5.** Find the time it takes to fill a tank of capacity 420 litres using a pipe through which water flows at a rate of 60 litres per minute. 
+ 7 minutes _______ [Marks for this step: 2]
+ 420 / 60 _______ [Marks for this step: 1]
+$$
+
+**6.** The points A, B, C and D lie on the circle shown in the figure. ABC = 100° and CAB = 30°. Find the valuc of x. 
+ 50 or x = 50° _______ [Marks for this step: 2]
+ ACB = x/30° + 100 + ACB = 180 _______ [Marks for this step: 1]
+The figure shows a circle in which A,B,C,D points lies. Evey points except C and D are connected to each other. ADB is the x. Find x
+$$
+
+**7.** The base radius of a solid right circular cylinder is 7 cm. Its height is 10 cm. Find the arca of the curved surface of the cylinder. (Use 22/7 for the value of pi) 
+ 440cm^3 _______ [Marks for this step: 2]
+ 2*(22/7)*7*10 _______ [Marks for this step: 1]
+$$
+
+ 8. Find the gradient of the straight line represented by AB in the figure. 
+ 2______  [Marks for this step: 2]
+ m = (y2-y1)/(x2-x1),  m = (6-4)/(2-1), m = (4-6)/(1-2) ______  [Marks for this step: 1]
+The image consist of a line AB which go through the points (1,4) and (2,6)
+$$
+
+9. Simplify : (ax/2) / (3a/4x)
+(2x^3)/3  _______  [Marks for this step: 2]
+ax/2 * 4x/3a _______  [Marks for this step: 1]
+$$
+
+10. In the given figure, the side CB of the right angled triangle ABC is produced to F. The midpoints of AB and CB are E and D respectively. If DEB = 50�, find the magnitude of EBF . 
+140° or EBF = 140°______  [Marks for this step: 2]
+AC parallel to ED , EAC = 50°, EDB = 90° _______  [Marks for this step: 1]
+ABC is a triangle. CB is extened to F. E and D are the middleponts of the BC and BA. ACD is 90° and DEA is 50° find EBF
+$$
+
+11.  Solve: 2x^2-8 = 0 
+2 and -2_______  [Marks for this step: 2]
+𝑥^2 +4 = 0 or 2(𝑥-2)(x + 2) = 0 or x = +2 or x = 2 ______  [Marks for this step: 1]
+$$
+
+12.A man takes a loan of 5000 rupces for two years at an annual interest of 8% with the interest compounded annually. How much is the interest for the second year for this loan amount? 
+Rs. 432 ________[Marks for this step: 2]
+5000*8/100 or 5400*8/12 ______[Marks for this step: 1]
+$$
+
+13. A cyclu: quadnlateml ABCD is shown in the figure. The side AB is produced to E. Moreover, BCD =120° and CBE =70°. Find the values of x and y according to the given information
+x= 70° _______  [Marks for this step: 1]
+y = 60° _______  [Marks for this step: 1]
+$$
+
+14. The students in a certain school who study the subjects Art, Dancing and Music are represented by the pie chart. If the number of students who study Music is 45, how many students study Dancing?
+30 _______  [Marks for this step: 2]
+Obtaining 60° or 60/90 * 45_______  [Marks for this step: 1]
+$$
+
+**15. Express the sixth term in the geometric progression 9, 27, 81, ... as a power of 3. 
+Answer:
+3^7 _[2 marks for this step]_
+9(3)^(6-1) or 3^2 * 3^5 _[1 mark for this step]_
+$$
+
+**16. A parallelogram ABCD is the figure. For each statement in the table, if it is correct mark a tick in front of it and if it is incorrect mark a x in front of it. 
+(1) Area of the triangle ABD = % x area of the parallelogram ABCD _[1 mark for this step]_
+(2) The diagonal DB bisects ADC . _[1 mark for this step]_
+Figure shows ABCD parallelogram with DB connected
+$$
+
+**17. Find the least common multiple of the following three algebraic terms: 3xy, 6xy, 2y **
+6x^2y _[2 marks for this step]_
+3𝑥^2 = 3*x*x , 6xy = 3*2*x*y, 2y = 2*y or 3*2*x*x*y 
+$$
+
+**18.** The centre of the circle in the given figure is O. Find the value of x according to the indicated in it. 
+x= 35 or 35 [Marks for this step: 2]
+ABO = 55 or AOB = 70 or AOB = 2x [Marks for this step: 1]
+The given figure has three points A,B,C lie on a circle where ACB = x and OAB = 55, O is the center
+$$
+
+**19. Two vertical pillars AB and CD located on a level ground are shown in the figure. When observed from D, the angle of clevation of B is 42° and the angle of depression of A is 58°. Represent this information in the figure. **
+42° _[ marks for this step]_
+58° _[1 mark for this step]_
+$$
+
+**20. A bag contains 35 identical marbles. A certain number of them are white while the rest are black. If the probability of a marble picked randomly from the bag being black is %, how many black marbles are there in the bag? **
+25 _[2 marks for this step]_
+5/7 * 5/5 = 25/35 or 5/7*35 _[1 mark for this step]_
+$$
+
+**21. Fill in the blanks in the following statement using suitable geometric terms. 
+"The straight line joining the centre of a circle to the of the `midpoint [Marks for this step: 1]` circle is to the chord�. of a chord of the circle id `perpendicular [Marks for this step: 1]` to the chord"
+$$
+
+**22. Find the value of x if {[3,1][-1,2]}*{[2, -1][-1,1]} = {[5, x][-4, 3]}
+x = -2 or {[5 , -2][-4, 3]} _[2 marks for this step]_
+3*(-1) + 1*1 _[1 marks for this step]_
+
+ $$
+
+**23. From the group of students who are represented in the given Venn diagram, the set of students who like Mathematics is represented by A and the set of students who like Science is represented by B. In the Venn diagram, shade the regions that represent the students who like only one of these two subjects. **
+ * Shading the relevent regions [Marks for this step: 2]
+ 
+The Venn diagram shows two circles A and B. There is a intersection region
+
+**24. A distance-time graph that represents the motion of a motor vehicle is shown in the figure. Which part of the graph represents the motor travelling with the greater speed? What is this speed? **
+ *  Distance from 0 to 120km [Marks for this step: 1]
+ * 120/2 = 60kmh-1 [Marks for this step: 1]
+The graph contains4 points connected sequencially. A(0,0), B(2h,120km), C(3h,120km),D(6h,240km) 
+$$
+
+**25. A portion of the locus of a point that moves at a constant distance of 5m from the given point P is indicated by the arc in this sketch. The straight line RS is at a distance of 7m from P. Indicate by a sketch on this figure, how the points on the arc which are at a distance of 5m from the siraight line RS also, are found. **
+ * Indicating the parallel lines such that they intersect the arc [Marks for this step: 1]
+ * Indicating 5m [Marks for this step: 1]
+$$
+
+
+
+- Area of the curved surface of a right circular cylinder of radius *r* and height *h* is 2πrh.
+- Wherever necessary, use 22/7 for the value of π.
+
+$$
+**1.** The bill for the monthly phone usage of a household is 1500 rupees. 180 rupees is added as VAT. Accordingly, find the % rate charged as VAT.
+VAT = (180 / 1500) × 100 = 12% _______ [Marks for this step: 2]
+$$
+
+**2.** Find the value of x according to the information given in the figure. The figure shows an isosceles triangle with two equal sides, indicated by short tick marks. One of the angles inside the triangle is labeled as x∘, which is the base angle opposite the equal sides. An exterior angle adjacent to x∘ is marked as 110∘, which lies on the same line as the triangle's base. This exterior angle is supplementary to one of the base angles of the triangle, meaning it adds up to 180∘ when combined with the adjacent interior angle.
+x=70 _______ [Marks for this step: 2]
+$$
+
+**3.** Solve (1/x)-(1/3x) = 2/3.
+(1/x)-(1/3x) = (2/3x) _______ [Marks for this step: 1]
+x =  _______ [Marks for this step: 2]
+$$
+
+**4.** It has been estimated that four men will take 6 days to complete a certain task. If two more men joined this group after they had worked for 3 days, in how many more days can this task be completed?
+Total man days = 4*6 or  completed man days = 3*4 _______ [Marks for this step: 1]
+2 days _______ [Marks for this step: 2]
+$$
+
+**5.** In the figure, ABC is a right angled triangle. Find the value of x according to the given information. The image shows a right-angled triangle △ABC with the right angle at vertex B. The vertical side AB measures 8 cm, and the horizontal side BC measures 6 cm, forming the legs of the triangle. The hypotenuse AC, which stretches from vertex A to vertex C, is labeled as x cm. Alongside the hypotenuse, there is an additional line segment parallel to AC labeled 7 cm.
+ AC^2 + AB^2 = BC^2 _______ [Marks for this step: 1]
+ x = 3 or 3 cm _______ [Marks for this step: 2] 
+$$
+
+**6.** Find the least common multiple of the following expressions. 3x, 2xy, 4y^2?
+3x=3*x, 2xy=2*x*y, 4y^2=2*2*y*y _______ [Marks for this step: 1]
+12xy^2 _______ [Marks for this step: 2]
+$$
+
+**7.** The table shows the distance traveled by an object at different times. At 2 seconds, the object has traveled 4 meters, giving it a speed of 4 meters / 2 seconds = 2 meters per second. At 4 seconds, the object has traveled 8 meters, maintaining a speed of 8 meters / 4 seconds = 2 meters per second. Similarly, at 6 seconds and 8 seconds, the object's speed remains at 2 meters per second, indicating a constant rate of movement.In part (i), we are asked to calculate the speed of the object in meters per second. In part (ii), we need to determine how long it takes the object to travel 22 meters at this speed.
+answer for part(i): 2 or 2 ms^(-1) _______ [Marks for this step: 1]
+answer for part(ii): 11 or 11 seconds _______ [Marks for this step: 1]
+$$
+
+**8.** The Venn diagram consists of two overlapping circles labeled A and B. The circle labeled A represents all the elements that belong to set A, while the circle labeled B represents all the elements that belong to set B. The question asks you to shade the region in a Venn diagram that represents the intersection of the complement of set A and set B.
+correctly shading area that only belongs to B without including parts of A.(shade the region that representsintersection of the complement(A) and set B. ) _______ [Marks for this step: 2]
+for identifying sets compliment(A), B _______ [Marks for this step: 1]
+$$
+
+**9.** The question involves a circle with center O. The circle is divided into several sections by lines that intersect at the center. One of these angles is labeled x, and another is labeled 30 degrees. The problem asks you to find the value of x, given the information provided.
+x=60 or 60 degrees _______ [Marks for this step: 2]
+$$
+
+**10.** The question asks: If log base a of b equals c, which of the following statements is true? Choices are (i) c^a equals b, (ii) a^c equals b, (iii) b^c equals a, (iv) c^b equals a.
+selects answer-(ii) or a^c equals b _______ [Marks for this step: 2]
+$$
+
+**11.** simplify the following: (3x/y)*((5y^2)/(6x))
+(15y/6) or ((15x(y^2))/(6xy)) or ((15xy)/(6x)) _______ [Marks for this step: 1]
+5y/2 _______ [Marks for this step: 2]
+$$
+
+**12.** A portion of a grouped frequency distribution is shown here. The table shows the frequency distribution of a set of data. The first column, "Class Interval," lists the ranges of values, while the second column, "Frequency," indicates the number of data points that fall within each range. There are 2 data points between 5 and 10, 3 data points between 11 and 15, and 5 data points between 16 and 20.For the interval 11-15, write (i) the upper class limit, (ii) lower class boundary.
+answer for part(i): 15 _______ [Marks for this step: 1]
+answer for part(ii): 10.5 _______ [Marks for this step: 1]
+$$
+
+**13.** In the parallelogram ABCD, AB=12cm and the area of triangle BCD is 48 Find the length of AP where AP is a point on DC such that AP is perpendicular to DC.
+area of ABCD = 96 square centimeters _______ [Marks for this step: 1]
+AP = 8cm _______ [Marks for this step: 2]
+$$
+
+**14.** AB is a vertical post located on a level ground and P and Q are two points on the level ground as shown in the figure. The top B of the post AB when observed from Q is seen with an angle of elevation of 70∘. When observed from B, the point P is seen with an angle of depression of 50∘. Represent this information in the figure.
+for marking angle AQB = 70 degress _______ [Marks for this step: 1]
+for marking P in the figure such that P is located 50 degrees below from horizontal line when observed from B _______ [Marks for this step: 1]
+$$
+
+**15.** Find the third term of the geometric progression with first term 6 and second term -12.
+r=(-12/6) or 3rd term(T3) = 6*(-2)^2 _______ [Marks for this step: 1]
+final answer: 24 _______ [Marks for this step: 2]
+$$
+
+**16.** Q is the midpoint of the side AC of the triangle ABC shown in the figure. The given figure shows a triangle ABC with a line segment PQ intersecting it. The line segment PQ is perpendicular to side AC at point Q. The length of AQ is equal to the length of QC, indicating that Q is the midpoint of AC. The angle at point Q is a right angle, meaning it is equal to 90 degrees. Angle AQP = Angle QCB=90∘ (i) Name an angle equal to APQ. S (ii) If PQ=4cm, find the lenth of BC.
+answer for part(i): angle ABC or angle PBC _______ [Marks for this step: 1]
+answer for part(ii): BC=8cm _______ [Marks for this step: 1]
+$$
+
+**17.** A right prism with a right triangular cross section is shown in figure (A). Figure (A) appears to be a three-dimensional shape, possibly a prism. Select and underline the figure which is mot the shape of a face of the prism. Choices are (i) right angled triangle, (ii)parallelogram (iii) rectangle
+for selectig option(ii) [(ii)parallelogram] _______ [Marks for this step: 2]
+$$
+
+**18.** One factor of the expression 2x^2 + 3x + 1 is (x+1). Find the other factor.
+intermediate step: 2x^2+2x+x+1 _______ [Marks for this step: 1]
+answer: (2x+1) _______ [Marks for this step: 2]
+$$
+
+**19.** A circle with centre O is shown in the figure. Further, the figure depicts a circle with center O. Four points, A, B, C, and D, are marked on the circumference of the circle. A quadrilateral ABCD is formed by connecting these points. Reflex angle AOC is 240∘. Find the magnitudes of the following angles according to the given information. (i)angle ABC (ii) angle ADC
+answer for part(i): angle ABC=120 degrees _______ [Marks for this step: 1]
+answer for part(ii):angle ADC=60 degrees _______ [Marks for this step: 1]
+$$
+
+**20.** Find the (i) gradient (ii) intercept of the straight line which passes through the points (0,2) and (5,2).
+answer for part(i): gradient = 0 _______ [Marks for this step: 1]
+answer for part(ii): intercept = 2 _______ [Marks for this step: 1]
+$$
+
+**21.** The digits 2, 2, 3, 3, 4, 4 have been written on the six sides of a balanced die. Find the probability of a side with a prime number written on it falling face up when this die is rolled.
+intermediate step: for identifying 2, 3 as prime numbers _______ [Marks for this step: 1]
+answer: (4/6) or (2/3) or 0.67 _______ [Marks for this step: 2]
+$$
+
+**22.** The points P, Q, R and S lie on the circle with centre O. The side SR has been produced to T and POM is a straight line. angle QPM is y. angle PSM is 55. angle QRT is 80. Find the value of y according to the information in the figure.
+intermediate step: angle PMS=90 degrees or angle MPS=35 degrees or angle QPS=80 degrees or angle QPS= angle QRT _______ [Marks for this step: 1]
+answer: y= 45 degrees _______ [Marks for this step: 2]
+$$
+
+**23.** The arc lengths of the sectors of circles shown in figure (a) and figure (b) are equal. Find the value of R. figure (a) shows a sector of a circle with the sector angle measures 45°, and the radius of the circle is R cm. The base of the sector (the arc connecting the two endpoints of the radius) is also labeled R cm. figure (b) shows a quarter-circle the radius of 7 cm.
+inermediate step: (1/4)*(2π)*7 or (1/8)*(2π)*R _______ [Marks for this step: 1]
+answer: 14 or R=14cm _______ [Marks for this step: 2]
+$$
+
+**24.** using the follwing matrix equation find the value of x and find the value of y. Matrix equation: [[1,-1], [0, 2], [-1, 1]] + [[3, 4], [1, -1], [0, y]] = [[4, 3], [1, x], [-1, x]]
+x=1 _______ [Marks for this step: 1]
+y=0 _______ [Marks for this step: 1]
+$$
+
+**25.** The figure shows an incomplete sketch of a construction done to find the point P which is 5cm from the straight line AB and equidistant from the points A and B. Complete the sketch indicating how the location of the point P is found. figure mentioned in the question: The figure shows two parallel lines separated by 5cm distance. one of them are labelled as AB.
+for drawing perpedicular bisector of AB _______ [Marks for this step: 1]
+for bissector intersecting parallel line of AB and marking P as the intersecting point _______ [Marks for this step: 1]
+$$
