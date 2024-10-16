@@ -14,7 +14,7 @@ os.environ['GOOGLE_API_KEY'] =  os.getenv("GOOGLE_GEN_AI_API_KEY")
 embeddings = GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
 
 def create_db(text_file, embeddings, persist_directory):
-    text_loader = TextLoader(text_file)
+    text_loader = TextLoader(text_file,encoding='utf-8')
     data = text_loader.load()
     
     #TODO text splitting
@@ -31,7 +31,7 @@ def create_db(text_file, embeddings, persist_directory):
     vectordb = None
     
     
-# create_db('utils/createVDB/2018.txt', embeddings, 'vectorstore_2018_OL' )
+# create_db('utils/createVDB/all_papers.txt', embeddings, 'vectorstore_2018_OL' )
 
 def create_db_without_seperators(text_file,persist_directory):
     text_loader = TextLoader(text_file,encoding='utf-8')
