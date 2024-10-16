@@ -120,3 +120,4 @@ $$
 **25.** The figure shows an incomplete sketch of a construction done to find the point P which is 5cm from the straight line AB and equidistant from the points A and B. Complete the sketch indicating how the location of the point P is found. figure mentioned in the question: The figure shows two parallel lines separated by 5cm distance. one of them are labelled as AB.
 for drawing perpedicular bisector of AB _______ [Marks for this step: 1]
 for bissector intersecting parallel line of AB and marking P as the intersecting point _______ [Marks for this step: 1]
+$$
