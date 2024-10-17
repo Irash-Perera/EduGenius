@@ -78,7 +78,7 @@ def db_search(question, llm, embeddings, persist_directory):
     answer:
     """
     
-    retriever = vectorstore.as_retriever()
+    retriever = vectorstore.as_retriever(search_kwargs={"k": 1})
     prompt = PromptTemplate.from_template(template)
     combined_doc_chain = create_stuff_documents_chain(llm, prompt)
     retrieval_chain = create_retrieval_chain(retriever, combined_doc_chain)
