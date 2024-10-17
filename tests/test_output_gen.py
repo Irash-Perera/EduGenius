@@ -6,7 +6,7 @@ import time
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
-from output_gen import *
+from core.output_gen import *
 
 load_dotenv()
 
