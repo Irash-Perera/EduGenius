@@ -1,0 +1,123 @@
+- Area of the curved surface of a right circular cylinder of radius *r* and height *h* is 2πrh.
+- Wherever necessary, use 22/7 for the value of π.
+
+$$
+**1.** The bill for the monthly phone usage of a household is 1500 rupees. 180 rupees is added as VAT. Accordingly, find the % rate charged as VAT.
+VAT = (180 / 1500) × 100 = 12% _______ [Marks for this step: 2]
+$$
+
+**2.** Find the value of x according to the information given in the figure. The figure shows an isosceles triangle with two equal sides, indicated by short tick marks. One of the angles inside the triangle is labeled as x∘, which is the base angle opposite the equal sides. An exterior angle adjacent to x∘ is marked as 110∘, which lies on the same line as the triangle's base. This exterior angle is supplementary to one of the base angles of the triangle, meaning it adds up to 180∘ when combined with the adjacent interior angle.
+x=70 _______ [Marks for this step: 2]
+$$
+
+**3.** Solve (1/x)-(1/3x) = 2/3.
+(1/x)-(1/3x) = (2/3x) _______ [Marks for this step: 1]
+x =  _______ [Marks for this step: 2]
+$$
+
+**4.** It has been estimated that four men will take 6 days to complete a certain task. If two more men joined this group after they had worked for 3 days, in how many more days can this task be completed?
+Total man days = 4*6 or  completed man days = 3*4 _______ [Marks for this step: 1]
+2 days _______ [Marks for this step: 2]
+$$
+
+**5.** In the figure, ABC is a right angled triangle. Find the value of x according to the given information. The image shows a right-angled triangle △ABC with the right angle at vertex B. The vertical side AB measures 8 cm, and the horizontal side BC measures 6 cm, forming the legs of the triangle. The hypotenuse AC, which stretches from vertex A to vertex C, is labeled as x cm. Alongside the hypotenuse, there is an additional line segment parallel to AC labeled 7 cm.
+ AC^2 + AB^2 = BC^2 _______ [Marks for this step: 1]
+ x = 3 or 3 cm _______ [Marks for this step: 2] 
+$$
+
+**6.** Find the least common multiple of the following expressions. 3x, 2xy, 4y^2?
+3x=3*x, 2xy=2*x*y, 4y^2=2*2*y*y _______ [Marks for this step: 1]
+12xy^2 _______ [Marks for this step: 2]
+$$
+
+**7.** The table shows the distance traveled by an object at different times. At 2 seconds, the object has traveled 4 meters, giving it a speed of 4 meters / 2 seconds = 2 meters per second. At 4 seconds, the object has traveled 8 meters, maintaining a speed of 8 meters / 4 seconds = 2 meters per second. Similarly, at 6 seconds and 8 seconds, the object's speed remains at 2 meters per second, indicating a constant rate of movement.In part (i), we are asked to calculate the speed of the object in meters per second. In part (ii), we need to determine how long it takes the object to travel 22 meters at this speed.
+answer for part(i): 2 or 2 ms^(-1) _______ [Marks for this step: 1]
+answer for part(ii): 11 or 11 seconds _______ [Marks for this step: 1]
+$$
+
+**8.** The Venn diagram consists of two overlapping circles labeled A and B. The circle labeled A represents all the elements that belong to set A, while the circle labeled B represents all the elements that belong to set B. The question asks you to shade the region in a Venn diagram that represents the intersection of the complement of set A and set B.
+correctly shading area that only belongs to B without including parts of A.(shade the region that representsintersection of the complement(A) and set B. ) _______ [Marks for this step: 2]
+for identifying sets compliment(A), B _______ [Marks for this step: 1]
+$$
+
+**9.** The question involves a circle with center O. The circle is divided into several sections by lines that intersect at the center. One of these angles is labeled x, and another is labeled 30 degrees. The problem asks you to find the value of x, given the information provided.
+x=60 or 60 degrees _______ [Marks for this step: 2]
+$$
+
+**10.** The question asks: If log base a of b equals c, which of the following statements is true? Choices are (i) c^a equals b, (ii) a^c equals b, (iii) b^c equals a, (iv) c^b equals a.
+selects answer-(ii) or a^c equals b _______ [Marks for this step: 2]
+$$
+
+**11.** simplify the following: (3x/y)*((5y^2)/(6x))
+(15y/6) or ((15x(y^2))/(6xy)) or ((15xy)/(6x)) _______ [Marks for this step: 1]
+5y/2 _______ [Marks for this step: 2]
+$$
+
+**12.** A portion of a grouped frequency distribution is shown here. The table shows the frequency distribution of a set of data. The first column, "Class Interval," lists the ranges of values, while the second column, "Frequency," indicates the number of data points that fall within each range. There are 2 data points between 5 and 10, 3 data points between 11 and 15, and 5 data points between 16 and 20.For the interval 11-15, write (i) the upper class limit, (ii) lower class boundary.
+answer for part(i): 15 _______ [Marks for this step: 1]
+answer for part(ii): 10.5 _______ [Marks for this step: 1]
+$$
+
+**13.** In the parallelogram ABCD, AB=12cm and the area of triangle BCD is 48 Find the length of AP where AP is a point on DC such that AP is perpendicular to DC.
+area of ABCD = 96 square centimeters _______ [Marks for this step: 1]
+AP = 8cm _______ [Marks for this step: 2]
+$$
+
+**14.** AB is a vertical post located on a level ground and P and Q are two points on the level ground as shown in the figure. The top B of the post AB when observed from Q is seen with an angle of elevation of 70∘. When observed from B, the point P is seen with an angle of depression of 50∘. Represent this information in the figure.
+for marking angle AQB = 70 degress _______ [Marks for this step: 1]
+for marking P in the figure such that P is located 50 degrees below from horizontal line when observed from B _______ [Marks for this step: 1]
+$$
+
+**15.** Find the third term of the geometric progression with first term 6 and second term -12.
+r=(-12/6) or 3rd term(T3) = 6*(-2)^2 _______ [Marks for this step: 1]
+final answer: 24 _______ [Marks for this step: 2]
+$$
+
+**16.** Q is the midpoint of the side AC of the triangle ABC shown in the figure. The given figure shows a triangle ABC with a line segment PQ intersecting it. The line segment PQ is perpendicular to side AC at point Q. The length of AQ is equal to the length of QC, indicating that Q is the midpoint of AC. The angle at point Q is a right angle, meaning it is equal to 90 degrees. Angle AQP = Angle QCB=90∘ (i) Name an angle equal to APQ. S (ii) If PQ=4cm, find the lenth of BC.
+answer for part(i): angle ABC or angle PBC _______ [Marks for this step: 1]
+answer for part(ii): BC=8cm _______ [Marks for this step: 1]
+$$
+
+**17.** A right prism with a right triangular cross section is shown in figure (A). Figure (A) appears to be a three-dimensional shape, possibly a prism. Select and underline the figure which is mot the shape of a face of the prism. Choices are (i) right angled triangle, (ii)parallelogram (iii) rectangle
+for selectig option(ii) [(ii)parallelogram] _______ [Marks for this step: 2]
+$$
+
+**18.** One factor of the expression 2x^2 + 3x + 1 is (x+1). Find the other factor.
+intermediate step: 2x^2+2x+x+1 _______ [Marks for this step: 1]
+answer: (2x+1) _______ [Marks for this step: 2]
+$$
+
+**19.** A circle with centre O is shown in the figure. Further, the figure depicts a circle with center O. Four points, A, B, C, and D, are marked on the circumference of the circle. A quadrilateral ABCD is formed by connecting these points. Reflex angle AOC is 240∘. Find the magnitudes of the following angles according to the given information. (i)angle ABC (ii) angle ADC
+answer for part(i): angle ABC=120 degrees _______ [Marks for this step: 1]
+answer for part(ii):angle ADC=60 degrees _______ [Marks for this step: 1]
+$$
+
+**20.** Find the (i) gradient (ii) intercept of the straight line which passes through the points (0,2) and (5,2).
+answer for part(i): gradient = 0 _______ [Marks for this step: 1]
+answer for part(ii): intercept = 2 _______ [Marks for this step: 1]
+$$
+
+**21.** The digits 2, 2, 3, 3, 4, 4 have been written on the six sides of a balanced die. Find the probability of a side with a prime number written on it falling face up when this die is rolled.
+intermediate step: for identifying 2, 3 as prime numbers _______ [Marks for this step: 1]
+answer: (4/6) or (2/3) or 0.67 _______ [Marks for this step: 2]
+$$
+
+**22.** The points P, Q, R and S lie on the circle with centre O. The side SR has been produced to T and POM is a straight line. angle QPM is y. angle PSM is 55. angle QRT is 80. Find the value of y according to the information in the figure.
+intermediate step: angle PMS=90 degrees or angle MPS=35 degrees or angle QPS=80 degrees or angle QPS= angle QRT _______ [Marks for this step: 1]
+answer: y= 45 degrees _______ [Marks for this step: 2]
+$$
+
+**23.** The arc lengths of the sectors of circles shown in figure (a) and figure (b) are equal. Find the value of R. figure (a) shows a sector of a circle with the sector angle measures 45°, and the radius of the circle is R cm. The base of the sector (the arc connecting the two endpoints of the radius) is also labeled R cm. figure (b) shows a quarter-circle the radius of 7 cm.
+inermediate step: (1/4)*(2π)*7 or (1/8)*(2π)*R _______ [Marks for this step: 1]
+answer: 14 or R=14cm _______ [Marks for this step: 2]
+$$
+
+**24.** using the follwing matrix equation find the value of x and find the value of y. Matrix equation: [[1,-1], [0, 2], [-1, 1]] + [[3, 4], [1, -1], [0, y]] = [[4, 3], [1, x], [-1, x]]
+x=1 _______ [Marks for this step: 1]
+y=0 _______ [Marks for this step: 1]
+$$
+
+**25.** The figure shows an incomplete sketch of a construction done to find the point P which is 5cm from the straight line AB and equidistant from the points A and B. Complete the sketch indicating how the location of the point P is found. figure mentioned in the question: The figure shows two parallel lines separated by 5cm distance. one of them are labelled as AB.
+for drawing perpedicular bisector of AB _______ [Marks for this step: 1]
+for bissector intersecting parallel line of AB and marking P as the intersecting point _______ [Marks for this step: 1]
+$$
