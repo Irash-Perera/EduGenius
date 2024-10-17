@@ -31,7 +31,7 @@ documentation_page = st.Page("pages/documentation.py", title = "Documentation", 
 test_page = st.Page("pages/test.py", title = "Test", icon =":material/assessment:")
 about_page = st.Page("pages/about.py", title = "About", icon =":material/info:")
 pg = st.navigation({
-    "Main Menu":[ home_page,about_page, dashboard_page,QA, math_solver, feedback_page, documentation_page]
+    "Main Menu":[ home_page, dashboard_page,QA, math_solver, feedback_page, about_page, documentation_page]
 })
 
 with st.sidebar:
