@@ -3,6 +3,8 @@ __pycache__/
 
 .env
 vectorstore_2018_OL/chroma.sqlite3
+vectorstore_text_books/chroma.sqlite3
+
 assets/uploads/drawing.png
 auth/__pycache__
 ocr/__pycache__
