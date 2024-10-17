@@ -6,7 +6,7 @@ from pyinstrument import Profiler
 
 import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
-from output_gen import *
+from core.output_gen import *
 sys.path.remove(os.path.abspath(os.path.join(os.path.dirname(__file__), '../..')))
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 

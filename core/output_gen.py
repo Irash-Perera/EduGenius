@@ -67,6 +67,7 @@ def read_image(question_image_path, model):
     response = image_read_call(f, model)
     return response
 
+
 def db_search(question, llm, embeddings, persist_directory):
     # load the vector store
     vectorstore = Chroma(persist_directory=persist_directory, embedding_function=embeddings)
@@ -86,11 +87,14 @@ def db_search(question, llm, embeddings, persist_directory):
     result = retrieval_chain.invoke({"input": question})
     return result
 
+
 @observe()
-def generate_answer(selected_paper, selected_question, selected_file, context, model):
+def generate_answer(selected_paper, selected_question, selected_file, context, model, text = False):
     question_ = PIL.Image.open(os.path.join('assets/data', selected_paper, selected_question))
-    student_answer = PIL.Image.open(selected_file)
-    
+    if text == False:
+        student_answer = PIL.Image.open(selected_file)
+    else:
+        student_answer = selected_file
        
     prompt = """You are a helpful AI math tutor. Here question image and the answer image which was uploaded by the student are given. Also a context is provided. That context includes the information from the original marking scheme and marks for each step. I want you to analyze these information and provide a json file including 
     correctness of the answer(This can be correct, partially correct, or incorrecr), 
