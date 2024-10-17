@@ -2,7 +2,7 @@ import streamlit as st
 from streamlit_pdf_viewer import pdf_viewer
 
 st.header("Explore the :red[Documentation] 📚", divider="red")
-col1,col2 = st.columns(2)
+col1,col2 = st.columns([1,1.5])
 
 with col1:
   st.markdown("##### :red[Download] the documentation")
