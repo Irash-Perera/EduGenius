@@ -4,7 +4,7 @@ import os
 import PIL.Image
 from langchain_google_genai import GoogleGenerativeAI
 from pages.canvas import free_draw, save_drawing
-from output_gen import read_image, db_search, generate_answer, generate_hints, answer_gen_call, hint_gen_call, flash_model, pro_model
+from core.output_gen import read_image, db_search, generate_answer, generate_hints, answer_gen_call, hint_gen_call, flash_model, pro_model
 from utils.createVDB.create_db import embeddings
 from dotenv import load_dotenv
 from langfuse import Langfuse
@@ -122,9 +122,12 @@ if st.session_state["authentication_status"]:
             # st.button("It is worth giving it a try💡", use_container_width=True)
             if st.button("Ask from MathSolver",icon=":material/sms:", use_container_width=True):
                 st.switch_page("pages/math_solver.py")
+        
+        answer = st.text_area("Provide You Answer Here")
+
                 
         with col2:
-            uploaded_file = st.file_uploader("Upload your answer. Let's see how you did!", type=['png', 'jpg', 'jpeg'])
+            uploaded_file = st.file_uploader("Or upload your answer. Let's see how you did!", type=['png', 'jpg', 'jpeg'])
             if uploaded_file is not None:
                 with open(os.path.join('assets','uploads', uploaded_file.name), 'wb') as f:
                     f.write(uploaded_file.getbuffer())
@@ -136,6 +139,8 @@ if st.session_state["authentication_status"]:
             else:
                 st.caption("Don't have a piece of paper? Write here!📝")
                 selected_file = save_drawing(free_draw())
+        
+                
 
             
         with col2:
@@ -147,6 +152,7 @@ if st.session_state["authentication_status"]:
                 )
                 
                 scanned_question = read_image(os.path.join('assets/data', selected_paper, selected_question), flash_model)
+                
 
                 st.session_state["question_text"] = scanned_question
                         
@@ -156,7 +162,11 @@ if st.session_state["authentication_status"]:
                 st.session_state["marking_scheme"] = context
 
                 status.update(label="Marking your answer...",state="running", expanded=False)
-                response = generate_answer(selected_paper, selected_question, selected_file, context, pro_model)
+                
+                if answer == "":
+                    response = generate_answer(selected_paper, selected_question, selected_file, context, pro_model)
+                else:
+                    response = generate_answer(selected_paper, selected_question, answer, context, pro_model, text=True)
                 
                 langfuse_call = answer_gen_call(pro_model, scanned_question, selected_question, selected_file, response)
                 
@@ -165,10 +175,15 @@ if st.session_state["authentication_status"]:
                 
                 return response
             
+            st.markdown("###")
+            
             if st.button("Proceed", type='primary', use_container_width=True, icon=":material/bolt:"):
                  
                     st.session_state["answer_image"] = selected_file
-                    st.session_state["answer"] = ocr_for_answer(selected_file)   
+                    if answer != "":
+                        st.session_state["answer"] = answer
+                    else:
+                        st.session_state["answer"] = ocr_for_answer(selected_file)   
 
                     st.session_state.messages = []
 
