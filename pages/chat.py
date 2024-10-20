@@ -107,15 +107,17 @@ if st.session_state["authentication_status"]:
 
     if st.session_state.question_text == None:
         with right:
-            st.subheader("Welcome to EduGenius RAG")
-            st.write("This chatbot is integrated with your :red[textbooks], :red[notes], your :red[previous questions], past years' :red[marking schemes], and even with :red[Wolfram Alpha].")
+            with st.container(height=380):
+                st.markdown("##### Welcome to EduGenius :red[RAG]")
+                st.caption("This chatbot is integrated with your :red[textbooks], :red[notes], your :red[previous questions], past years' :red[marking schemes], and even with :red[Wolfram Alpha].")
 
-            st_lottie(url_json, width=270, height=270)
-            
+                st_lottie(url_json, width=270, height=270)
+                
+                
 
 
     user_question = st.chat_input("Ask questions to clarify any doubts")
-    
+
     with left:
     # Display chat messages from history on app rerun
         with st.container(height=380):
@@ -138,6 +140,7 @@ if st.session_state["authentication_status"]:
     #         st.button("Clear Chat",on_click=flush_messages, use_container_width=True)
     
     with st.sidebar:
+       
         if st.session_state.question_text != None:
             # st.divider()
             if st.session_state.messages == []:
