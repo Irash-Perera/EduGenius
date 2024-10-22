@@ -4,7 +4,9 @@ EduGenius is an innovative AI-powered tutoring platform developed by us who are 
 
 The platform addresses challenges in modern education by offering personalized and efficient tutoring for O/Level students in mathematics. Leveraging advanced technologies such as LangChain and pre-processed mathematics marking schemes stored in a vector database, EduGenius generates tailored tutoring materials and provides instant, real-time feedback and grading. This approach enhances the learning experience, empowering students with a more interactive and supportive learning environment.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/4JYE4jFudoI?si=i9itzjkD54hkrR-G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+## Let's dive into a quick tour of the EduGenius platform.
+
+[![Let's dive into a quick tour of the EduGenius platform.](https://img.youtube.com/vi/4JYE4jFudoI/0.jpg)](https://www.youtube.com/watch?v=4JYE4jFudoI)
 
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="25" height="25" />[Try EduGenius Now!](https://edugenius.streamlit.app/)
 
@@ -20,7 +22,7 @@ The platform addresses challenges in modern education by offering personalized a
 - **Admin Features**: Admins can manage content, user accounts, and generate reports.
 
 
-###### Refer the[documentation](https://github.com/Irash-Perera/EduGenius/blob/e58c6a3b06366b594282ac6a3e33afa3198c562c/docs) for the technical details of the project.
+###### Refer the [documentation](https://github.com/Irash-Perera/EduGenius/blob/e58c6a3b06366b594282ac6a3e33afa3198c562c/docs) for the technical details of the project.
 
 #### Installation
 1. **Clone the repository**:
@@ -44,7 +46,6 @@ Run the application using the following command:
 - [Hansana Prabashwara](https://github.com/HansanaPrabashwara-210483T)
 - [Pranavan Subendiran](https://github.com/Pranavan-S)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/RNSwMGIv4Kw?si=CI1on4SdVZ1U7ovW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
+[![Let's dive into a quick tour of the EduGenius platform.](https://img.youtube.com/vi/RNSwMGIv4Kw/0.jpg)](https://www.youtube.com/watch?v=RNSwMGIv4Kw)
 
 
