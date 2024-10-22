@@ -1,10 +1,12 @@
-# EduGenius
+![Banner](./assets/screenshots/EduGeniuss.png)
 
-![HomePage](./assets/screenshots/EduGenius.png)
+EduGenius is an innovative AI-powered tutoring platform developed by us who are three undergraduates at the Department of Computer Science and Engineering, University of Moratuwa, as our Semester 5 project.
 
-> <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Symbols/Double%20Exclamation%20Mark.png" alt="Double Exclamation Mark" width="25" height="25" /> Note: This project is under development. The file structure and the content of the project may change in the future. There are some features that are not implemented yet. See [Documentation](https://github.com/Irash-Perera/EduGenius/blob/e58c6a3b06366b594282ac6a3e33afa3198c562c/docs) for more details.
+The platform addresses challenges in modern education by offering personalized and efficient tutoring for O/Level students in mathematics. Leveraging advanced technologies such as LangChain and pre-processed mathematics marking schemes stored in a vector database, EduGenius generates tailored tutoring materials and provides instant, real-time feedback and grading. This approach enhances the learning experience, empowering students with a more interactive and supportive learning environment.
 
-EduGenius is an interactive mathematics tutoring platform designed to help O/L students solve math problems. It leverages data science technologies such as Retrieval-Augmented Generation (RAG), Large Language Models (LLMs), and Object Character Recognition (OCR) to offer a personalized learning experience. Students can submit answers either by uploading images or using an interactive canvas, and they receive instant feedback and explanations.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/4JYE4jFudoI?si=i9itzjkD54hkrR-G" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+<img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="25" height="25" />[Try EduGenius Now!](https://edugenius.streamlit.app/)
 
 ### Features
 - **User Registration & Login**: Users can register and log in using their email addresses. Password recovery is also supported.
@@ -17,8 +19,32 @@ EduGenius is an interactive mathematics tutoring platform designed to help O/L s
 - **Math Solving Tool**: Integrated with Wolfram Alpha's API for step-by-step math problem solutions.
 - **Admin Features**: Admins can manage content, user accounts, and generate reports.
 
-Screenshot from the dashboard:
-![Dashboard](./assets/screenshots/dashboard.png)
 
-Screenshot from the math problem solving page:
-![MathProblemSolving](./assets/screenshots/mathSolver.png)
+###### Refer the[documentation](https://github.com/Irash-Perera/EduGenius/blob/e58c6a3b06366b594282ac6a3e33afa3198c562c/docs) for the technical details of the project.
+
+#### Installation
+1. **Clone the repository**:
+Clone the repository to your local machine using the following command:
+```
+git clone https://github.com/Irash-Perera/EduGenius.git
+```
+2. **Install the dependencies**:
+Navigate to the project directory and install the required dependencies using the following command:
+```
+pip install -r requirements.txt
+```
+3. **Run the application**:
+Run the application using the following command:
+```streamlit run app.py```
+
+
+
+#### Contributors
+- [Irash Perera](https://irash.me/)
+- [Hansana Prabashwara](https://github.com/HansanaPrabashwara-210483T)
+- [Pranavan Subendiran](https://github.com/Pranavan-S)
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RNSwMGIv4Kw?si=CI1on4SdVZ1U7ovW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+
+
