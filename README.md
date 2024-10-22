@@ -5,7 +5,7 @@ EduGenius is an innovative AI-powered tutoring platform developed by us who are 
 The platform addresses challenges in modern education by offering personalized and efficient tutoring for O/Level students in mathematics. Leveraging advanced technologies such as LangChain and pre-processed mathematics marking schemes stored in a vector database, EduGenius generates tailored tutoring materials and provides instant, real-time feedback and grading. This approach enhances the learning experience, empowering students with a more interactive and supportive learning environment.
 
 ## Let's dive into a quick tour of the EduGenius platform.
-[![Let's dive into a quick tour of the EduGenius platform.](./assets/screenshots/video1.png)](https://www.youtube.com/watch?v=4JYE4jFudoI)
+[![Let's dive into a quick tour of the EduGenius platform.](./assets/screenshots/video2.png)](https://www.youtube.com/watch?v=4JYE4jFudoI)
 
 <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Travel%20and%20places/Rocket.png" alt="Rocket" width="25" height="25" />[Try EduGenius Now!](https://edugenius.streamlit.app/)
 
@@ -45,4 +45,4 @@ Run the application using the following command:
 - [Hansana Prabashwara](https://github.com/HansanaPrabashwara-210483T)
 - [Pranavan Subendiran](https://github.com/Pranavan-S)
 
-[![Let's dive into a quick tour of the EduGenius platform.](./assets/screenshots/video2.png)](https://www.youtube.com/watch?v=RNSwMGIv4Kw)
+[![Let's dive into a quick tour of the EduGenius platform.](./assets/screenshots/video1.png)](https://www.youtube.com/watch?v=RNSwMGIv4Kw)
