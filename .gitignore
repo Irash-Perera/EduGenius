@@ -1,7 +1,7 @@
 __pycache__/
 *.py[cod]
 
-.env
+
 vectorstore_2018_OL/chroma.sqlite3
 vectorstore_text_books/chroma.sqlite3
 
