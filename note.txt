@@ -1,0 +1,15 @@
+Note !!!
+
+.env file has been exposed for the submittion.
+After the evaluation, secret keys will be changed.
+
+For admin dashboard you can click the button - "Admin Tools" on the sidebar or
+you can visit https://cloud.langfuse.com/ and login with the following credentials:
+
+Data Region: EU
+Email: starrynox74@gmail.com
+Password: 123456&starrynox
+
+Then select the "EduGenius" Project.
+
+If facing any issues, please contact us at irash.21@cse.mrt.ac.lk
